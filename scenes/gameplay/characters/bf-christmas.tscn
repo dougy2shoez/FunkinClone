@@ -1,0 +1,96 @@
+[gd_scene load_steps=16 format=3 uid="uid://8w5573ldnvdt"]
+
+[ext_resource type="Script" path="res://scripts/gameplay/main/element/bf.gd" id="1_64rnh"]
+[ext_resource type="Texture2D" uid="uid://ddhjwx0uk7cws" path="res://assets/images/characters/boyfriend/christmas/BoyFriend_Assets_CHRISTMAS_VARIANT0001.png" id="2_bmsv1"]
+[ext_resource type="Texture2D" uid="uid://ch7ldl0rberiv" path="res://assets/images/characters/boyfriend/christmas/BoyFriend_Assets_CHRISTMAS_VARIANT0002.png" id="3_e0jju"]
+[ext_resource type="Texture2D" uid="uid://sbugwylsskl7" path="res://assets/images/characters/boyfriend/christmas/BoyFriend_Assets_CHRISTMAS_VARIANT0003.png" id="4_cv2j1"]
+[ext_resource type="Texture2D" uid="uid://bhv3if2f1oios" path="res://assets/images/characters/boyfriend/christmas/BoyFriend_Assets_CHRISTMAS_VARIANT0004.png" id="5_tywki"]
+[ext_resource type="Texture2D" uid="uid://bca2ubbpoqkcp" path="res://assets/images/characters/boyfriend/christmas/BoyFriend_Assets_CHRISTMAS_VARIANT0005.png" id="6_u66dy"]
+[ext_resource type="Texture2D" uid="uid://vp1rif8kfofj" path="res://assets/images/characters/boyfriend/christmas/BoyFriend_Assets_CHRISTMAS_VARIANT0010.png" id="7_chxa5"]
+[ext_resource type="Texture2D" uid="uid://da1ggmd8muply" path="res://assets/images/characters/boyfriend/christmas/BoyFriend_Assets_CHRISTMAS_VARIANT0011.png" id="8_bcbrm"]
+[ext_resource type="Texture2D" uid="uid://ege2kwkk5mtq" path="res://assets/images/characters/boyfriend/christmas/BoyFriend_Assets_CHRISTMAS_VARIANT0008.png" id="9_idlu3"]
+[ext_resource type="Texture2D" uid="uid://d2y8kh7fej4he" path="res://assets/images/characters/boyfriend/christmas/BoyFriend_Assets_CHRISTMAS_VARIANT0009.png" id="10_vb81t"]
+[ext_resource type="Texture2D" uid="uid://bgh55boy3nsoh" path="res://assets/images/characters/boyfriend/christmas/BoyFriend_Assets_CHRISTMAS_VARIANT0012.png" id="11_8dcar"]
+[ext_resource type="Texture2D" uid="uid://boxfbsjtbnse5" path="res://assets/images/characters/boyfriend/christmas/BoyFriend_Assets_CHRISTMAS_VARIANT0013.png" id="12_4g6q7"]
+[ext_resource type="Texture2D" uid="uid://cja55m7ay2xkf" path="res://assets/images/characters/boyfriend/christmas/BoyFriend_Assets_CHRISTMAS_VARIANT0006.png" id="13_wpfdm"]
+[ext_resource type="Texture2D" uid="uid://bcgi1ds8783yp" path="res://assets/images/characters/boyfriend/christmas/BoyFriend_Assets_CHRISTMAS_VARIANT0007.png" id="14_6bi24"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2umrv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bmsv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_e0jju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cv2j1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tywki")
+}, {
+"duration": 999999.0,
+"texture": ExtResource("6_u66dy")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_chxa5")
+}, {
+"duration": 999999.0,
+"texture": ExtResource("8_bcbrm")
+}],
+"loop": false,
+"name": &"singDOWN",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_idlu3")
+}, {
+"duration": 999999.0,
+"texture": ExtResource("10_vb81t")
+}],
+"loop": false,
+"name": &"singLEFT",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_8dcar")
+}, {
+"duration": 999999.0,
+"texture": ExtResource("12_4g6q7")
+}],
+"loop": false,
+"name": &"singRIGHT",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_wpfdm")
+}, {
+"duration": 999999.0,
+"texture": ExtResource("14_6bi24")
+}],
+"loop": false,
+"name": &"singUP",
+"speed": 12.0
+}]
+
+[node name="bf" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_64rnh")
+
+[node name="animate" type="AnimatedSprite2D" parent="."]
+z_index = 1000
+use_parent_material = true
+position = Vector2(-67, -231)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_2umrv")
+animation = &"singUP"
+autoplay = "idle"

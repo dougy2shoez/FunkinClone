@@ -1,0 +1,23 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://ki8mo0u8wo02"]
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_g2hy7"]
+resource_name = "SpectrumAnalyzer"
+fft_size = 0
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_0q813"]
+resource_name = "SpectrumAnalyzer"
+buffer_length = 0.1
+fft_size = 0
+
+[resource]
+bus/0/volume_db = -0.130497
+bus/0/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_g2hy7")
+bus/0/effect/0/enabled = false
+bus/1/name = &"Vis"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_0q813")
+bus/1/effect/0/enabled = true

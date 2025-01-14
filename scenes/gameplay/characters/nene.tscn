@@ -1,0 +1,132 @@
+[gd_scene load_steps=29 format=3 uid="uid://ym6ceiexw25c"]
+
+[ext_resource type="Shader" uid="uid://dhx8cmvi3ln8r" path="res://scenes/playScene.gdshader" id="1_4s47n"]
+[ext_resource type="Script" uid="uid://thy3iul5dhf2" path="res://scripts/gameplay/main/element/gf.gd" id="1_jl7m8"]
+[ext_resource type="PackedScene" uid="uid://d14r3xv46sexw" path="res://scenes/aBot.tscn" id="1_s45p6"]
+[ext_resource type="Texture2D" uid="uid://b8g8uf1br48u3" path="res://assets/images/characters/nene/neneAssets0001.png" id="3_5rxeq"]
+[ext_resource type="Texture2D" uid="uid://bnj3w8tpwahr7" path="res://assets/images/characters/nene/neneAssets0003.png" id="4_sfiqb"]
+[ext_resource type="Texture2D" uid="uid://g2s7wk8twfrk" path="res://assets/images/characters/nene/neneAssets0005.png" id="5_0pltf"]
+[ext_resource type="Texture2D" uid="uid://daavwyhimrrod" path="res://assets/images/characters/nene/neneAssets0006.png" id="6_akqb5"]
+[ext_resource type="Texture2D" uid="uid://dglmhbgor0q21" path="res://assets/images/characters/nene/neneAssets0007.png" id="7_gkigk"]
+[ext_resource type="Texture2D" uid="uid://breivx8tn3hic" path="res://assets/images/characters/nene/neneAssets0008.png" id="8_tix5k"]
+[ext_resource type="Texture2D" uid="uid://b6tjgyhxdungs" path="res://assets/images/characters/nene/neneAssets0009.png" id="9_rrhhb"]
+[ext_resource type="Texture2D" uid="uid://cl8abhkjrqbni" path="res://assets/images/characters/nene/neneAssets0010.png" id="10_8k5cg"]
+[ext_resource type="Texture2D" uid="uid://ceacxau73v8p4" path="res://assets/images/characters/nene/neneAssets0011.png" id="11_8vmwi"]
+[ext_resource type="Texture2D" uid="uid://d18k6axgo3ptm" path="res://assets/images/characters/nene/neneAssets0013.png" id="12_xjspc"]
+[ext_resource type="Texture2D" uid="uid://dww3t6y6n238k" path="res://assets/images/characters/nene/neneAssets0014.png" id="13_g23th"]
+[ext_resource type="Texture2D" uid="uid://cfmy1s3tjfaq3" path="res://assets/images/characters/nene/neneAssets0015.png" id="14_2ence"]
+[ext_resource type="Texture2D" uid="uid://4qxu7t3o3xhv" path="res://assets/images/characters/nene/neneAssets0017.png" id="15_i03da"]
+[ext_resource type="Texture2D" uid="uid://dklty4l4yg8fy" path="res://assets/images/characters/nene/neneAssets0018.png" id="16_a5rcp"]
+[ext_resource type="Texture2D" uid="uid://bye1sx15ixdf2" path="res://assets/images/characters/nene/neneAssets0021.png" id="17_5gapo"]
+[ext_resource type="Texture2D" uid="uid://c2yvg6ktpxbut" path="res://assets/images/characters/nene/neneAssets0022.png" id="18_vla21"]
+[ext_resource type="Texture2D" uid="uid://cdcefvqw08h0" path="res://assets/images/characters/nene/neneAssets0023.png" id="19_l4htj"]
+[ext_resource type="Texture2D" uid="uid://rbdvjteuqj81" path="res://assets/images/characters/nene/neneAssets0024.png" id="20_8wmrb"]
+[ext_resource type="Texture2D" uid="uid://xdentlelpcb4" path="res://assets/images/characters/nene/neneAssets0025.png" id="21_xra01"]
+[ext_resource type="Texture2D" uid="uid://da8d7s8wmik84" path="res://assets/images/characters/nene/neneAssets0026.png" id="22_m4ack"]
+[ext_resource type="Texture2D" uid="uid://d2p4gquv1ixbb" path="res://assets/images/characters/nene/neneAssets0028.png" id="23_psr3j"]
+[ext_resource type="Texture2D" uid="uid://c7vja13fmu11p" path="res://assets/images/characters/nene/neneAssets0029.png" id="24_7gjpr"]
+[ext_resource type="Texture2D" uid="uid://c5uqhsba2xe8o" path="res://assets/images/characters/nene/neneAssets0030.png" id="25_i51br"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a54va"]
+shader = ExtResource("1_4s47n")
+shader_parameter/hue = 0.0
+shader_parameter/saturation = 1.0
+shader_parameter/brightness = 1.0
+shader_parameter/contrast = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b4ohj"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("3_5rxeq")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_sfiqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0pltf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_akqb5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gkigk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tix5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rrhhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8k5cg")
+}, {
+"duration": 2.0,
+"texture": ExtResource("11_8vmwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xjspc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_g23th")
+}, {
+"duration": 999999.0,
+"texture": ExtResource("14_2ence")
+}],
+"loop": false,
+"name": &"bop1",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("15_i03da")
+}, {
+"duration": 2.0,
+"texture": ExtResource("16_a5rcp")
+}, {
+"duration": 2.0,
+"texture": ExtResource("17_5gapo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_vla21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_l4htj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_8wmrb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_xra01")
+}, {
+"duration": 2.0,
+"texture": ExtResource("22_m4ack")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_psr3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_7gjpr")
+}, {
+"duration": 999999.0,
+"texture": ExtResource("25_i51br")
+}],
+"loop": false,
+"name": &"bop2",
+"speed": 24.0
+}]
+
+[node name="nene" type="Node2D"]
+material = SubResource("ShaderMaterial_a54va")
+position = Vector2(-13, -29)
+script = ExtResource("1_jl7m8")
+
+[node name="aBot" parent="." instance=ExtResource("1_s45p6")]
+position = Vector2(1, -125.5)
+
+[node name="animate" type="AnimatedSprite2D" parent="."]
+z_index = 1
+use_parent_material = true
+position = Vector2(47, -376.5)
+sprite_frames = SubResource("SpriteFrames_b4ohj")
+animation = &"bop2"

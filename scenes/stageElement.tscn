@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ygh06q2hyxr"]
+
+[ext_resource type="Script" uid="uid://bm452g52nqhj0" path="res://scripts/gameplay/main/element/stageElement.gd" id="1_plf4l"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_byy76"]
+
+[node name="stageElement" type="Node2D"]
+position = Vector2(640, 360)
+script = ExtResource("1_plf4l")
+
+[node name="paralaxEffect" type="Parallax2D" parent="."]
+
+[node name="stageElement" type="Sprite2D" parent="paralaxEffect"]
+position = Vector2(276, 213)
+texture = SubResource("CompressedTexture2D_byy76")

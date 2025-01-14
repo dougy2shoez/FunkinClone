@@ -1,0 +1,128 @@
+[gd_scene load_steps=23 format=3 uid="uid://ch0i2t8mdycjh"]
+
+[ext_resource type="Shader" path="res://scenes/playScene.gdshader" id="1_hablw"]
+[ext_resource type="Script" path="res://scripts/gameplay/main/element/dad.gd" id="2_85tmu"]
+[ext_resource type="Texture2D" uid="uid://dyitwpjypkta2" path="res://assets/images/characters/parents/christmas/momDad0001.png" id="3_2vaxe"]
+[ext_resource type="Texture2D" uid="uid://b3m4yfjnfcfhg" path="res://assets/images/characters/parents/christmas/momDad0002.png" id="4_t0jwb"]
+[ext_resource type="Texture2D" uid="uid://cy2i0s202yy65" path="res://assets/images/characters/parents/christmas/momDad0003.png" id="5_8ofk0"]
+[ext_resource type="Texture2D" uid="uid://dqgn6m8yhwxgw" path="res://assets/images/characters/parents/christmas/momDad0004.png" id="6_3ngui"]
+[ext_resource type="Texture2D" uid="uid://dwhsk8w0i82a3" path="res://assets/images/characters/parents/christmas/momDad0005.png" id="7_ie76k"]
+[ext_resource type="Texture2D" uid="uid://1m23ploq4jdl" path="res://assets/images/characters/parents/christmas/momDad0006.png" id="8_7fdpl"]
+[ext_resource type="Texture2D" uid="uid://c07suqnxd1o8p" path="res://assets/images/characters/parents/christmas/momDad0019.png" id="9_tfmjr"]
+[ext_resource type="Texture2D" uid="uid://bm1epiekdbqed" path="res://assets/images/characters/parents/christmas/momDad0020.png" id="10_u3lt5"]
+[ext_resource type="Texture2D" uid="uid://cvvpcedwdv1mf" path="res://assets/images/characters/parents/christmas/momDad0021.png" id="11_abit2"]
+[ext_resource type="Texture2D" uid="uid://csoa6fjpnkquf" path="res://assets/images/characters/parents/christmas/momDad0025.png" id="12_fyby4"]
+[ext_resource type="Texture2D" uid="uid://jd5x0vpsktsh" path="res://assets/images/characters/parents/christmas/momDad0026.png" id="13_1oxn6"]
+[ext_resource type="Texture2D" uid="uid://btd1stdqe4gyf" path="res://assets/images/characters/parents/christmas/momDad0027.png" id="14_ley5v"]
+[ext_resource type="Texture2D" uid="uid://2vxfe7n0plkg" path="res://assets/images/characters/parents/christmas/momDad0007.png" id="15_iv4qh"]
+[ext_resource type="Texture2D" uid="uid://c7xou7vrhqxov" path="res://assets/images/characters/parents/christmas/momDad0008.png" id="16_2xot7"]
+[ext_resource type="Texture2D" uid="uid://cypkm211jjbrh" path="res://assets/images/characters/parents/christmas/momDad0009.png" id="17_xnydp"]
+[ext_resource type="Texture2D" uid="uid://dc3ymyvkw0u2q" path="res://assets/images/characters/parents/christmas/momDad0013.png" id="18_n7aj0"]
+[ext_resource type="Texture2D" uid="uid://d0j405cik876r" path="res://assets/images/characters/parents/christmas/momDad0014.png" id="19_qpjkq"]
+[ext_resource type="Texture2D" uid="uid://m8lf1ih6x403" path="res://assets/images/characters/parents/christmas/momDad0015.png" id="20_co3q0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_76gk8"]
+shader = ExtResource("1_hablw")
+shader_parameter/hue = 0.0
+shader_parameter/saturation = 1.0
+shader_parameter/brightness = 1.0
+shader_parameter/contrast = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fsi3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2vaxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t0jwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8ofk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3ngui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ie76k")
+}, {
+"duration": 999999.0,
+"texture": ExtResource("8_7fdpl")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_tfmjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_u3lt5")
+}, {
+"duration": 999999.0,
+"texture": ExtResource("11_abit2")
+}],
+"loop": false,
+"name": &"singDOWN",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_fyby4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1oxn6")
+}, {
+"duration": 999999.0,
+"texture": ExtResource("14_ley5v")
+}],
+"loop": false,
+"name": &"singLEFT",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_iv4qh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2xot7")
+}, {
+"duration": 999999.0,
+"texture": ExtResource("17_xnydp")
+}],
+"loop": false,
+"name": &"singRIGHT",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_n7aj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_qpjkq")
+}, {
+"duration": 999999.0,
+"texture": ExtResource("20_co3q0")
+}],
+"loop": false,
+"name": &"singUP",
+"speed": 12.0
+}]
+
+[node name="dad" type="Node2D"]
+material = SubResource("ShaderMaterial_76gk8")
+use_parent_material = true
+script = ExtResource("2_85tmu")
+
+[node name="santa" type="Node2D" parent="."]
+position = Vector2(-37, -354)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="santa"]
+
+[node name="animate" type="AnimatedSprite2D" parent="."]
+z_index = 1000
+use_parent_material = true
+position = Vector2(-37, -354)
+sprite_frames = SubResource("SpriteFrames_1fsi3")
+animation = &"idle"

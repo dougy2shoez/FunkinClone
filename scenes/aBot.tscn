@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://d14r3xv46sexw"]
+
+[ext_resource type="Script" path="res://scripts/gameplay/aBotVisualizer/aBot.gd" id="1_1wfbo"]
+[ext_resource type="Script" path="res://scripts/gameplay/aBotVisualizer/visShit.gd" id="2_3ncqa"]
+[ext_resource type="Texture2D" uid="uid://c4er0b15v2qup" path="res://assets/images/aBot/abotBop.png" id="2_sbtvm"]
+[ext_resource type="Texture2D" uid="uid://c3dfn7le80mc3" path="res://assets/images/aBot/screenGray.png" id="3_cjt5e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wa2ab"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sbtvm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="aBot" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_1wfbo")
+
+[node name="VisMain" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(-1, 0)
+script = ExtResource("2_3ncqa")
+
+[node name="BaseBop" type="AnimatedSprite2D" parent="."]
+z_index = 1
+use_parent_material = true
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_wa2ab")
+
+[node name="ScreenGray" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(-1, 0)
+texture = ExtResource("3_cjt5e")

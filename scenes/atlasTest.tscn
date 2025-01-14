@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp8xagkruw7ym"]
+
+[ext_resource type="Script" path="res://testing/AtlasTest.gd" id="1_fyecs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm1gp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm163"]
+atlas = SubResource("AtlasTexture_gm1gp")
+
+[node name="AtlasTest" type="Node2D"]
+script = ExtResource("1_fyecs")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(648, 400)
+texture = SubResource("AtlasTexture_nm163")

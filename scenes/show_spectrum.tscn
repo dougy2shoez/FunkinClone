@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfyeamw4sg2af"]
+
+[ext_resource type="Script" path="res://VisShit.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://dutdkru1mn1ef" path="res://maldita.ogg" id="2"]
+
+[node name="ShowSpectrum" type="Node2D"]
+position = Vector2(136, 80)
+script = ExtResource("1")
+
+[node name="Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2")
+autoplay = true
+mix_target = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(3, -70)
+offset = Vector2(440, 100)

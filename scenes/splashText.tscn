@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://do6u27tkii2lh"]
+
+[ext_resource type="Script" uid="uid://bhaw8wbex6u5l" path="res://scripts/ui/splashText.gd" id="1_lmy67"]
+[ext_resource type="FontFile" uid="uid://danhje4vgpt6c" path="res://assets/fonts/Phantomuff Difficult Font.ttf" id="2_awk1e"]
+
+[node name="SplashText" type="Node2D"]
+script = ExtResource("1_lmy67")
+
+[node name="text" type="RichTextLabel" parent="."]
+offset_left = 385.0
+offset_top = 4.0
+offset_right = 879.0
+offset_bottom = 120.0
+theme_override_colors/table_border = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/table_v_separation = 0
+theme_override_constants/outline_size = 0
+theme_override_fonts/normal_font = ExtResource("2_awk1e")
+theme_override_font_sizes/normal_font_size = 50
+text = "secret text here"
+fit_content = true
+autowrap_mode = 0

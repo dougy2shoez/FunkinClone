@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmktphgk3voyn"]
+
+[ext_resource type="Script" uid="uid://blinvti11e4ou" path="res://scripts/gameplay/main/ui/rating.gd" id="1_qs56b"]
+[ext_resource type="Texture2D" uid="uid://dqjvmq600fxk2" path="res://assets/images/ui/popup/funkin/sick.png" id="2_n67oq"]
+[ext_resource type="Texture2D" uid="uid://6ioghypjooyp" path="res://assets/images/ui/popup/funkin/good.png" id="3_du00k"]
+[ext_resource type="Texture2D" uid="uid://fuwdwb5t614m" path="res://assets/images/ui/popup/funkin/bad.png" id="4_w6jgb"]
+[ext_resource type="Texture2D" uid="uid://of4tfi0ja0vg" path="res://assets/images/ui/popup/funkin/shit.png" id="5_yuiwb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqrbu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n67oq")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n67oq")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_du00k")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_w6jgb")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_yuiwb")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}]
+
+[node name="rating" type="Node2D"]
+
+[node name="velocity" type="CharacterBody2D" parent="."]
+position = Vector2(628, 320)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_qs56b")
+
+[node name="animate" type="AnimatedSprite2D" parent="velocity"]
+position = Vector2(-40, -70)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_vqrbu")
+animation = &"1"
+frame_progress = 0.857607

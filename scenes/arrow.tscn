@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://piaw81wri0my"]
+
+[ext_resource type="Texture2D" uid="uid://dqv1vcmedoj8n" path="res://assets/images/noteASSETS/notes.png" id="2_v5fxk"]
+[ext_resource type="Texture2D" uid="uid://b7gh2nin5wxnd" path="res://assets/images/noteASSETS/3end.png" id="3_32ome"]
+[ext_resource type="Script" uid="uid://bux77xgppx34c" path="res://scripts/gameplay/main/arrow.gd" id="3_m2slk"]
+[ext_resource type="Script" uid="uid://t2mwdfg0ghhw" path="res://scripts/gameplay/main/missSound.gd" id="4_pbq2x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04ee5"]
+atlas = ExtResource("2_v5fxk")
+region = Rect2(157, 2, 154, 155)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpqva"]
+atlas = ExtResource("2_v5fxk")
+region = Rect2(0, 0, 157, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_papgu"]
+atlas = ExtResource("2_v5fxk")
+region = Rect2(154, 157, 157, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbaax"]
+atlas = ExtResource("2_v5fxk")
+region = Rect2(0, 154, 154, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_peemi"]
+atlas = ExtResource("3_32ome")
+region = Rect2(48, 52, 2, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ewsy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04ee5")
+}],
+"loop": true,
+"name": &"0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpqva")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_papgu")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbaax")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_peemi")
+}],
+"loop": true,
+"name": &"blankState",
+"speed": 5.0
+}]
+
+[node name="Arrow" type="Node2D"]
+top_level = true
+clip_children = 2
+position = Vector2(0.00012207, -0.999992)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("3_m2slk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+clip_children = 2
+position = Vector2(1061.43, 151.429)
+sprite_frames = SubResource("SpriteFrames_4ewsy")
+animation = &"3"
+
+[node name="MissSound" type="AudioStreamPlayer" parent="."]
+script = ExtResource("4_pbq2x")

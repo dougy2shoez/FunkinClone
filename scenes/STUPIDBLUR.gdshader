@@ -6,7 +6,7 @@ render_mode unshaded;
  * This value will cause the shader to sample each pixel's neighbors up to `strength` pixels away and blur them together.
  */
 uniform float strength : hint_range(0.0, 10.0) = 0.0;
-
+uniform vec4 glow_color : source_color = vec4(1.0);
 /**
  * Exponent value for the number of samples to take.
  * This value affects the quality at the cost of performance.
@@ -76,4 +76,5 @@ void fragment() {
 	} else {
 		COLOR = color;
 	}
+	COLOR = vec4(glow_color.rgb, color.a);
 }

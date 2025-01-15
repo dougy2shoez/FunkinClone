@@ -56,6 +56,8 @@ func ifSelected(id):
 				setFrames = true
 			$capsuleBase/glow.modulate.a = 1
 			$capsuleBase/greyText.visible = false
+			$capsuleBase/TextContainer/songName/glowEffect6.visible = true
+			$capsuleBase/TextContainer/songName/glowEffect7.visible = true
 			setGlowStrength(58)
 		else: 
 			$capsuleBase/lcdScreenBacking.play("notSelected")
@@ -102,6 +104,8 @@ func setGlowVisble(truee: bool):
 	$capsuleBase/TextContainer/songName/glowEffect3.visible = truee
 	$capsuleBase/TextContainer/songName/glowEffect4.visible = truee
 	$capsuleBase/TextContainer/songName/glowEffect5.visible = truee
+	$capsuleBase/TextContainer/songName/glowEffect6.visible = truee
+	$capsuleBase/TextContainer/songName/glowEffect7.visible = truee
 
 func setGlowStrength(stgth: int):
 	$capsuleBase/TextContainer/songName/glowEffect.material.set_shader_parameter('glow_strength',stgth)
@@ -109,7 +113,6 @@ func setGlowStrength(stgth: int):
 	$capsuleBase/TextContainer/songName/glowEffect3.material.set_shader_parameter('glow_strength',stgth)
 	$capsuleBase/TextContainer/songName/glowEffect4.material.set_shader_parameter('glow_strength',(stgth/2))
 	$capsuleBase/TextContainer/songName/glowEffect5.material.set_shader_parameter('glow_strength',(stgth/2))
-
 
 func variationCheck(id: int):
 	if baseSongMetaData["playData"].has("songVariations"):

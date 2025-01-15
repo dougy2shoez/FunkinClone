@@ -75,8 +75,8 @@ func _process(delta: float) -> void:
 	currHiScoreSmooth += (currHiScore - currHiScoreSmooth) / (0.1 / delta)
 	var stringScoreDisplay: String
 	for x in 7: # i wrote this all in one attempt ??? i am smart lol
-		if x < reverse_string(str(round(currHiScoreSmooth))).length(): # round those nasty demicals HAHAHAH
-			stringScoreDisplay = stringScoreDisplay + reverse_string(str(round(currHiScoreSmooth)))[x]
+		if x < reverse_string(str(int(currHiScoreSmooth))).length(): # round those nasty demicals HAHAHAH
+			stringScoreDisplay = stringScoreDisplay + reverse_string(str(int(currHiScoreSmooth)))[x]
 		else: stringScoreDisplay = stringScoreDisplay + "0" 
 	$scoreDisplay.scoreDisplay = reverse_string(stringScoreDisplay)
 	if Input.is_action_just_pressed("ui_up"):

@@ -1,0 +1,40 @@
+<Motion duration="30" xmlns="fl.motion.*" xmlns:geom="flash.geom.*" xmlns:filters="flash.filters.*">
+	<source>
+		<Source frameRate="24" x="190.85" y="-231.9" scaleX="0.999" scaleY="0.999" rotation="-14.6" elementType="graphic" symbolName="gf hair">
+			<dimensions>
+				<geom:Rectangle left="0" top="0" width="299.85" height="364.65"/>
+			</dimensions>
+			<transformationPoint>
+				<geom:Point x="0.5721193930298483" y="0.1841491841491842"/>
+			</transformationPoint>
+		</Source>
+	</source>
+
+	<Keyframe index="0" zDepth="0"/>
+
+	<Keyframe index="2" zDepth="0" x="-0.799999999999983" y="1.5999999999999943" rotation="0.5"/>
+
+	<Keyframe index="4" zDepth="0" x="1.5999999999999943" y="-2.4000000000000057" rotation="1.799999999999999"/>
+
+	<Keyframe index="6" zDepth="0" x="5.599999999999994" y="-3.1999999999999886" rotation="3.799999999999999"/>
+
+	<Keyframe index="7" zDepth="0" x="36" y="-4.75" rotation="17.3"/>
+
+	<Keyframe index="10" zDepth="0" x="37.599999999999994" rotation="20.9"/>
+
+	<Keyframe index="13" zDepth="0" x="38.400000000000006" y="-3.9499999999999886" rotation="21.7"/>
+
+	<Keyframe index="15" zDepth="0" x="59.150000000000006" y="4" rotation="28"/>
+
+	<Keyframe index="17" zDepth="0" rotation="27.2"/>
+
+	<Keyframe index="19" zDepth="0" x="56.75" y="3.200000000000017" rotation="25.4"/>
+
+	<Keyframe index="21" zDepth="0" x="52.75" y="1.5999999999999943" rotation="22.799999999999997"/>
+
+	<Keyframe index="22" zDepth="0" x="31.200000000000017" y="-3.1999999999999886" scaleX="0.997997997997998" scaleY="0.997997997997998" rotation="7.3999999999999995"/>
+
+	<Keyframe index="25" zDepth="0" x="28.80000000000001" rotation="6.4"/>
+
+	<Keyframe index="28" zDepth="0" x="27.200000000000017" rotation="5.699999999999999"/>
+</Motion>

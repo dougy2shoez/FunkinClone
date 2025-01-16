@@ -1,15 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://hwxf83vgbafn"]
+[gd_scene load_steps=11 format=3 uid="uid://hwxf83vgbafn"]
 
-[ext_resource type="Script" path="res://scripts/gameplay/main/sustain.gd" id="1_gqqo7"]
-[ext_resource type="Script" path="res://testing/nameGet.gd" id="1_j0nos"]
-[ext_resource type="Texture2D" uid="uid://d1w5745riqit5" path="res://assets/images/noteASSETS/0end.png" id="2_5wy62"]
-[ext_resource type="Texture2D" uid="uid://cyouu6fhju0cb" path="res://assets/images/noteASSETS/0hold.png" id="3_8midh"]
-[ext_resource type="Texture2D" uid="uid://brh4kkdktmg4c" path="res://assets/images/noteASSETS/1end.png" id="4_gjht5"]
-[ext_resource type="Texture2D" uid="uid://cihxattjb72qh" path="res://assets/images/noteASSETS/1hold.png" id="5_dcovt"]
-[ext_resource type="Texture2D" uid="uid://cidbrr7h5d3sb" path="res://assets/images/noteASSETS/2end.png" id="6_11u2f"]
-[ext_resource type="Texture2D" uid="uid://daj4ab54lnp3o" path="res://assets/images/noteASSETS/2hold.png" id="7_qs0gp"]
-[ext_resource type="Texture2D" uid="uid://b7gh2nin5wxnd" path="res://assets/images/noteASSETS/3end.png" id="8_ctuha"]
-[ext_resource type="Texture2D" uid="uid://d2v4q5c0kdukp" path="res://assets/images/noteASSETS/3hold.png" id="9_fgo4f"]
+[ext_resource type="Script" uid="uid://obf2unpvgb4t" path="res://scripts/gameplay/main/sustain.gd" id="1_gqqo7"]
+[ext_resource type="Texture2D" uid="uid://djyl0tokmqb6w" path="res://assets/images/noteASSETS/0end.png" id="2_5wy62"]
+[ext_resource type="Texture2D" uid="uid://cxek2ms5vsgn" path="res://assets/images/noteASSETS/0hold.png" id="3_8midh"]
+[ext_resource type="Texture2D" uid="uid://bdkcbnchri0mq" path="res://assets/images/noteASSETS/1end.png" id="4_gjht5"]
+[ext_resource type="Texture2D" uid="uid://d1ugsuv3dmel5" path="res://assets/images/noteASSETS/1hold.png" id="5_dcovt"]
+[ext_resource type="Texture2D" uid="uid://dsorp7s0opdl" path="res://assets/images/noteASSETS/2end.png" id="6_11u2f"]
+[ext_resource type="Texture2D" uid="uid://b0dbmb8yjddg4" path="res://assets/images/noteASSETS/2hold.png" id="7_qs0gp"]
+[ext_resource type="Texture2D" uid="uid://2bhv7wpkl2vp" path="res://assets/images/noteASSETS/3end.png" id="8_ctuha"]
+[ext_resource type="Texture2D" uid="uid://blw5iwd2ghn8c" path="res://assets/images/noteASSETS/3hold.png" id="9_fgo4f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4ewsy"]
 animations = [{
@@ -81,7 +80,6 @@ animations = [{
 [node name="Main" type="Node2D"]
 position = Vector2(0.00012207, -0.999992)
 scale = Vector2(0.7, 0.7)
-script = ExtResource("1_j0nos")
 
 [node name="Control" type="Control" parent="."]
 clip_contents = true

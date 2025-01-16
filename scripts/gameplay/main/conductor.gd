@@ -88,7 +88,6 @@ func _process(delta: float) -> void:
 	if timerCountDown > 0: 
 		conductorPostion += delta * 1000 * get_node("Inst").pitch_scale
 		SYNCTIMER += delta
-		get_parent().get_node("COMBO text placeholder/num").text = str(Score[1])
 		if SYNCTIMER > 0.5:
 			if not snapped((conductorPostion/1000), 0.02) == snapped($Inst.get_playback_position(), 0.01):
 				conductorPostion = $Inst.get_playback_position() * 1000

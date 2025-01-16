@@ -24,5 +24,3 @@ func _process(delta: float) -> void:
 	offset.y = (scale.y- 1)* -250
 	scale.x += (1-scale.x) / (.25/delta)
 	scale.y += (1-scale.y) / (.25/delta)
-	$"COMBO text placeholder".scale.x += (1-$"COMBO text placeholder".scale.x) / (0.075/delta)
-	$"COMBO text placeholder".scale.y += (1-$"COMBO text placeholder".scale.y) / (0.075/delta)

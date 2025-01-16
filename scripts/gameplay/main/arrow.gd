@@ -92,9 +92,6 @@ func _process(delta: float) -> void:
 					if conductorPosition - timeID < 0: yTeleport = 0 - position.y
 					HP[0] =  HP[0] + 0.035 - abs((conductorPosition - timeID) * 0.0004)
 					rating[1] = int(noteID)
-					get_parent().get_parent().get_node("COMBO text placeholder").scale = Vector2(1.5 - (abs(conductorPosition - timeID) / 100), 1.5 - (abs(conductorPosition - timeID) / 100))
-					if get_parent().get_parent().get_node("COMBO text placeholder").scale.x < 1: get_parent().get_parent().get_node("COMBO text placeholder").scale.x = 1
-					if get_parent().get_parent().get_node("COMBO text placeholder").scale.y < 1: get_parent().get_parent().get_node("COMBO text placeholder").scale.y = 1
 					calculateRating(abs(conductorPosition - timeID), get_parent().ratingPos)
 					if abs(conductorPosition - timeID) < 6: 
 						get_parent().get_parent().get_node("Score2").text = "+" + str(500 + Score[1])
@@ -150,7 +147,13 @@ func _process(delta: float) -> void:
 					add_child(sustainScene.instantiate())
 		position.y = 0 - (conductorPosition - timeID) / scrollSpeed
 		if (conductorPosition - timeID) > 0:
-			strumAnim.childSprite.play(str(int(noteID) - 4) + "_confirm")
+			if songArrayData.has("l"):
+				if songArrayData["l"] > 0:
+					strumAnim.childSprite.play(str(int(noteID - 4)) + "_confirm")
+					if strumAnim.childSprite.get_frame() > 3:
+						strumAnim.childSprite.set_frame(0)
+				else: strumAnim.childSprite.play(str(int(noteID - 4)) + "_confirm")
+			else: strumAnim.childSprite.play(str(int(noteID - 4)) + "_confirm")
 			if not dadSing:
 				currDADAnim[0] = ("sing" + str(dirs[noteID - 4]))
 				currDADAnim[1] = 1

@@ -21,6 +21,8 @@ func _process(delta: float) -> void:
 	if noteID > 3:
 		position.x =  358 
 		position.y = (15 * yID) + 100 
+		if stnName == "end":
+			ArrowOrigin.sustainFinish = true 
 		if ArrowOrigin.position.y + (position.y * .5) < 54:
 			queue_free()
 	else:

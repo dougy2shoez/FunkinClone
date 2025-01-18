@@ -369,19 +369,21 @@ material = SubResource("ShaderMaterial_iylbc")
 script = ExtResource("2_3d1nm")
 
 [node name="animate" type="AnimatedSprite2D" parent="."]
-z_index = 1000
+z_index = 250
+use_parent_material = true
 position = Vector2(-36.75, -218)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uns04")
 animation = &"idle"
-frame_progress = 0.801403
+frame_progress = 0.0951576
 script = ExtResource("37_v2bfq")
 
 [node name="animate-light" type="AnimatedSprite2D" parent="."]
-z_index = 1000
-use_parent_material = true
-position = Vector2(-36.75, -218)
+z_index = 300
+position = Vector2(-37.75, -218)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_t0h7o")
 animation = &"idle"
+frame = 6
+frame_progress = 1.0
 script = ExtResource("37_v2bfq")

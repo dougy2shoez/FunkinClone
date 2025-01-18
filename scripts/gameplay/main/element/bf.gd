@@ -49,8 +49,8 @@ func _process(delta: float) -> void:
 					BPMWait = 0
 		lastBeat = conductor.currBeat
 	if has_node("animate-light"):
-		print(get_parent().get_node("stage").get_meta("flashAmount") / 100)
-		$"animate-light".modulate.a = 0 - get_parent().get_node("stage").get_meta("flashAmount") / 100 
+		print($"animate-light".modulate.a)
+		$"animate-light".modulate.a = (get_parent().get_node("stage").get_meta("flashAmount") / 100) 
 		$"animate-light".play($animate.get_animation())
 		$"animate-light".frame = $animate.frame
 	

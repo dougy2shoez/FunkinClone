@@ -14,7 +14,7 @@ var lastBeat = 0.0
 var runOnceIFUCKINGHATETHISREADYBULLSHIT = false
 var BPMWait = 0
 var singAnimPlaying = false
-@onready var stagePositionsAccess = get_parent().get_node("Positions")
+@onready var stagePositionsAccess = get_parent().get_node("stage").get_node("Positions")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if runOnceIFUCKINGHATETHISREADYBULLSHIT == false:

@@ -23,14 +23,11 @@ func loadStage(StageName: String):
 	print("res://assets/data/stages/" + str(StageName) + ".json")
 	stageData = loadJSONfile("res://assets/data/stages/" + str(StageName) + ".json")
 	stageScene = load("assets/" + stageData["directory"] + "/" + str(StageName) + ".tscn")
-	stageChildren = stageScene.instantiate().get_children()
+	add_child(stageScene.instantiate())
 	if stageData.has("shaderParam"):
 		material.set("shader_paramater/hue", stageData["shaderParam"][0])
 		material.set("shader_paramater/saturation", stageData["shaderParam"][1])
-	print(stageChildren)
-	for child in stageChildren.size():
-		add_child(stageChildren[int(child)].duplicate())
-		print(stageChildren[int(child)])
+
 
 
 func _process(delta: float) -> void:

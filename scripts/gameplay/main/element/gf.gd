@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var stagePositionsAccess = get_parent().get_node("Positions")
+@onready var stagePositionsAccess = get_parent().get_node("stage").get_node("Positions")
 func _ready() -> void:
 	$animate.use_parent_material = true
 	use_parent_material = true

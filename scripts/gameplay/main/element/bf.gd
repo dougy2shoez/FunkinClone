@@ -19,7 +19,7 @@ func svgScale():
 
 
 
-@onready var stagePositionsAccess = get_parent().get_node("Positions")
+@onready var stagePositionsAccess = get_parent().get_node("stage").get_node("Positions")
 func _process(delta: float) -> void:
 	if runOnceIFUCKINGHATETHISREADYBULLSHIT == false:
 		conductor = get_parent().get_node("UILayer/Conductor")
@@ -48,7 +48,10 @@ func _process(delta: float) -> void:
 					conductor.currBFAnim[0] = "idle"
 					BPMWait = 0
 		lastBeat = conductor.currBeat
-	
-			
+	if has_node("animate-light"):
+		print(get_parent().get_node("stage").get_meta("flashAmount") / 100)
+		$"animate-light".modulate.a = 0 - get_parent().get_node("stage").get_meta("flashAmount") / 100 
+		$"animate-light".play($animate.get_animation())
+		$"animate-light".frame = $animate.frame
 	
 	

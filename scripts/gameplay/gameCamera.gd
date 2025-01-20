@@ -6,11 +6,11 @@ func _ready() -> void:
 	
 func focusCharacter(charFocus: int):
 	if charFocus == 1:
-		position = get_parent().get_node("stage").get_node("Positions").get_node("P1").get_node("cameraPos").position + get_parent().get_node("stage").get_node("Positions").get_node("P1").position
+		position = get_parent().get_node("stage").get_node("Positions").get_node("P1").get_node("cameraPos").position + get_parent().get_node("stage").get_node("Positions").get_node("P1").position + get_parent().get_node("dad").get_node("cameraPos").position
 	elif charFocus == 0:
-		position = get_parent().get_node("stage").get_node("Positions").get_node("P2").get_node("cameraPos").position + get_parent().get_node("stage").get_node("Positions").get_node("P2").position
+		position = get_parent().get_node("stage").get_node("Positions").get_node("P2").get_node("cameraPos").position + get_parent().get_node("stage").get_node("Positions").get_node("P2").position + get_parent().get_node("bf").get_node("cameraPos").position
 	elif charFocus == 2:
-		position = get_parent().get_node("stage").get_node("Positions").get_node("GF").get_node("cameraPos").position + get_parent().get_node("stage").get_node("Positions").get_node("GF").position
+		position = get_parent().get_node("stage").get_node("Positions").get_node("GF").get_node("cameraPos").position + get_parent().get_node("stage").get_node("Positions").get_node("GF").position + get_parent().get_node("gf").get_node("cameraPos").position
 
 
 

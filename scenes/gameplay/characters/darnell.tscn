@@ -1,40 +1,40 @@
 [gd_scene load_steps=37 format=3 uid="uid://dapc1gqabdeuu"]
 
-[ext_resource type="Script" path="res://scripts/gameplay/main/element/dad.gd" id="1_7r6rj"]
-[ext_resource type="Texture2D" uid="uid://sfvclk17qgji" path="res://assets/images/characters/darnell/darnell0001.png" id="2_v8dq2"]
-[ext_resource type="Texture2D" uid="uid://bj3cfd080as14" path="res://assets/images/characters/darnell/darnell0002.png" id="3_bnx1w"]
-[ext_resource type="Texture2D" uid="uid://ce04uahhli2bd" path="res://assets/images/characters/darnell/darnell0003.png" id="4_713jc"]
-[ext_resource type="Texture2D" uid="uid://kxj057k5iu6l" path="res://assets/images/characters/darnell/darnell0004.png" id="5_gtdiv"]
-[ext_resource type="Texture2D" uid="uid://bl3nl627pexyi" path="res://assets/images/characters/darnell/darnell0005.png" id="6_xc4gw"]
-[ext_resource type="Texture2D" uid="uid://cdkbosph83n3a" path="res://assets/images/characters/darnell/darnell0006.png" id="7_3ls15"]
-[ext_resource type="Texture2D" uid="uid://cekt7ai1kvlhp" path="res://assets/images/characters/darnell/darnell0007.png" id="8_7fcxs"]
-[ext_resource type="Texture2D" uid="uid://cf5d1jw8yvy78" path="res://assets/images/characters/darnell/darnell0008.png" id="9_ffwwt"]
-[ext_resource type="Texture2D" uid="uid://csxrhjhn7r3rl" path="res://assets/images/characters/darnell/darnell0015.png" id="10_dpkus"]
-[ext_resource type="Texture2D" uid="uid://dxk12b6e6wygd" path="res://assets/images/characters/darnell/darnell0016.png" id="11_4hfol"]
-[ext_resource type="Texture2D" uid="uid://dwcser170gmwu" path="res://assets/images/characters/darnell/darnell0017.png" id="12_swngw"]
-[ext_resource type="Texture2D" uid="uid://r88b1uh3gbje" path="res://assets/images/characters/darnell/darnell0018.png" id="13_y3nuo"]
-[ext_resource type="Texture2D" uid="uid://c6uhxy3g665oi" path="res://assets/images/characters/darnell/darnell0021.png" id="14_bsrun"]
-[ext_resource type="Texture2D" uid="uid://cxayks5akvgr" path="res://assets/images/characters/darnell/darnell0022.png" id="15_hyl03"]
-[ext_resource type="Texture2D" uid="uid://jhhmncgxa5t2" path="res://assets/images/characters/darnell/darnell0009.png" id="16_lh6p6"]
-[ext_resource type="Texture2D" uid="uid://d2m2sc2ks6aly" path="res://assets/images/characters/darnell/darnell0010.png" id="17_c6icf"]
-[ext_resource type="Texture2D" uid="uid://uy48iklhiu1d" path="res://assets/images/characters/darnell/darnell0011.png" id="18_jcq5b"]
-[ext_resource type="Texture2D" uid="uid://o6ius4rkemok" path="res://assets/images/characters/darnell/darnell0012.png" id="19_dgi14"]
-[ext_resource type="Texture2D" uid="uid://bee1cjlmrxgbt" path="res://assets/images/characters/darnell/darnell0013.png" id="20_s4h2o"]
-[ext_resource type="Texture2D" uid="uid://bnodw36bimjeo" path="res://assets/images/characters/darnell/darnell0014.png" id="21_7blrm"]
-[ext_resource type="Texture2D" uid="uid://br8ilp0ut4ri3" path="res://assets/images/characters/darnell/darnell0023.png" id="22_gwtif"]
-[ext_resource type="Texture2D" uid="uid://cjwi6v6b0v376" path="res://assets/images/characters/darnell/darnell0024.png" id="23_tfj5v"]
-[ext_resource type="Texture2D" uid="uid://dxou5mlwk6e5v" path="res://assets/images/characters/darnell/darnell0025.png" id="24_1flmg"]
-[ext_resource type="Texture2D" uid="uid://ye55xhfqoqto" path="res://assets/images/characters/darnell/darnell0026.png" id="25_xb4wq"]
-[ext_resource type="Texture2D" uid="uid://cbac122r8aogb" path="res://assets/images/characters/darnell/darnell0027.png" id="26_1lufi"]
-[ext_resource type="Texture2D" uid="uid://dh6dj5yanvrnu" path="res://assets/images/characters/darnell/darnell0028.png" id="27_uddds"]
-[ext_resource type="Texture2D" uid="uid://cllq168deaxis" path="res://assets/images/characters/darnell/darnell0029.png" id="28_3cn2x"]
-[ext_resource type="Texture2D" uid="uid://dcqlc3vqv01w5" path="res://assets/images/characters/darnell/darnell0030.png" id="29_ubpbw"]
-[ext_resource type="Texture2D" uid="uid://bq2gjiwvc7xie" path="res://assets/images/characters/darnell/darnell0031.png" id="30_x5vyu"]
-[ext_resource type="Texture2D" uid="uid://dm1i6kqrmurbt" path="res://assets/images/characters/darnell/darnell0032.png" id="31_4b54s"]
-[ext_resource type="Texture2D" uid="uid://dvt6y0gwephau" path="res://assets/images/characters/darnell/darnell0033.png" id="32_mmpob"]
-[ext_resource type="Texture2D" uid="uid://cvmw51jp8y3qc" path="res://assets/images/characters/darnell/darnell0034.png" id="33_ipl6t"]
-[ext_resource type="Texture2D" uid="uid://bo31yvr4kfgsw" path="res://assets/images/characters/darnell/darnell0035.png" id="34_rnyr2"]
-[ext_resource type="Texture2D" uid="uid://o2807f5vywt" path="res://assets/images/characters/darnell/darnell0036.png" id="35_j0dh1"]
+[ext_resource type="Script" uid="uid://c1yocjykvr0qn" path="res://scripts/gameplay/main/element/dad.gd" id="1_7r6rj"]
+[ext_resource type="Texture2D" uid="uid://xlnwe0bg3dkq" path="res://assets/images/characters/darnell/darnell0001.png" id="2_v8dq2"]
+[ext_resource type="Texture2D" uid="uid://cduxyr5hb5duk" path="res://assets/images/characters/darnell/darnell0002.png" id="3_bnx1w"]
+[ext_resource type="Texture2D" uid="uid://kk34ghg2fpqm" path="res://assets/images/characters/darnell/darnell0003.png" id="4_713jc"]
+[ext_resource type="Texture2D" uid="uid://c18yk22tqtkdg" path="res://assets/images/characters/darnell/darnell0004.png" id="5_gtdiv"]
+[ext_resource type="Texture2D" uid="uid://dcsjv4pb3215m" path="res://assets/images/characters/darnell/darnell0005.png" id="6_xc4gw"]
+[ext_resource type="Texture2D" uid="uid://doq3j3w3olhfv" path="res://assets/images/characters/darnell/darnell0006.png" id="7_3ls15"]
+[ext_resource type="Texture2D" uid="uid://bdi1eox7p7fba" path="res://assets/images/characters/darnell/darnell0007.png" id="8_7fcxs"]
+[ext_resource type="Texture2D" uid="uid://3533bhx6hgs6" path="res://assets/images/characters/darnell/darnell0008.png" id="9_ffwwt"]
+[ext_resource type="Texture2D" uid="uid://clydwh7bgintb" path="res://assets/images/characters/darnell/darnell0015.png" id="10_dpkus"]
+[ext_resource type="Texture2D" uid="uid://ss1ylhaoi44r" path="res://assets/images/characters/darnell/darnell0016.png" id="11_4hfol"]
+[ext_resource type="Texture2D" uid="uid://djrxvpcjvxcfb" path="res://assets/images/characters/darnell/darnell0017.png" id="12_swngw"]
+[ext_resource type="Texture2D" uid="uid://hnu7ha551ayq" path="res://assets/images/characters/darnell/darnell0018.png" id="13_y3nuo"]
+[ext_resource type="Texture2D" uid="uid://dqscmwkl780pt" path="res://assets/images/characters/darnell/darnell0021.png" id="14_bsrun"]
+[ext_resource type="Texture2D" uid="uid://mtv1r5cu35qx" path="res://assets/images/characters/darnell/darnell0022.png" id="15_hyl03"]
+[ext_resource type="Texture2D" uid="uid://xl6cpe78ka5t" path="res://assets/images/characters/darnell/darnell0009.png" id="16_lh6p6"]
+[ext_resource type="Texture2D" uid="uid://c6vp1ak6njfc0" path="res://assets/images/characters/darnell/darnell0010.png" id="17_c6icf"]
+[ext_resource type="Texture2D" uid="uid://co7geu47mll83" path="res://assets/images/characters/darnell/darnell0011.png" id="18_jcq5b"]
+[ext_resource type="Texture2D" uid="uid://35ag8nwlwlic" path="res://assets/images/characters/darnell/darnell0012.png" id="19_dgi14"]
+[ext_resource type="Texture2D" uid="uid://dtpaomwr6w6b" path="res://assets/images/characters/darnell/darnell0013.png" id="20_s4h2o"]
+[ext_resource type="Texture2D" uid="uid://ceuee5gdwqee" path="res://assets/images/characters/darnell/darnell0014.png" id="21_7blrm"]
+[ext_resource type="Texture2D" uid="uid://box360vr2u1eq" path="res://assets/images/characters/darnell/darnell0023.png" id="22_gwtif"]
+[ext_resource type="Texture2D" uid="uid://dyj46ivjy7i74" path="res://assets/images/characters/darnell/darnell0024.png" id="23_tfj5v"]
+[ext_resource type="Texture2D" uid="uid://dctib5dhx76kc" path="res://assets/images/characters/darnell/darnell0025.png" id="24_1flmg"]
+[ext_resource type="Texture2D" uid="uid://c4t1cpy3doo37" path="res://assets/images/characters/darnell/darnell0026.png" id="25_xb4wq"]
+[ext_resource type="Texture2D" uid="uid://c0u4fiwjwhru7" path="res://assets/images/characters/darnell/darnell0027.png" id="26_1lufi"]
+[ext_resource type="Texture2D" uid="uid://be8sdht40rxok" path="res://assets/images/characters/darnell/darnell0028.png" id="27_uddds"]
+[ext_resource type="Texture2D" uid="uid://d3lioo88ygi6h" path="res://assets/images/characters/darnell/darnell0029.png" id="28_3cn2x"]
+[ext_resource type="Texture2D" uid="uid://cr84c7v6e0tei" path="res://assets/images/characters/darnell/darnell0030.png" id="29_ubpbw"]
+[ext_resource type="Texture2D" uid="uid://dnob466d3ws8q" path="res://assets/images/characters/darnell/darnell0031.png" id="30_x5vyu"]
+[ext_resource type="Texture2D" uid="uid://b5o7r1wbhw8hx" path="res://assets/images/characters/darnell/darnell0032.png" id="31_4b54s"]
+[ext_resource type="Texture2D" uid="uid://bvuta2pdll3vi" path="res://assets/images/characters/darnell/darnell0033.png" id="32_mmpob"]
+[ext_resource type="Texture2D" uid="uid://r23pv24plsqh" path="res://assets/images/characters/darnell/darnell0034.png" id="33_ipl6t"]
+[ext_resource type="Texture2D" uid="uid://dnexnfth64l1w" path="res://assets/images/characters/darnell/darnell0035.png" id="34_rnyr2"]
+[ext_resource type="Texture2D" uid="uid://bfcdggwjqqe6t" path="res://assets/images/characters/darnell/darnell0036.png" id="35_j0dh1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ukq8u"]
 animations = [{
@@ -170,9 +170,12 @@ animations = [{
 script = ExtResource("1_7r6rj")
 
 [node name="animate" type="AnimatedSprite2D" parent="."]
-z_index = 1000
+z_index = 300
 use_parent_material = true
-position = Vector2(29, -171)
+position = Vector2(78, -267)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ukq8u")
-animation = &"singUP"
+animation = &"idle"
+
+[node name="cameraPos" type="Marker2D" parent="."]
+gizmo_extents = 56.5

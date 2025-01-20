@@ -387,3 +387,6 @@ animation = &"idle"
 frame = 6
 frame_progress = 1.0
 script = ExtResource("37_v2bfq")
+
+[node name="cameraPos" type="Marker2D" parent="."]
+gizmo_extents = 56.5

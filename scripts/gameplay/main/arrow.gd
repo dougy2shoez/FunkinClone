@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 			HP = get_parent().HP
 			if songArrayData.has("l"):
 				if songArrayData["l"] > 0:
-					for i in ((songArrayData["l"] / 15) + 10) / scrollSpeed - 1:
+					for i in ((songArrayData["l"] / 12) + 10) / scrollSpeed - 1:
 						yID = i
 						stnID = noteID + 1
 						stnName = "hold"

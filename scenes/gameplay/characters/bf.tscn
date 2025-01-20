@@ -1,19 +1,19 @@
 [gd_scene load_steps=16 format=3 uid="uid://tnd46kiwrfm7"]
 
-[ext_resource type="Texture2D" uid="uid://b2016lqkhqelk" path="res://assets/images/characters/boyfriend/idle.png" id="1_0gc27"]
-[ext_resource type="Texture2D" uid="uid://dpc5isjfthhrm" path="res://assets/images/characters/boyfriend/idle1.png" id="2_gjiu7"]
-[ext_resource type="Texture2D" uid="uid://c406aeqwjn4bv" path="res://assets/images/characters/boyfriend/idle2.png" id="3_4xiog"]
-[ext_resource type="Texture2D" uid="uid://b26fm5grpoljq" path="res://assets/images/characters/boyfriend/idle3.png" id="4_ybm30"]
-[ext_resource type="Texture2D" uid="uid://dd1nxxflhu71x" path="res://assets/images/characters/boyfriend/idle4.png" id="5_uabeb"]
-[ext_resource type="Texture2D" uid="uid://sattakftmgqu" path="res://assets/images/characters/boyfriend/singDOWN.png" id="6_jbdyv"]
-[ext_resource type="Texture2D" uid="uid://ckkhrr8ienjab" path="res://assets/images/characters/boyfriend/singDOWN1.png" id="7_5xmtc"]
-[ext_resource type="Texture2D" uid="uid://baxa4e2bx2mkq" path="res://assets/images/characters/boyfriend/singLEFT.png" id="8_0ym74"]
-[ext_resource type="Texture2D" uid="uid://c8syijdpfir8p" path="res://assets/images/characters/boyfriend/singLEFT1.png" id="9_lql13"]
-[ext_resource type="Texture2D" uid="uid://dwfg0833wspat" path="res://assets/images/characters/boyfriend/singRIGHT.png" id="10_an824"]
-[ext_resource type="Texture2D" uid="uid://ga460vca4l42" path="res://assets/images/characters/boyfriend/singRIGHT1.png" id="11_ta3h6"]
-[ext_resource type="Texture2D" uid="uid://dfhmia8kkgf0v" path="res://assets/images/characters/boyfriend/singUP.png" id="12_y0qai"]
-[ext_resource type="Texture2D" uid="uid://kkm6qwv6jred" path="res://assets/images/characters/boyfriend/singUP1.png" id="13_jkyv1"]
-[ext_resource type="Script" path="res://scripts/gameplay/main/element/bf.gd" id="14_88tgd"]
+[ext_resource type="Texture2D" uid="uid://cr2arhg56fbrf" path="res://assets/images/characters/boyfriend/idle.png" id="1_0gc27"]
+[ext_resource type="Texture2D" uid="uid://dcpulqa2re3kp" path="res://assets/images/characters/boyfriend/idle1.png" id="2_gjiu7"]
+[ext_resource type="Texture2D" uid="uid://b0cysgcie0x1p" path="res://assets/images/characters/boyfriend/idle2.png" id="3_4xiog"]
+[ext_resource type="Texture2D" uid="uid://bhuikre801npr" path="res://assets/images/characters/boyfriend/idle3.png" id="4_ybm30"]
+[ext_resource type="Texture2D" uid="uid://i5meqlawn5si" path="res://assets/images/characters/boyfriend/idle4.png" id="5_uabeb"]
+[ext_resource type="Texture2D" uid="uid://4m73llb0nymd" path="res://assets/images/characters/boyfriend/singDOWN.png" id="6_jbdyv"]
+[ext_resource type="Texture2D" uid="uid://bt5s1gr65brul" path="res://assets/images/characters/boyfriend/singDOWN1.png" id="7_5xmtc"]
+[ext_resource type="Texture2D" uid="uid://c80wbt8fcgxpi" path="res://assets/images/characters/boyfriend/singLEFT.png" id="8_0ym74"]
+[ext_resource type="Texture2D" uid="uid://c2johyjd7ckel" path="res://assets/images/characters/boyfriend/singLEFT1.png" id="9_lql13"]
+[ext_resource type="Texture2D" uid="uid://ff38qnfeffn7" path="res://assets/images/characters/boyfriend/singRIGHT.png" id="10_an824"]
+[ext_resource type="Texture2D" uid="uid://cvqlau1b5db3r" path="res://assets/images/characters/boyfriend/singRIGHT1.png" id="11_ta3h6"]
+[ext_resource type="Texture2D" uid="uid://cy22xbohhi34k" path="res://assets/images/characters/boyfriend/singUP.png" id="12_y0qai"]
+[ext_resource type="Texture2D" uid="uid://d1ehkq3kqgd1n" path="res://assets/images/characters/boyfriend/singUP1.png" id="13_jkyv1"]
+[ext_resource type="Script" uid="uid://dyl17s02abwi1" path="res://scripts/gameplay/main/element/bf.gd" id="14_88tgd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2umrv"]
 animations = [{
@@ -86,8 +86,12 @@ animations = [{
 script = ExtResource("14_88tgd")
 
 [node name="animate" type="AnimatedSprite2D" parent="."]
-z_index = 1000
-position = Vector2(-49, -173)
+z_index = 300
+position = Vector2(-54.25, -244.75)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_2umrv")
 animation = &"idle"
+
+[node name="cameraPos" type="Marker2D" parent="."]
+position = Vector2(26, 14)
+gizmo_extents = 56.5

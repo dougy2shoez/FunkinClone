@@ -2,26 +2,26 @@
 
 [ext_resource type="Shader" uid="uid://dhx8cmvi3ln8r" path="res://scenes/playScene.gdshader" id="1_lm8go"]
 [ext_resource type="Script" uid="uid://thy3iul5dhf2" path="res://scripts/gameplay/main/element/gf.gd" id="2_ksnpj"]
-[ext_resource type="Texture2D" uid="uid://cwp6cabig2nmg" path="res://assets/images/characters/gf/GF0001.png" id="3_t84km"]
-[ext_resource type="Texture2D" uid="uid://blhy5ty7jb4c6" path="res://assets/images/characters/gf/GF0002.png" id="4_gtpxj"]
-[ext_resource type="Texture2D" uid="uid://p4dvtpubnr8j" path="res://assets/images/characters/gf/GF0003.png" id="5_hmabm"]
-[ext_resource type="Texture2D" uid="uid://b77ckoa5ochm8" path="res://assets/images/characters/gf/GF0004.png" id="6_orwbv"]
-[ext_resource type="Texture2D" uid="uid://ft0tc60ge2yn" path="res://assets/images/characters/gf/GF0005.png" id="7_excps"]
-[ext_resource type="Texture2D" uid="uid://cklfoi8s3ogm5" path="res://assets/images/characters/gf/GF0006.png" id="8_4phbh"]
-[ext_resource type="Texture2D" uid="uid://bdq0dudesgy3a" path="res://assets/images/characters/gf/GF0007.png" id="9_meidi"]
-[ext_resource type="Texture2D" uid="uid://dv4vp8rq53qgy" path="res://assets/images/characters/gf/GF0008.png" id="10_wsk7v"]
-[ext_resource type="Texture2D" uid="uid://be5yv6q1a26u1" path="res://assets/images/characters/gf/GF0009.png" id="11_0i4n3"]
-[ext_resource type="Texture2D" uid="uid://ckx47te15cdiq" path="res://assets/images/characters/gf/GF0010.png" id="12_b52w4"]
-[ext_resource type="Texture2D" uid="uid://dlcxxsw8hxxn8" path="res://assets/images/characters/gf/GF0011.png" id="13_e3faj"]
-[ext_resource type="Texture2D" uid="uid://ccsufcfxrepas" path="res://assets/images/characters/gf/GF0012.png" id="14_t2ps3"]
-[ext_resource type="Texture2D" uid="uid://ccr2wpt6oieoj" path="res://assets/images/characters/gf/GF0013.png" id="15_iudvg"]
-[ext_resource type="Texture2D" uid="uid://62ypxef15gr2" path="res://assets/images/characters/gf/GF0014.png" id="16_n5sr2"]
-[ext_resource type="Texture2D" uid="uid://em4vkkciuh3h" path="res://assets/images/characters/gf/GF0015.png" id="17_r28ta"]
-[ext_resource type="Texture2D" uid="uid://btbpacclg6crd" path="res://assets/images/characters/gf/GF0016.png" id="18_vuc1y"]
-[ext_resource type="Texture2D" uid="uid://bkgl63sogtsjy" path="res://assets/images/characters/gf/GF0017.png" id="19_mh1fi"]
-[ext_resource type="Texture2D" uid="uid://cq5jyyee1a63a" path="res://assets/images/characters/gf/stereo/stereo boom0001.png" id="20_d6p2m"]
-[ext_resource type="Texture2D" uid="uid://d3hv1is2fpmxy" path="res://assets/images/characters/gf/stereo/stereo boom0002.png" id="21_0ijjh"]
-[ext_resource type="Texture2D" uid="uid://cb10kg82yyhny" path="res://assets/images/characters/gf/stereo/stereo boom0003.png" id="22_shla1"]
+[ext_resource type="Texture2D" uid="uid://by6jib6gbo2q7" path="res://assets/images/characters/gf/GF0001.png" id="3_t84km"]
+[ext_resource type="Texture2D" uid="uid://buw27uj2cbe7r" path="res://assets/images/characters/gf/GF0002.png" id="4_gtpxj"]
+[ext_resource type="Texture2D" uid="uid://bxpkwen3dq6w5" path="res://assets/images/characters/gf/GF0003.png" id="5_hmabm"]
+[ext_resource type="Texture2D" uid="uid://bl52wejq6cj1r" path="res://assets/images/characters/gf/GF0004.png" id="6_orwbv"]
+[ext_resource type="Texture2D" uid="uid://rfkq42bus7nb" path="res://assets/images/characters/gf/GF0005.png" id="7_excps"]
+[ext_resource type="Texture2D" uid="uid://8s0oflqwpsq8" path="res://assets/images/characters/gf/GF0006.png" id="8_4phbh"]
+[ext_resource type="Texture2D" uid="uid://doybc5yhnyr0s" path="res://assets/images/characters/gf/GF0007.png" id="9_meidi"]
+[ext_resource type="Texture2D" uid="uid://cf6ahf63mn8nk" path="res://assets/images/characters/gf/GF0008.png" id="10_wsk7v"]
+[ext_resource type="Texture2D" uid="uid://kmykpwjfx0a8" path="res://assets/images/characters/gf/GF0009.png" id="11_0i4n3"]
+[ext_resource type="Texture2D" uid="uid://bl46615rt71sg" path="res://assets/images/characters/gf/GF0010.png" id="12_b52w4"]
+[ext_resource type="Texture2D" uid="uid://p2ykqkb2bjwr" path="res://assets/images/characters/gf/GF0011.png" id="13_e3faj"]
+[ext_resource type="Texture2D" uid="uid://bwku11p71qhen" path="res://assets/images/characters/gf/GF0012.png" id="14_t2ps3"]
+[ext_resource type="Texture2D" uid="uid://40yw4375rxfm" path="res://assets/images/characters/gf/GF0013.png" id="15_iudvg"]
+[ext_resource type="Texture2D" uid="uid://d2l6engrbtsbw" path="res://assets/images/characters/gf/GF0014.png" id="16_n5sr2"]
+[ext_resource type="Texture2D" uid="uid://cvs5fyl6f46t8" path="res://assets/images/characters/gf/GF0015.png" id="17_r28ta"]
+[ext_resource type="Texture2D" uid="uid://b2ky04krjswtc" path="res://assets/images/characters/gf/GF0016.png" id="18_vuc1y"]
+[ext_resource type="Texture2D" uid="uid://8ocs7ks3c8i3" path="res://assets/images/characters/gf/GF0017.png" id="19_mh1fi"]
+[ext_resource type="Texture2D" uid="uid://bks31idf12e3s" path="res://assets/images/characters/gf/stereo/stereo boom0001.png" id="20_d6p2m"]
+[ext_resource type="Texture2D" uid="uid://bnqdxmwoadtpu" path="res://assets/images/characters/gf/stereo/stereo boom0002.png" id="21_0ijjh"]
+[ext_resource type="Texture2D" uid="uid://eujwglnjd12j" path="res://assets/images/characters/gf/stereo/stereo boom0003.png" id="22_shla1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a54va"]
 shader = ExtResource("1_lm8go")
@@ -128,3 +128,7 @@ position = Vector2(2.5, -173.5)
 sprite_frames = SubResource("SpriteFrames_20201")
 animation = &"bop"
 frame_progress = 0.569642
+
+[node name="cameraPos" type="Marker2D" parent="."]
+position = Vector2(0, -6)
+gizmo_extents = 56.5

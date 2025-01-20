@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://j7lr3bhuaaik"]
+[gd_scene load_steps=16 format=3 uid="uid://j7lr3bhuaaik"]
 
 [ext_resource type="Script" uid="uid://nukiy2cqmdgi" path="res://scripts/gameplay/playScene.gd" id="1_aheq8"]
 [ext_resource type="Shader" uid="uid://dhx8cmvi3ln8r" path="res://scenes/playScene.gdshader" id="1_x3k75"]
@@ -12,27 +12,26 @@
 [ext_resource type="Script" uid="uid://im0om8rds2rh" path="res://scripts/gameplay/main/ui/UILayer.gd" id="18_4wjrt"]
 [ext_resource type="Script" uid="uid://qapffdvx3t2y" path="res://scripts/gameplay/gameCamera.gd" id="18_ilo1c"]
 [ext_resource type="Script" uid="uid://k5xtuwt2nfp" path="res://scripts/gameplay/voicesDAD.gd" id="18_o7v37"]
-[ext_resource type="Texture2D" uid="uid://o7g5x7lhkddm" path="res://screenshot-2024-11-06-21-14-26.png" id="21_ac3kp"]
 [ext_resource type="Script" uid="uid://b6ivafj65222b" path="res://scripts/gameplay/Inst.gd" id="21_ejo5q"]
 [ext_resource type="Script" uid="uid://qrnsll6tnds7" path="res://scripts/gameplay/voicesPLAYER.gd" id="23_4804c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j5cyo"]
 shader = ExtResource("1_x3k75")
-shader_parameter/hue = 0.0
-shader_parameter/saturation = 1.0
+shader_parameter/hue = 5.992
+shader_parameter/saturation = 0.755
 shader_parameter/brightness = 1.0
 shader_parameter/contrast = 1.0
 
 [node name="PlayScene" type="Node2D"]
 process_mode = 1
 material = SubResource("ShaderMaterial_j5cyo")
+position = Vector2(-10, 2)
 script = ExtResource("1_aheq8")
 
 [node name="info" type="Window" parent="."]
 title = "Info"
-initial_position = 3
-size = Vector2i(360, 360)
-current_screen = 0
+position = Vector2i(-350, 245)
+size = Vector2i(305, 280)
 
 [node name="Score2" type="RichTextLabel" parent="info"]
 clip_contents = false
@@ -64,7 +63,6 @@ script = ExtResource("18_ilo1c")
 [node name="ref" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("21_ac3kp")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 script = ExtResource("18_4wjrt")
@@ -162,8 +160,6 @@ script = ExtResource("18_o7v37")
 [node name="VoicesBF" type="AudioStreamPlayer" parent="UILayer/Conductor"]
 pitch_scale = 4.0
 script = ExtResource("23_4804c")
-
-[node name="FPSCounter" type="CanvasLayer" parent="."]
 
 [node name="overlayPause" type="CanvasLayer" parent="."]
 visible = false

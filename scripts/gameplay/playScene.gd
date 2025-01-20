@@ -27,7 +27,7 @@ func loadStage(StageName: String):
 	if stageData.has("shaderParam"):
 		material.set("shader_paramater/hue", stageData["shaderParam"][0])
 		material.set("shader_paramater/saturation", stageData["shaderParam"][1])
-
+# 0.735, 0.85
 # 223, 303, y 44.0
 # 0.59, 0.725
 func _process(delta: float) -> void:

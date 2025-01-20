@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 		position.y = (15 * yID) + 100 
 		if stnName == "end":
 			ArrowOrigin.sustainFinish = true 
-		if ArrowOrigin.position.y + (position.y * .5) < 54:
+		if ArrowOrigin.position.y + (position.y * .49) < 54:
 			queue_free()
 	else:
 		if hpSet == false:

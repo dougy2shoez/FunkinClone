@@ -35,6 +35,7 @@ func _process(delta: float) -> void:
 			print(eventData)
 			bfOffset = get_parent().stageData["characters"]["bf"]["cameraOffsets"]
 			dadOffset = get_parent().stageData["characters"]["dad"]["cameraOffsets"]
+			position = get_parent().get_node("stage").get_node("Positions").get_node("GF").get_node("cameraPos").position + get_parent().get_node("stage").get_node("Positions").get_node("GF").position + get_parent().get_node("gf").get_node("cameraPos").position
 		if getEventData == true:
 			conductorPosition = conductorNode.conductorPostion
 			$".".zoom.x += (camZoom - $".".zoom.x)/(0.5/delta)

@@ -25,8 +25,15 @@ func loadStage(StageName: String):
 	stageScene = load("assets/" + stageData["directory"] + "/" + str(StageName) + ".tscn")
 	add_child(stageScene.instantiate())
 	if stageData.has("shaderParam"):
-		material.set("shader_paramater/hue", stageData["shaderParam"][0])
-		material.set("shader_paramater/saturation", stageData["shaderParam"][1])
+		material.set_shader_parameter("hue", stageData["shaderParam"][0])
+		material.set_shader_parameter("saturation", stageData["shaderParam"][1])
+		material.set_shader_parameter("brightness", stageData["shaderParam"][2])
+		material.set_shader_parameter("contrast", stageData["shaderParam"][2])
+	else: 
+		material.set_shader_parameter("hue", 0.0)
+		material.set_shader_parameter("saturation", 1.0)
+		material.set_shader_parameter("brightness", 1.0)
+		material.set_shader_parameter("contrast", 1.0)
 # 0.735, 0.85
 # 223, 303, y 44.0
 # 0.59, 0.725

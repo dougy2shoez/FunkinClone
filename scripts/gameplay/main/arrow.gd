@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 			HP = get_parent().HP
 			if songArrayData.has("l"):
 				if songArrayData["l"] > 0:
-					for i in ((songArrayData["l"] / 12) + 10) / scrollSpeed - 1:
+					for i in ((songArrayData["l"] / 8)) / scrollSpeed - 1:
 						yID = i
 						stnID = noteID + 1
 						stnName = "hold"
@@ -137,7 +137,7 @@ func _process(delta: float) -> void:
 			currDADAnim = get_parent().currDADAnim
 			if songArrayData.has("l"):
 				if songArrayData["l"] > 0:
-					for i in (songArrayData["l"] / 15) / scrollSpeed - 1:
+					for i in (songArrayData["l"] / 8) / scrollSpeed - 1:
 						yID = i
 						stnID = noteID + 1
 						stnName = "hold"
@@ -161,11 +161,11 @@ func _process(delta: float) -> void:
 			childSprite.play("blankState")
 			timerNoteAnim += delta
 			if songArrayData.has("l"):
-				enemyAnimTime = ((songArrayData["l"])/ 1000)  * 0.5
+				enemyAnimTime = ((songArrayData["l"])/ 1000)
 				if songArrayData["l"] > 0: strumAnim.coverSprite.play(str(int(noteID) - 4) + "_loop")
 				else: enemyAnimTime = .25
 			else: enemyAnimTime = .25
 			if timerNoteAnim > enemyAnimTime:
 				strumAnim.childSprite.play(str(int(noteID) - 4))
-				strumAnim.coverSprite.play(str(int(noteID) - 4) + "_end")
+				strumAnim.coverSprite.play("blankState")
 				queue_free()

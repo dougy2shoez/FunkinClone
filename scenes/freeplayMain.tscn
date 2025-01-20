@@ -387,6 +387,7 @@ _data = {
 }
 
 [node name="freeplayMain" type="Node2D"]
+position = Vector2(0, 12)
 script = ExtResource("1_vylog")
 metadata/_edit_horizontal_guides_ = [-1504.0]
 

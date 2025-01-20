@@ -17,21 +17,20 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j5cyo"]
 shader = ExtResource("1_x3k75")
-shader_parameter/hue = 5.992
-shader_parameter/saturation = 0.755
-shader_parameter/brightness = 1.0
+shader_parameter/hue = 5.85
+shader_parameter/saturation = 0.735
+shader_parameter/brightness = 0.85
 shader_parameter/contrast = 1.0
 
 [node name="PlayScene" type="Node2D"]
 process_mode = 1
 material = SubResource("ShaderMaterial_j5cyo")
-position = Vector2(-10, 2)
 script = ExtResource("1_aheq8")
 
 [node name="info" type="Window" parent="."]
 title = "Info"
-position = Vector2i(-350, 245)
-size = Vector2i(305, 280)
+position = Vector2i(-305, 65)
+size = Vector2i(185, 255)
 
 [node name="Score2" type="RichTextLabel" parent="info"]
 clip_contents = false

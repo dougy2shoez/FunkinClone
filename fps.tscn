@@ -6,10 +6,10 @@
 [node name="fps" type="CanvasLayer"]
 
 [node name="fpsCounter" type="RichTextLabel" parent="."]
-offset_left = 13.0
-offset_top = 5.0
-offset_right = 213.0
-offset_bottom = 40.0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 210.0
+offset_bottom = 39.0
 scale = Vector2(0.73335, 0.681183)
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

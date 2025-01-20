@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dh5ucj4hibl6j"]
+[gd_scene load_steps=20 format=3 uid="uid://dh5ucj4hibl6j"]
 
 [ext_resource type="Shader" uid="uid://dhx8cmvi3ln8r" path="res://scenes/playScene.gdshader" id="1_3qdh0"]
 [ext_resource type="Script" uid="uid://c1yocjykvr0qn" path="res://scripts/gameplay/main/element/dad.gd" id="2_mvk03"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://dpwomtitg55u6" path="res://assets/images/characters/pico/pico0009.png" id="15_08xlu"]
 [ext_resource type="Texture2D" uid="uid://c8q4edavfkbgj" path="res://assets/images/characters/pico/pico0012.png" id="16_ey8oy"]
 [ext_resource type="Texture2D" uid="uid://dhb7lruahta7x" path="res://assets/images/characters/pico/pico0013.png" id="17_cmu42"]
-[ext_resource type="Script" uid="uid://bi87jwx4remg7" path="res://scripts/animate.gd" id="19_pkewv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x8buw"]
 shader = ExtResource("1_3qdh0")
@@ -111,4 +110,3 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8a51i")
 animation = &"idle"
 flip_h = true
-script = ExtResource("19_pkewv")

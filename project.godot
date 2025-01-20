@@ -14,7 +14,7 @@ config/name="Friday Night Funkin'"
 config/description="Godot recreation of Friday Night Funkin'."
 run/main_scene="res://scenes/freeplayMain.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
-run/max_fps=640
+run/max_fps=750
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
@@ -27,19 +27,21 @@ driver/mix_rate.web=44000
 
 [autoload]
 
-FpsCounter="*res://scripts/fpsCounter.gd"
 MasterVars="*res://masterVars.gd"
+Fps="*res://fps.tscn"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 window/ios/hide_status_bar=false
 window/channel_disable_time=2.0
 window/mix_rate.web=44100
 window/mix_rate=48000
-window/max_fps=640
+window/max_fps=750
 
 [file_customization]
 

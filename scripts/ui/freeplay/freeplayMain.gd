@@ -68,7 +68,7 @@ func reverse_string(s:String) -> String:
 
 
 
-
+var currSortSelected = 0
 var setScoreDisplay = false
 var stringScoreDisplay: String
 func _process(delta: float) -> void:

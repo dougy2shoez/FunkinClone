@@ -94,11 +94,11 @@ func _process(delta: float) -> void:
 					rating[1] = int(noteID)
 					calculateRating(abs(conductorPosition - timeID), get_parent().ratingPos)
 					if abs(conductorPosition - timeID) < 6: 
-						get_parent().get_parent().get_node("Score2").text = "+" + str(500 + Score[1])
-						Score[0] = Score[0] + 500 + Score[1]
+						get_parent().get_parent().get_parent().get_node("info").get_node("Score2").text = "+" + str(500 + Score[1])
+						Score[0] = Score[0] + 500 + (Score[1] / 1.5)
 					else: 
-						get_parent().get_parent().get_node("Score2").text = "+" + str(519.2 - (abs(conductorPosition - timeID) * 3.2) + Score[1])
-						Score[0] = Score[0] + 519.2 - (abs(conductorPosition - timeID) * 3.2) + Score[1]
+						get_parent().get_parent().get_parent().get_node("info").get_node("Score2").text = "+" + str(519.2 - (abs(conductorPosition - timeID) * 3.2) + Score[1])
+						Score[0] = Score[0] + 519.2 - (abs(conductorPosition - timeID) * 3.2) + (Score[1] / 2)
 					oneTimeRun = true
 					
 				wasHitConditionCheck = 999

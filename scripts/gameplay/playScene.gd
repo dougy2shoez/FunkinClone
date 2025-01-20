@@ -28,8 +28,8 @@ func loadStage(StageName: String):
 		material.set("shader_paramater/hue", stageData["shaderParam"][0])
 		material.set("shader_paramater/saturation", stageData["shaderParam"][1])
 
-
-
+# 223, 303, y 44.0
+# 0.59, 0.725
 func _process(delta: float) -> void:
 	var songName = $UILayer/Conductor.songName
 

@@ -13,5 +13,5 @@ func _process(delta: float) -> void:
 			isFullscreenToggled = false
 	if Input.is_action_just_pressed("reloadScene"):
 		get_tree().reload_current_scene()
-	text = (" FPS: " + str(round(1/delta)))
+	text = (" FPS: " + str(int(1.0/float(delta))))
 	pass

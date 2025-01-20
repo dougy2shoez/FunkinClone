@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://j7lr3bhuaaik"]
+[gd_scene load_steps=17 format=3 uid="uid://j7lr3bhuaaik"]
 
 [ext_resource type="Script" uid="uid://nukiy2cqmdgi" path="res://scripts/gameplay/playScene.gd" id="1_aheq8"]
 [ext_resource type="Shader" uid="uid://dhx8cmvi3ln8r" path="res://scenes/playScene.gdshader" id="1_x3k75"]
 [ext_resource type="Script" uid="uid://243xcypexbk8" path="res://scripts/gameplay/main/ui/healthBar.gd" id="5_jod1u"]
 [ext_resource type="Script" uid="uid://bsm73or63pt7n" path="res://scripts/gameplay/main/ui/icon.gd" id="7_dxhd3"]
 [ext_resource type="FontFile" uid="uid://brlll27lfk4sk" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="7_spm3b"]
-[ext_resource type="Script" uid="uid://2psvsy2l7lbm" path="res://scripts/fpsCounter.gd" id="8_184rq"]
 [ext_resource type="Script" uid="uid://7w2d2j67f614" path="res://scripts/gameplay/main/ui/scoreDisplay.gd" id="8_c6qjk"]
 [ext_resource type="Texture2D" uid="uid://cul18vw6dxhv3" path="res://assets/images/healthBar.png" id="10_v8rw5"]
 [ext_resource type="Script" uid="uid://dkp1grl23t6fv" path="res://scripts/gameplay/main/conductor.gd" id="14_uannv"]
@@ -24,15 +23,33 @@ shader_parameter/saturation = 1.0
 shader_parameter/brightness = 1.0
 shader_parameter/contrast = 1.0
 
-[sub_resource type="SystemFont" id="SystemFont_68y0l"]
-font_names = PackedStringArray("MS UI Gothic", "Microsoft Tai Le")
-subpixel_positioning = 0
-oversampling = 1.0
-
 [node name="PlayScene" type="Node2D"]
 process_mode = 1
 material = SubResource("ShaderMaterial_j5cyo")
 script = ExtResource("1_aheq8")
+
+[node name="info" type="Window" parent="."]
+title = "Info"
+initial_position = 3
+size = Vector2i(360, 360)
+current_screen = 0
+
+[node name="Score2" type="RichTextLabel" parent="info"]
+clip_contents = false
+offset_left = 1.0
+offset_top = 198.0
+offset_right = 76.0
+offset_bottom = 238.0
+scale = Vector2(0.990678, 1.01935)
+focus_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("7_spm3b")
+bbcode_enabled = true
+text = "+"
+fit_content = true
+autowrap_mode = 0
+selection_enabled = true
 
 [node name="gameCam" type="Camera2D" parent="."]
 ignore_rotation = false
@@ -53,9 +70,9 @@ texture = ExtResource("21_ac3kp")
 script = ExtResource("18_4wjrt")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="UILayer"]
-offset_left = 1088.0
+offset_left = 1069.0
 offset_top = 686.0
-offset_right = 1288.0
+offset_right = 1276.0
 offset_bottom = 739.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -63,8 +80,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("7_spm3b")
 bbcode_enabled = true
 text = "
- PROTOTYPE: FNFClone
- "
+PROTOTYPE: FunkinClone"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -135,52 +151,19 @@ timerCountDown = 0.0
 metadata/_custom_type_script = ExtResource("14_uannv")
 
 [node name="Inst" type="AudioStreamPlayer" parent="UILayer/Conductor"]
+volume_db = -5.0
 bus = &"Vis"
 script = ExtResource("21_ejo5q")
 
 [node name="VoicesDAD" type="AudioStreamPlayer" parent="UILayer/Conductor"]
+volume_db = -5.0
 script = ExtResource("18_o7v37")
 
 [node name="VoicesBF" type="AudioStreamPlayer" parent="UILayer/Conductor"]
 pitch_scale = 4.0
 script = ExtResource("23_4804c")
 
-[node name="Score2" type="RichTextLabel" parent="UILayer"]
-clip_contents = false
-offset_left = 2.99994
-offset_top = 365.0
-offset_right = 77.9999
-offset_bottom = 405.0
-scale = Vector2(0.990678, 1.01935)
-focus_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_fonts/normal_font = ExtResource("7_spm3b")
-bbcode_enabled = true
-text = "+"
-fit_content = true
-autowrap_mode = 0
-selection_enabled = true
-
 [node name="FPSCounter" type="CanvasLayer" parent="."]
-
-[node name="fpsCounter" type="RichTextLabel" parent="FPSCounter"]
-offset_left = 4.0
-offset_top = -28.0
-offset_right = 204.0
-offset_bottom = 7.0
-scale = Vector2(0.914195, 0.925831)
-focus_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 0
-theme_override_constants/shadow_outline_size = 0
-theme_override_fonts/normal_font = SubResource("SystemFont_68y0l")
-bbcode_enabled = true
-text = " FPS:"
-fit_content = true
-autowrap_mode = 0
-selection_enabled = true
-script = ExtResource("8_184rq")
 
 [node name="overlayPause" type="CanvasLayer" parent="."]
 visible = false

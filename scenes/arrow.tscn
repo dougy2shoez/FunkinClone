@@ -82,4 +82,5 @@ sprite_frames = SubResource("SpriteFrames_4ewsy")
 animation = &"3"
 
 [node name="MissSound" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
 script = ExtResource("4_pbq2x")

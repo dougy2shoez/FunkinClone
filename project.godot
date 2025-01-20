@@ -36,7 +36,6 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
-window/vsync/vsync_mode=0
 window/ios/hide_status_bar=false
 window/channel_disable_time=2.0
 window/mix_rate.web=44100

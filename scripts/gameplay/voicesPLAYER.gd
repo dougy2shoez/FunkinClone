@@ -20,3 +20,5 @@ func _process(delta: float) -> void:
 		if playSong == false:
 			play()
 			playSong = true
+	if get_parent().playingVocalsP2: volume_db = -5
+	else: volume_db = -999

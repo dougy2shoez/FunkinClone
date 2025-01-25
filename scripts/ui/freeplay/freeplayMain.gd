@@ -53,7 +53,7 @@ func _ready() -> void:
 			songList.append(levelData["songs"][ia])
 	print(songList)
 	
-	loadCapsules()
+	
 	
 
 
@@ -66,7 +66,11 @@ func reverse_string(s:String) -> String:
 # ^^^ thankz u/Robert_Bobbinson for da code luv u
 
 
-
+func scrollMenu():
+	$soundsFreeplay.stream = sounds["scroll"]
+	$soundsFreeplay.play()
+	$musicFreeplay.play()
+	$musicFreeplay.volume_db = -25
 
 var currSortSelected = 0
 var setScoreDisplay = false
@@ -75,16 +79,15 @@ func _process(delta: float) -> void:
 	currHiScoreSmooth += (currHiScore - currHiScoreSmooth) / (0.1 / delta)
 	var stringScoreDisplay: String
 	for x in 7: # i wrote this all in one attempt ??? i am smart lol
-		if x < reverse_string(str(int(currHiScoreSmooth))).length(): # round those nasty demicals HAHAHAH
+		if x < reverse_string(str(int(currHiScoreSmooth))).length(): 
 			stringScoreDisplay = stringScoreDisplay + reverse_string(str(int(currHiScoreSmooth)))[x]
 		else: stringScoreDisplay = stringScoreDisplay + "0" 
 	$scoreDisplay.scoreDisplay = reverse_string(stringScoreDisplay)
+	$musicFreeplay.volume_db += (-6.5 - $musicFreeplay.volume_db) / (0.25/delta) 
 	if Input.is_action_just_pressed("ui_up"):
-		$soundsFreeplay.stream = sounds["scroll"]
-		$soundsFreeplay.play()
 		currSelect -= 1
+		scrollMenu()
 	elif Input.is_action_just_pressed("ui_down"):
-		$soundsFreeplay.stream = sounds["scroll"]
-		$soundsFreeplay.play()
 		currSelect += 1
+		scrollMenu()
 	pass

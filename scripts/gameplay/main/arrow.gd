@@ -90,6 +90,7 @@ func _process(delta: float) -> void:
 				
 				if not oneTimeRun: 
 					if conductorPosition - timeID < 0: yTeleport = 0 - position.y
+					get_parent().playingVocalsP2 = true
 					HP[0] =  HP[0] + 0.035 - abs((conductorPosition - timeID) * 0.0004)
 					rating[1] = int(noteID)
 					calculateRating(abs(conductorPosition - timeID), get_parent().ratingPos)
@@ -125,6 +126,7 @@ func _process(delta: float) -> void:
 				if not HP[0] == 0:
 					HP[0] =  HP[0] - 0.075
 				Score[0] = Score[0] - 10
+				get_parent().playingVocalsP2 = false
 				missAnim = true
 			if position.y < -500:
 				queue_free()

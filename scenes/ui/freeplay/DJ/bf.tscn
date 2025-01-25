@@ -1,0 +1,220 @@
+[gd_scene load_steps=35 format=3 uid="uid://lgoitka0jn00"]
+
+[ext_resource type="Texture2D" uid="uid://b4rwegc6hfwnj" path="res://assets/images/Freeplay/DJ/bf/turntable/turn table.png" id="1_3452g"]
+[ext_resource type="Texture2D" uid="uid://bj36apgs0uasp" path="res://assets/images/Freeplay/DJ/bf/turntable/lights/behindLights0001.png" id="1_midv3"]
+[ext_resource type="Script" uid="uid://ckicy4qggcmcf" path="res://scripts/ui/freeplay/DJ.gd" id="1_uqxw6"]
+[ext_resource type="Texture2D" uid="uid://n6vuh0av8ckf" path="res://assets/images/Freeplay/DJ/bf/bf/Idle/body0001.png" id="2_k0vox"]
+[ext_resource type="Texture2D" uid="uid://blbllo0y0dbah" path="res://assets/images/Freeplay/DJ/bf/turntable/lights/behindLights0002.png" id="2_uqxw6"]
+[ext_resource type="Texture2D" uid="uid://cxdapxcawaxed" path="res://assets/images/Freeplay/DJ/bf/bf/Idle/body0002.png" id="3_6kmea"]
+[ext_resource type="Texture2D" uid="uid://cx5ltlfgogfhm" path="res://assets/images/Freeplay/DJ/bf/turntable/lights/behindLights0003.png" id="3_8wd38"]
+[ext_resource type="Texture2D" uid="uid://c15gy5npnr4tm" path="res://assets/images/Freeplay/DJ/bf/bf/Idle/body0003.png" id="4_04ibr"]
+[ext_resource type="Texture2D" uid="uid://bhxl671nx3c5n" path="res://assets/images/Freeplay/DJ/bf/turntable/lights/behindLights0004.png" id="4_xmce6"]
+[ext_resource type="Texture2D" uid="uid://c25w6osqr7i82" path="res://assets/images/Freeplay/DJ/bf/bf/Idle/body0004.png" id="5_5r3dq"]
+[ext_resource type="Texture2D" uid="uid://usihp3ca6hmj" path="res://assets/images/Freeplay/DJ/bf/turntable/lights/behindLights0005.png" id="5_iguhe"]
+[ext_resource type="Texture2D" uid="uid://hvfc6mqp823b" path="res://assets/images/Freeplay/DJ/bf/turntable/lights/behindLights0006.png" id="6_7itka"]
+[ext_resource type="Texture2D" uid="uid://dhs52oqrh21a4" path="res://assets/images/Freeplay/DJ/bf/bf/Idle/bf top0001.png" id="6_mlbd6"]
+[ext_resource type="Texture2D" uid="uid://b3k5nhf36k0ld" path="res://assets/images/Freeplay/DJ/bf/bf/Idle/bf top0002.png" id="7_o67v7"]
+[ext_resource type="Texture2D" uid="uid://cvkodwmbv5krn" path="res://assets/images/Freeplay/DJ/bf/bf/Idle/bf top0003.png" id="8_n2jf6"]
+[ext_resource type="Texture2D" uid="uid://d3l5f8klu2dyn" path="res://assets/images/Freeplay/DJ/bf/turntable/lights/turn table0001.png" id="8_yng52"]
+[ext_resource type="Texture2D" uid="uid://cr4i3msonbyuw" path="res://assets/images/Freeplay/DJ/bf/bf/Idle/bf top0004.png" id="9_b54yb"]
+[ext_resource type="Texture2D" uid="uid://bhxj5et4xh1mj" path="res://assets/images/Freeplay/DJ/bf/turntable/lights/turn table0002.png" id="9_ffyan"]
+[ext_resource type="Texture2D" uid="uid://be85c2j2a0bpb" path="res://assets/images/Freeplay/DJ/bf/bf/Idle/bf top0005.png" id="10_4fhvh"]
+[ext_resource type="Texture2D" uid="uid://7mggvgof6usk" path="res://assets/images/Freeplay/DJ/bf/turntable/lights/turn table0003.png" id="10_eh3pn"]
+[ext_resource type="Texture2D" uid="uid://byw1vnavysrnq" path="res://assets/images/Freeplay/DJ/bf/turntable/lights/turn table0004.png" id="11_724jo"]
+[ext_resource type="Texture2D" uid="uid://c4wtpmyrcr7rt" path="res://assets/images/Freeplay/DJ/bf/turntable/lights/turn table0005.png" id="12_larmn"]
+[ext_resource type="Texture2D" uid="uid://b7s8b5c7i55y6" path="res://assets/images/Freeplay/DJ/bf/turntable/lights/turn table0006.png" id="13_cp6rg"]
+[ext_resource type="Texture2D" uid="uid://7h6i1xal31ge" path="res://assets/images/Freeplay/DJ/bf/turntable/disk.png" id="15_ffyan"]
+[ext_resource type="Texture2D" uid="uid://3qo02ye6hhwo" path="res://assets/images/Freeplay/DJ/bf/turntable/diskHighlights0001.png" id="16_eh3pn"]
+[ext_resource type="Texture2D" uid="uid://cfq1wi0iig0nm" path="res://assets/images/Freeplay/DJ/bf/turntable/diskHighlights0002.png" id="17_724jo"]
+[ext_resource type="Texture2D" uid="uid://cn3r30t7g2gqp" path="res://assets/images/Freeplay/DJ/bf/turntable/diskHighlights0004.png" id="18_larmn"]
+[ext_resource type="Texture2D" uid="uid://ef1u4pkxm6gj" path="res://assets/images/Freeplay/DJ/bf/turntable/diskHighlights0003.png" id="19_cp6rg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fu1q8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k0vox")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_6kmea")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_04ibr")
+}, {
+"duration": 999.0,
+"texture": ExtResource("5_5r3dq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jnlat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mlbd6")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_o67v7")
+}, {
+"duration": 2.0,
+"texture": ExtResource("8_n2jf6")
+}, {
+"duration": 3.0,
+"texture": ExtResource("9_b54yb")
+}, {
+"duration": 999.0,
+"texture": ExtResource("10_4fhvh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8wd38"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xmce6"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("8_yng52")
+}, {
+"duration": 2.0,
+"texture": ExtResource("9_ffyan")
+}, {
+"duration": 2.0,
+"texture": ExtResource("10_eh3pn")
+}, {
+"duration": 2.0,
+"texture": ExtResource("11_724jo")
+}, {
+"duration": 2.0,
+"texture": ExtResource("12_larmn")
+}, {
+"duration": 9999.0,
+"texture": ExtResource("13_cp6rg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uyfnu"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_midv3")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_uqxw6")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_8wd38")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_xmce6")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_iguhe")
+}, {
+"duration": 9999.0,
+"texture": ExtResource("6_7itka")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1c50d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_eh3pn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_724jo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_larmn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_cp6rg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="freeplayBF" type="Node2D"]
+script = ExtResource("1_uqxw6")
+
+[node name="bf body" type="AnimatedSprite2D" parent="."]
+z_index = -5
+position = Vector2(246, 497)
+sprite_frames = SubResource("SpriteFrames_fu1q8")
+autoplay = "default"
+frame = 3
+frame_progress = 0.26569
+
+[node name="bf top" type="AnimatedSprite2D" parent="bf body"]
+z_index = 10
+position = Vector2(34, -250)
+sprite_frames = SubResource("SpriteFrames_jnlat")
+autoplay = "default"
+frame_progress = 0.646588
+
+[node name="TurnTable" type="Sprite2D" parent="."]
+position = Vector2(332.667, 656.667)
+scale = Vector2(1.33333, 1.33333)
+texture = ExtResource("1_3452g")
+
+[node name="lightsGlow" type="AnimatedSprite2D" parent="TurnTable"]
+material = SubResource("CanvasItemMaterial_8wd38")
+position = Vector2(-116, -84)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_xmce6")
+autoplay = "default"
+frame_progress = 0.165935
+
+[node name="LightsBehind" type="AnimatedSprite2D" parent="TurnTable"]
+z_index = -5
+position = Vector2(-7.99998, -110.75)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_uyfnu")
+autoplay = "default"
+frame_progress = 0.00886149
+
+[node name="Disk" type="Node2D" parent="TurnTable"]
+position = Vector2(117.25, -123.5)
+scale = Vector2(0.75, 0.75)
+
+[node name="Disk" type="Sprite2D" parent="TurnTable/Disk"]
+texture = ExtResource("15_ffyan")
+
+[node name="highlight" type="AnimatedSprite2D" parent="TurnTable/Disk/Disk"]
+z_index = 1
+position = Vector2(-9.33337, -2.00012)
+sprite_frames = SubResource("SpriteFrames_1c50d")
+autoplay = "default"
+frame_progress = 0.177736
+
+[node name="Disk2" type="Node2D" parent="TurnTable"]
+position = Vector2(-137, -121.25)
+rotation = 0.1309
+scale = Vector2(0.75, 0.75)
+
+[node name="Disk" type="Sprite2D" parent="TurnTable/Disk2"]
+texture = ExtResource("15_ffyan")
+
+[node name="highlight" type="AnimatedSprite2D" parent="TurnTable/Disk2/Disk"]
+z_index = 1
+position = Vector2(-9.33337, -2.00009)
+sprite_frames = SubResource("SpriteFrames_1c50d")
+autoplay = "default"
+frame_progress = 0.158181

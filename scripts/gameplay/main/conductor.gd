@@ -7,12 +7,13 @@ class_name Conductor
 func _ready() -> void:
 	pass
 var BPMGLOBAL = MasterVars.BPMGLOBAL
-@export var scrollSpeed = .8
+@export var scrollSpeed = .55
 @export var conductorPostion: float = (((60 / BPMGLOBAL) * -4) * 1000)
 @export var timerCountDown = float(((60 / BPMGLOBAL) * -4) * 1000)
 @export var conductorCount = 0
 @onready var timeID = 0
 @onready var noteID = 0
+@onready var playingVocalsP2: bool = true
 var songName = MasterVars.songName
 var SongData = {}
 var SongDataPath = ("res://assets/data/songs/" + str(songName) + "/" + str(songName))

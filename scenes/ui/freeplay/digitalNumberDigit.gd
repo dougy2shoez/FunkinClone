@@ -9,7 +9,6 @@ func _ready() -> void:
 
 @onready var scoreDisplay = get_parent().scoreDisplay
 func _process(delta: float) -> void:
-	print(scoreDisplay)
 	scoreDisplay = get_parent().scoreDisplay
 	$animate.play(str(str(scoreDisplay)[digit]))
 	

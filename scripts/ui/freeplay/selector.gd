@@ -17,9 +17,10 @@ func _process(delta: float) -> void:
 	else: 
 		MasterVars.songType = ""
 	$difficulty.play(str(MasterVars.currDifficult))
-	
 	if Input.is_action_just_pressed("ui_left"):
+		get_parent().get_node("musicFreeplay").play()
 		difficultySelect -= 1
 		
 	elif Input.is_action_just_pressed("ui_right"):
+		get_parent().get_node("musicFreeplay").play()
 		difficultySelect += 1

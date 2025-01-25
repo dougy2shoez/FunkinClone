@@ -1,7 +1,7 @@
 extends Node
-var songType = "pico"
-var BPMGLOBAL = float(155)
-var songName = "south"
+var songType = "bf"
+var BPMGLOBAL = float(150)
+var songName = "darnell"
 var currCharacter = "bf"
 var currLevel = "week1"
 var currDifficult = "hard"

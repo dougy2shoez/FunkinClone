@@ -18,8 +18,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b6kdf"]
 shader = ExtResource("1_dhls8")
-shader_parameter/hue = 5.95
-shader_parameter/saturation = 0.85
+shader_parameter/hue = 0.0
+shader_parameter/saturation = 1.0
 shader_parameter/brightness = 1.0
 shader_parameter/contrast = 1.0
 
@@ -101,6 +101,7 @@ position = Vector2(-54.25, -244.75)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_2umrv")
 animation = &"idle"
+frame_progress = 0.0215604
 
 [node name="cameraPos" type="Marker2D" parent="."]
 position = Vector2(26, 14)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://b0k4iq7q6p25m"]
+[gd_scene load_steps=72 format=3 uid="uid://b0k4iq7q6p25m"]
 
 [ext_resource type="Script" uid="uid://dgkm8mo4wqyj0" path="res://scripts/ui/freeplay/freeplayMain.gd" id="1_vylog"]
 [ext_resource type="Texture2D" uid="uid://b6lgofg3t2ywy" path="res://assets/images/Freeplay/pinkBack.png" id="2_qumsa"]
@@ -64,6 +64,7 @@
 [ext_resource type="Script" uid="uid://dvej2glnpl5sg" path="res://scripts/ui/freeplay/hiScoreDisplay.gd" id="58_co6ng"]
 [ext_resource type="Texture2D" uid="uid://br7h5uedch0ck" path="res://assets/images/Freeplay/albumRoll/volume1.png" id="63_45d1d"]
 [ext_resource type="Texture2D" uid="uid://7lnt6f30gw88" path="res://assets/images/Freeplay/albumRoll/volume1-text.png" id="64_bfxpk"]
+[ext_resource type="PackedScene" uid="uid://lgoitka0jn00" path="res://scenes/ui/freeplay/DJ/bf.tscn" id="65_v4bcf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u7b7v"]
 animations = [{
@@ -386,37 +387,38 @@ _data = {
 &"roll in": SubResource("Animation_v76kt")
 }
 
-[node name="freeplayMain" type="Node2D"]
-position = Vector2(0, 12)
-script = ExtResource("1_vylog")
+[node name="freeplayMain" type="CanvasLayer"]
 metadata/_edit_horizontal_guides_ = [-1504.0]
 
-[node name="soundsFreeplay" type="AudioStreamPlayer" parent="."]
+[node name="freeplayMain" type="Node2D" parent="."]
+script = ExtResource("1_vylog")
+
+[node name="soundsFreeplay" type="AudioStreamPlayer" parent="freeplayMain"]
 volume_db = -5.0
 mix_target = 2
 max_polyphony = 7
 
-[node name="musicFreeplay" type="AudioStreamPlayer" parent="."]
+[node name="musicFreeplay" type="AudioStreamPlayer" parent="freeplayMain"]
 volume_db = -10.0
 mix_target = 2
 
-[node name="PinkBack" type="Sprite2D" parent="."]
+[node name="PinkBack" type="Sprite2D" parent="freeplayMain"]
 modulate = Color(1, 0.847059, 0.388235, 1)
 texture_repeat = 2
 position = Vector2(254, 360)
 texture = ExtResource("2_qumsa")
 
-[node name="FreeplayBGdad" type="Sprite2D" parent="."]
+[node name="FreeplayBGdad" type="Sprite2D" parent="freeplayMain"]
 z_index = -5
 position = Vector2(960, 360)
 scale = Vector2(1.398, 1.398)
 texture = ExtResource("3_i52rs")
 
-[node name="sortedLetters" type="Node2D" parent="."]
+[node name="sortedLetters" type="Node2D" parent="freeplayMain"]
 z_index = 100
 position = Vector2(593, 69)
 
-[node name="LettersClip" type="Control" parent="sortedLetters"]
+[node name="LettersClip" type="Control" parent="freeplayMain/sortedLetters"]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
@@ -425,85 +427,85 @@ offset_top = -6.0
 offset_right = 187.0
 offset_bottom = 56.0
 
-[node name="letters" type="Node2D" parent="sortedLetters/LettersClip"]
+[node name="letters" type="Node2D" parent="freeplayMain/sortedLetters/LettersClip"]
 position = Vector2(-4, 10)
 
-[node name="Seperator" type="Sprite2D" parent="sortedLetters/LettersClip/letters"]
+[node name="Seperator" type="Sprite2D" parent="freeplayMain/sortedLetters/LettersClip/letters"]
 position = Vector2(231, 30)
 scale = Vector2(0.67, 0.65)
 texture = ExtResource("6_kl7ia")
 
-[node name="Seperator2" type="Sprite2D" parent="sortedLetters/LettersClip/letters"]
+[node name="Seperator2" type="Sprite2D" parent="freeplayMain/sortedLetters/LettersClip/letters"]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
 position = Vector2(151, 30)
 scale = Vector2(0.67, 0.65)
 texture = ExtResource("6_kl7ia")
 
-[node name="Seperator3" type="Sprite2D" parent="sortedLetters/LettersClip/letters"]
+[node name="Seperator3" type="Sprite2D" parent="freeplayMain/sortedLetters/LettersClip/letters"]
 modulate = Color(0.454524, 0.454524, 0.454524, 1)
 position = Vector2(71, 30)
 scale = Vector2(0.67, 0.65)
 texture = ExtResource("6_kl7ia")
 
-[node name="Seperator4" type="Sprite2D" parent="sortedLetters/LettersClip/letters"]
+[node name="Seperator4" type="Sprite2D" parent="freeplayMain/sortedLetters/LettersClip/letters"]
 modulate = Color(0.646029, 0.646029, 0.646029, 1)
 position = Vector2(311, 30)
 scale = Vector2(0.67, 0.65)
 texture = ExtResource("6_kl7ia")
 
-[node name="all" type="Sprite2D" parent="sortedLetters/LettersClip/letters"]
+[node name="all" type="Sprite2D" parent="freeplayMain/sortedLetters/LettersClip/letters"]
 position = Vector2(184, 24)
 scale = Vector2(0.73, 0.73)
 texture = ExtResource("4_r28tr")
 
-[node name="fav" type="Sprite2D" parent="sortedLetters/LettersClip/letters"]
+[node name="fav" type="Sprite2D" parent="freeplayMain/sortedLetters/LettersClip/letters"]
 modulate = Color(0.817521, 0.817521, 0.817521, 1)
 position = Vector2(109, 27)
 scale = Vector2(0.58, 0.58)
 texture = ExtResource("6_akk1j")
 
-[node name="#" type="Sprite2D" parent="sortedLetters/LettersClip/letters"]
+[node name="#" type="Sprite2D" parent="freeplayMain/sortedLetters/LettersClip/letters"]
 modulate = Color(0.621524, 0.621524, 0.621524, 1)
 position = Vector2(31, 26)
 scale = Vector2(0.58, 0.58)
 texture = ExtResource("7_v4bcf")
 
-[node name="ab" type="Sprite2D" parent="sortedLetters/LettersClip/letters"]
+[node name="ab" type="Sprite2D" parent="freeplayMain/sortedLetters/LettersClip/letters"]
 modulate = Color(0.815686, 0.815686, 0.815686, 1)
 position = Vector2(269, 27)
 scale = Vector2(0.58, 0.58)
 texture = ExtResource("5_nnwkh")
 
-[node name="SortingSymbolsComplete0003" type="Sprite2D" parent="sortedLetters/LettersClip/letters"]
+[node name="SortingSymbolsComplete0003" type="Sprite2D" parent="freeplayMain/sortedLetters/LettersClip/letters"]
 modulate = Color(0.619608, 0.619608, 0.619608, 1)
 position = Vector2(350, 27)
 scale = Vector2(0.58, 0.58)
 texture = ExtResource("9_elik6")
 
-[node name="MiniArrow" type="Sprite2D" parent="sortedLetters"]
+[node name="MiniArrow" type="Sprite2D" parent="freeplayMain/sortedLetters"]
 position = Vector2(195, 32)
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("10_qfyh0")
 
-[node name="MiniArrow2" type="Sprite2D" parent="sortedLetters"]
+[node name="MiniArrow2" type="Sprite2D" parent="freeplayMain/sortedLetters"]
 position = Vector2(-206, 32)
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("10_qfyh0")
 flip_h = true
 
-[node name="Screenshot-2024-11-30-21-29-45" type="Sprite2D" parent="."]
+[node name="Screenshot-2024-11-30-21-29-45" type="Sprite2D" parent="freeplayMain"]
 visible = false
 z_index = 1
 position = Vector2(640, 360)
 texture = ExtResource("4_vmawb")
 
-[node name="highscore text" type="AnimatedSprite2D" parent="."]
+[node name="highscore text" type="AnimatedSprite2D" parent="freeplayMain"]
 position = Vector2(1004, 91)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_u7b7v")
 frame_progress = 0.189348
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="freeplayMain"]
 z_index = 200
 offset_left = -34.0
 offset_top = -19.0
@@ -511,7 +513,7 @@ offset_right = 1281.0
 offset_bottom = 64.0
 color = Color(0, 0, 0, 1)
 
-[node name="text" type="Label" parent="ColorRect"]
+[node name="text" type="Label" parent="freeplayMain/ColorRect"]
 z_index = 1
 layout_mode = 0
 offset_left = 968.0
@@ -523,7 +525,7 @@ theme_override_font_sizes/font_size = 48
 text = "official ost"
 uppercase = true
 
-[node name="text v2" type="Label" parent="ColorRect"]
+[node name="text v2" type="Label" parent="freeplayMain/ColorRect"]
 z_index = 1
 layout_mode = 0
 offset_left = 44.0
@@ -534,54 +536,59 @@ theme_override_fonts/font = ExtResource("6_kipvu")
 theme_override_font_sizes/font_size = 48
 text = "FREEPLAY"
 
-[node name="selection" type="Node2D" parent="."]
+[node name="selection" type="Node2D" parent="freeplayMain"]
 z_index = 10
 position = Vector2(191, 118)
 script = ExtResource("7_f8btl")
 
-[node name="difficulty" type="AnimatedSprite2D" parent="selection"]
+[node name="difficulty" type="AnimatedSprite2D" parent="freeplayMain/selection"]
 position = Vector2(6, -3.5)
 sprite_frames = SubResource("SpriteFrames_db2rw")
 animation = &"normal"
 
-[node name="selectors" type="Node2D" parent="selection"]
+[node name="selectors" type="Node2D" parent="freeplayMain/selection"]
 position = Vector2(159, -3)
 
-[node name="selector v2" type="AnimatedSprite2D" parent="selection/selectors"]
+[node name="selector v2" type="AnimatedSprite2D" parent="freeplayMain/selection/selectors"]
 position = Vector2(-0.5, 0)
 sprite_frames = SubResource("SpriteFrames_54kws")
 frame_progress = 0.304478
 flip_h = true
 
-[node name="selector" type="AnimatedSprite2D" parent="selection/selectors"]
+[node name="selector" type="AnimatedSprite2D" parent="freeplayMain/selection/selectors"]
 position = Vector2(-305.5, 0)
 sprite_frames = SubResource("SpriteFrames_54kws")
 frame_progress = 0.491968
 
-[node name="ClearBox" type="Sprite2D" parent="."]
+[node name="ClearBox" type="Sprite2D" parent="freeplayMain"]
 position = Vector2(1216.5, 90)
 texture = ExtResource("56_eciae")
 
-[node name="scoreDisplay" type="Node2D" parent="."]
+[node name="scoreDisplay" type="Node2D" parent="freeplayMain"]
 position = Vector2(947.5, 158.5)
 script = ExtResource("58_co6ng")
 
-[node name="album" type="Node2D" parent="."]
+[node name="album" type="Node2D" parent="freeplayMain"]
 position = Vector2(1152, 494)
 
-[node name="albumAnimate" type="AnimationPlayer" parent="album"]
+[node name="albumAnimate" type="AnimationPlayer" parent="freeplayMain/album"]
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_wg3hb")
 }
 
-[node name="album" type="Sprite2D" parent="album"]
+[node name="album" type="Sprite2D" parent="freeplayMain/album"]
 z_index = -5
 position = Vector2(-70, -81)
 rotation = 0.179769
 texture = ExtResource("63_45d1d")
 
-[node name="text" type="Sprite2D" parent="album"]
+[node name="text" type="Sprite2D" parent="freeplayMain/album"]
 position = Vector2(-110, 72.5)
 texture = ExtResource("64_bfxpk")
 hframes = 2
+
+[node name="freeplayBF" parent="freeplayMain" instance=ExtResource("65_v4bcf")]
+z_index = 9
+position = Vector2(36, 308)
+scale = Vector2(0.5, 0.5)

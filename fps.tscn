@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://2psvsy2l7lbm" path="res://scripts/fpsCounter.gd" id="2_o3rug"]
 
 [node name="fps" type="CanvasLayer"]
+layer = 100
 
 [node name="fpsCounter" type="RichTextLabel" parent="."]
 offset_left = 10.0

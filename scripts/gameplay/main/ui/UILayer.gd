@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var enemyStrum = 0
 @onready var zoomBop = 1
 @onready var lastBeat = 0
+@onready var checkMaterial = false
 func _ready() -> void:
 	for i in 4:
 		strumID = i - 1
@@ -16,6 +17,8 @@ func _ready() -> void:
 		add_child(strumScene.instantiate())
 	enemyStrum = 0
 func _process(delta: float) -> void:
+	if not checkMaterial:
+		$HealthBar/iconz.material = get_parent().material
 	if $Conductor.currBeat != lastBeat:
 		scale.x += 0.005
 		scale.y += 0.005

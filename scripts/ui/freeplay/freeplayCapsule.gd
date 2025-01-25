@@ -44,14 +44,17 @@ func loadJsonData(filePath: String):
 
 
 
-
+var loadedSong = load("res://assets/songs/" + str(songID) + "/" + "Inst.ogg") if IDCapsule != null else load("res://assets/music/freeplayRandom.ogg")
 func ifSelected(id):
 	if not id == null:
 		if (id - selected == 1):
+			MasterVars.songName = songID
 			$capsuleBase/lcdScreenBacking.play("default")
 			if Input.is_action_pressed("confirm"):
 				selectedSong()
 			if setFrames == false:
+				get_parent().get_node("musicFreeplay").stream = loadedSong
+				get_parent().get_node("musicFreeplay").play()
 				$capsuleBase/rank.set_frame(0)
 				setFrames = true
 			$capsuleBase/glow.modulate.a = 1
@@ -90,9 +93,9 @@ func ifSelected(id):
 
 
 func selectedSong():
-	MasterVars.songName = songID
 	MasterVars.BPMGLOBAL = metaDATACAPSULE["timeChanges"][0]["bpm"]
 	get_tree().change_scene_to_file("res://scenes/playScene.tscn")
+	get_parent().get_parent().queue_free()	
 
 
 
@@ -134,6 +137,7 @@ func loadMetaData():
 				metaDATACAPSULE = loadJsonData("res://assets/data/songs/" + str(songID) + "/" + str(songID) + "-metadata-" + str(MasterVars.songType) + ".json")
 			else: metaDATACAPSULE = baseSongMetaData
 		else: metaDATACAPSULE = baseSongMetaData
+		loadedSong = load("res://assets/songs/" + str(songID) + "/" + "Inst.ogg")
 		loadedMetaData = true
 		$capsuleBase/TextContainer/songName.text = metaDATACAPSULE["songName"]
 

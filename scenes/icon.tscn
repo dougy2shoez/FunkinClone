@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dwvifjwfkb2y7"]
+[gd_scene load_steps=26 format=3 uid="uid://dwvifjwfkb2y7"]
 
 [ext_resource type="Script" uid="uid://731h64osd1vc" path="res://scripts/gameplay/main/ui/iconAnimate.gd" id="1_b21pt"]
 [ext_resource type="Texture2D" uid="uid://dmiqhgjgkwdiu" path="res://assets/images/icons/icon-bf.png" id="1_mkfmh"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://iyl7hg6e540t" path="res://assets/images/icons/icon-darnell.png" id="3_oe4ec"]
 [ext_resource type="Texture2D" uid="uid://bybhgypjlqxpp" path="res://assets/images/icons/icon-pico.png" id="4_sw631"]
 [ext_resource type="Texture2D" uid="uid://cijakg4rnlw5m" path="res://assets/images/icons/icon-face.png" id="5_d000p"]
+[ext_resource type="Texture2D" uid="uid://cm0val0r7upgs" path="res://assets/images/icons/icon-monster.png" id="6_8718u"]
+[ext_resource type="Texture2D" uid="uid://dejfncwh4ejne" path="res://assets/images/icons/icon-mom.png" id="6_efco6"]
 [ext_resource type="Texture2D" uid="uid://dksbemtm52fs7" path="res://assets/images/icons/icon-tankman.png" id="6_q23jy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vka3"]
@@ -34,6 +36,22 @@ region = Rect2(0, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_efco6"]
 atlas = ExtResource("5_d000p")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u27ij"]
+atlas = ExtResource("6_efco6")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2abp"]
+atlas = ExtResource("6_efco6")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ospag"]
+atlas = ExtResource("6_8718u")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igjsd"]
+atlas = ExtResource("6_8718u")
 region = Rect2(150, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eovdk"]
@@ -67,6 +85,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7vka3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlnpp")
+}],
+"loop": true,
+"name": &"bf-car",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vka3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlnpp")
+}],
+"loop": true,
+"name": &"bf-christmas",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_nrbi6")
 }, {
 "duration": 1.0,
@@ -96,6 +136,50 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u27ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2abp")
+}],
+"loop": true,
+"name": &"mom",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u27ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2abp")
+}],
+"loop": true,
+"name": &"mom-car",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ospag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igjsd")
+}],
+"loop": true,
+"name": &"monster",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ospag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igjsd")
+}],
+"loop": true,
+"name": &"monster-christmas",
 "speed": 0.0
 }, {
 "frames": [{
@@ -136,5 +220,6 @@ animations = [{
 script = ExtResource("1_b21pt")
 
 [node name="animate" type="AnimatedSprite2D" parent="."]
-position = Vector2(17, 0)
+position = Vector2(-9, 0)
 sprite_frames = SubResource("SpriteFrames_60x12")
+animation = &"mom"

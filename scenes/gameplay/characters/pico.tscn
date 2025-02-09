@@ -105,7 +105,7 @@ script = ExtResource("2_mvk03")
 [node name="animate" type="AnimatedSprite2D" parent="."]
 z_index = 1000
 use_parent_material = true
-position = Vector2(19, -279)
+position = Vector2(19, -267)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8a51i")
 animation = &"idle"

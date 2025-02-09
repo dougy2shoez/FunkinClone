@@ -18,6 +18,8 @@ var cameraY
 var elementData
 var stageScene
 var packedStage
+var hueChangeAll = true
+var hueChange: Dictionary = {}
 var stageChildren
 func loadStage(StageName: String):
 	print("res://assets/data/stages/" + str(StageName) + ".json")
@@ -25,11 +27,19 @@ func loadStage(StageName: String):
 	stageScene = load("assets/" + stageData["directory"] + "/" + str(StageName) + ".tscn")
 	add_child(stageScene.instantiate())
 	if stageData.has("shaderParam"):
+		print(stageData["shaderParam"])
 		material.set_shader_parameter("hue", stageData["shaderParam"][0])
 		material.set_shader_parameter("saturation", stageData["shaderParam"][1])
 		material.set_shader_parameter("brightness", stageData["shaderParam"][2])
-		material.set_shader_parameter("contrast", stageData["shaderParam"][2])
+		material.set_shader_parameter("contrast", stageData["shaderParam"][3])
+	elif stageData.has("shaderParams"):
+		print("m")
+		hueChangeAll = false
+		hueChange = stageData["shaderParams"]
+		
+		
 	else: 
+		print("no")
 		material.set_shader_parameter("hue", 0.0)
 		material.set_shader_parameter("saturation", 1.0)
 		material.set_shader_parameter("brightness", 1.0)

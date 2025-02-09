@@ -7,7 +7,7 @@ class_name Conductor
 func _ready() -> void:
 	pass
 var BPMGLOBAL = MasterVars.BPMGLOBAL
-@export var scrollSpeed = .55
+@export var scrollSpeed = 0.75
 @export var conductorPostion: float = (((60 / BPMGLOBAL) * -4) * 1000)
 @export var timerCountDown = float(((60 / BPMGLOBAL) * -4) * 1000)
 @export var conductorCount = 0
@@ -21,9 +21,9 @@ func loadSongFile(filePath: String):
 	if FileAccess.file_exists(filePath):
 		var dataFile = FileAccess.open(filePath, FileAccess.READ)
 		var parsedSong = JSON.parse_string(dataFile.get_as_text())
-		if parsedSong is  Dictionary: return parsedSong
-		else: print("invalid chart file, is it JSON?")
-	else: print("chart doesnt exist in specified directory!")
+		if parsedSong is 	Dictionary: return parsedSong
+		else: print("invalid json file")
+	else: print("json doesnt exist in specified directory!")
 
 func loadMetaData(filePath: String):
 	if FileAccess.file_exists(filePath):
@@ -33,9 +33,9 @@ func loadMetaData(filePath: String):
 		else: print("invalid metadata!")
 	else: print("doesnt exist in specified directory!")
 
-@onready var currBFAnim: Array = ["idle", 0]
-@onready var currDADAnim: Array = ["idle", 0]
-@onready var currGFAnim: Array = ["bop1", 0]
+@onready var currBFAnim = ["idle", 0, 1.0]
+@onready var currDADAnim = ["idle", 0, 1.0]
+@onready var currGFAnim = ["bop1", 0, 1.0]
 var timeIDCOUNT: Array[int]
 var noteIDCOUNT: Array[int]
 @onready var HP: Array[float] = [1]
@@ -47,7 +47,8 @@ var difficulty = MasterVars.currDifficult
 var hasLoadedSong = false
 var songPlayData: Array
 var songArrayData: Dictionary
-var metaDataPath
+var metaDataPath: String
+var customSingAnim: String
 var MetaData
 var ratingPos: Array[int] = [0,1]
 var rating
@@ -80,19 +81,20 @@ func _process(delta: float) -> void:
 		songArrayData = SongData["notes"][difficulty][0]
 	if conductorPostion > ((60 / BPMGLOBAL) * currBeat) * 1000 - 0: 
 		currBeat += 1
-		if currGFAnim[0] == "bop1":
-			currGFAnim[0] = "bop2"
-		else:
-			currGFAnim[0] = "bop1"
+		if currGFAnim[0] == "bop1": currGFAnim[0] = "bop2"
+		else: currGFAnim[0] = "bop1"
 	if HP[0] > 2: HP[0] = 2
 	if HP[0] < 0: HP[0] = 0
 	if timerCountDown > 0: 
 		conductorPostion += delta * 1000 * get_node("Inst").pitch_scale
 		SYNCTIMER += delta
-		if SYNCTIMER > 0.5:
-			if not snapped((conductorPostion/1000), 0.02) == snapped($Inst.get_playback_position(), 0.01):
-				conductorPostion = $Inst.get_playback_position() * 1000
-			SYNCTIMER = 0.0
+		if (1/delta) > 65:
+			if SYNCTIMER > 0.5:
+				if not snapped((conductorPostion/1000), 0.02) == snapped($Inst.get_playback_position(), 0.01):
+					conductorPostion = $Inst.get_playback_position() * 1000
+				SYNCTIMER = 0.0
+		else:
+			conductorPostion = $Inst.get_playback_position() * 1000
 	else:
 		conductorPostion =  timerCountDown 
 		timerCountDown += delta * 1000 
@@ -103,15 +105,16 @@ func _process(delta: float) -> void:
 			Score[1] += 1
 			add_child(splashScene.instantiate())
 		elif ratingPos[0] < 4: Score[1] += 1
-		else: Score[1] = 0
+		else: Score[1] = 0	
 		ratingPos[0] = 0
+	if conductorPostion > 0.1: if not $Inst.playing: get_tree().change_scene_to_file("res://scenes/resultsScene.tscn")
 	if conductorCount < songPlayData.size():
-		if conductorPostion + 1000 > songArrayData["t"]:
+		if 0 - (conductorPostion - songArrayData["t"]) / scrollSpeed < 750:
 			songArrayData = SongData["notes"][difficulty][conductorCount]
 			if songArrayData["d"] < 8:
+				if songArrayData.has("k"): customSingAnim = songArrayData["k"]
 				add_child(arrowScene.instantiate())
 			conductorCount += 1
-				
-	# Param is 5.91 for hue and 0.85 for saturation
+			
 			
 			

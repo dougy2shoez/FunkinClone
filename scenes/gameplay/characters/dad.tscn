@@ -97,12 +97,12 @@ script = ExtResource("2_jvb06")
 [node name="animate" type="AnimatedSprite2D" parent="."]
 z_index = 1000
 use_parent_material = true
-position = Vector2(233, -419)
+position = Vector2(78, -382)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_1fsi3")
 animation = &"idle"
 frame_progress = 0.0783352
 
 [node name="cameraPos" type="Marker2D" parent="."]
-position = Vector2(4, -70)
+position = Vector2(4, -55)
 gizmo_extents = 56.5

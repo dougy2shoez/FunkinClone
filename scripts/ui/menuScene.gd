@@ -16,6 +16,8 @@ extends Node2D
 @onready var createdText = false
 @onready var beatsShowText: Array = [{"text": "dougy2shoe","beat": 0, "doClear": false, "beatsWait": 4},{"text": "presents","beat": 3, "doClear": true, "beatsWait": 1},{"text": "pico","beat": 5, "doClear": false, "beatsWait": 3},{"text": "funny", "beat": 7, "doClear": true, "beatsWait": 1},{"text": "prototype", "beat": 9, "doClear": false, "beatsWait": 3},{"text": "supremer","beat": 11, "doClear": true, "beatsWait": 1},{"text": "Friday","beat": 12, "doClear": false, "beatsWait": 4},{"text": "Night","beat": 13, "doClear": false, "beatsWait": 3},{"text": "Funkin'","beat": 14, "doClear": false, "beatsWait": 2},{"text": "Clone","beat": 15, "doClear": true, "beatsWait": 1}]
 func _ready() -> void:
+	#if FileAccess.file_exists("user://funkin.res")
+	#		FileAccess.new()
 	pass
 func _process(delta: float):
 	beatTime += delta

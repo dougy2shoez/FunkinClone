@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var capsuleScene = preload("res://scenes/freeplayCapsule.tscn")
 @onready var currSelect = 1
-@onready var currCHARACTER = "bf"
 @onready var sounds: Dictionary = {"scroll": preload("res://assets/sounds/scrollMenu.ogg"), "confirm": preload("res://assets/sounds/confirmMenu.ogg")}
 @onready var IDCapsule = 0
 var difficulties: Array = ["normal","hard","erect","nightmare","easy"]
@@ -26,7 +25,7 @@ func loadCapsules():
 	killAllCapsules = false
 	var songID
 	var capsuleSpawned = false
-	IDCapsule = null # similar to base game kek
+	IDCapsule = null 
 	add_child(capsuleScene.instantiate())
 	IDCapsule = 1
 	for i in songList.size():
@@ -47,12 +46,14 @@ var songList: Array
 var baseSongMetadata
 var levelDir = DirAccess.get_files_at("res://assets/data/levels")
 func _ready() -> void:
+	if MasterVars.currCharacter == "bf": MasterVars.songType = ""
+	else: MasterVars.songType = MasterVars.currCharacter
 	for i in levelDir.size():
 		var levelData = loadJsonData("res://assets/data/levels/" + str(levelDir[i]))
 		for ia in levelData["songs"].size():
 			songList.append(levelData["songs"][ia])
 	print(songList)
-	
+	$transition.play("freeplayTransition")
 	
 	
 
@@ -76,6 +77,13 @@ var currSortSelected = 0
 var setScoreDisplay = false
 var stringScoreDisplay: String
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("decline"):
+		get_tree().change_scene_to_file("res://scenes/charSelect.tscn")
+	#if Input.is_action_just_pressed("decline"):
+	#	MasterVars.songName = "darnell"
+	#	MasterVars.songName = "bf"
+	#	get_tree().change_scene_to_file("res://scenes/playScene.tscn")
+	#	get_parent().queue_free()
 	currHiScoreSmooth += (currHiScore - currHiScoreSmooth) / (0.1 / delta)
 	var stringScoreDisplay: String
 	for x in 7: # i wrote this all in one attempt ??? i am smart lol

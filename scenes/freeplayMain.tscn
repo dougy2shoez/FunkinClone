@@ -1,7 +1,8 @@
-[gd_scene load_steps=72 format=3 uid="uid://b0k4iq7q6p25m"]
+[gd_scene load_steps=80 format=3 uid="uid://b0k4iq7q6p25m"]
 
 [ext_resource type="Script" uid="uid://dgkm8mo4wqyj0" path="res://scripts/ui/freeplay/freeplayMain.gd" id="1_vylog"]
 [ext_resource type="Texture2D" uid="uid://b6lgofg3t2ywy" path="res://assets/images/Freeplay/pinkBack.png" id="2_qumsa"]
+[ext_resource type="Script" uid="uid://qndvmdchkair" path="res://scripts/ui/freeplay/pinkBack.gd" id="3_45d1d"]
 [ext_resource type="Texture2D" uid="uid://b1481g6tdddmq" path="res://assets/images/Freeplay/freeplayBGdad.png" id="3_i52rs"]
 [ext_resource type="Texture2D" uid="uid://cbx26sgt7opou" path="res://assets/images/Freeplay/sortedLetters/Sorting Symbols Complete0001.png" id="4_r28tr"]
 [ext_resource type="Texture2D" uid="uid://dhl7103c0efpo" path="res://assets/images/Freeplay/screenshot-2024-11-30-21-29-45.png" id="4_vmawb"]
@@ -65,56 +66,316 @@
 [ext_resource type="Texture2D" uid="uid://br7h5uedch0ck" path="res://assets/images/Freeplay/albumRoll/volume1.png" id="63_45d1d"]
 [ext_resource type="Texture2D" uid="uid://7lnt6f30gw88" path="res://assets/images/Freeplay/albumRoll/volume1-text.png" id="64_bfxpk"]
 [ext_resource type="PackedScene" uid="uid://lgoitka0jn00" path="res://scenes/ui/freeplay/DJ/bf.tscn" id="65_v4bcf"]
+[ext_resource type="Texture2D" uid="uid://bppuqq0bayxe" path="res://assets/images/Freeplay/cardGlow.png" id="67_45d1d"]
+[ext_resource type="Texture2D" uid="uid://vai3hb3madsc" path="res://assets/images/Freeplay/icons/picopixel/confirm0001.png" id="67_qfyh0"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_u7b7v"]
-animations = [{
-"frames": [{
-"duration": 400.0,
-"texture": ExtResource("5_onrjx")
-}, {
-"duration": 2.0,
-"texture": ExtResource("6_xhuce")
-}, {
-"duration": 2.0,
-"texture": ExtResource("7_plix0")
-}, {
-"duration": 2.0,
-"texture": ExtResource("8_1wpmf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_c6ab2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_c6ab2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_go3d4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_124is")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_8d6ma")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_i15at")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_yhi1e")
-}, {
-"duration": 2.0,
-"texture": ExtResource("16_x1cby")
-}, {
-"duration": 2.0,
-"texture": ExtResource("17_jeqlu")
-}, {
-"duration": 2.0,
-"texture": ExtResource("18_jcyph")
-}],
-"loop": true,
-"name": &"default",
-"speed": 24.0
+[sub_resource type="Animation" id="Animation_elik6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FreeplayBGdad:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../FreeplayBGdad:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(254, 360)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ColorRect:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-34, -19)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CardGlow:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../selection/selectors:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../selection/difficulty:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, -3.5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../sortedLetters:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../scoreDisplay:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../album/albumAnimate:current_animation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../album:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_v4bcf"]
+resource_name = "freeplayTransition"
+length = 2.00001
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FreeplayBGdad:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1),
+"transitions": PackedFloat32Array(0.3, 0.63728, 1),
+"update": 0,
+"values": [Vector2(1855, 360), Vector2(960, 360), Vector2(960, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../FreeplayBGdad:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.708333, 0.972876, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1),
+"transitions": PackedFloat32Array(0.3, 1, 1),
+"update": 0,
+"values": [Vector2(-266, 360), Vector2(254, 360), Vector2(254, 360)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ColorRect:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.666667),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector2(-34, -87), Vector2(-34, -19)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"loadCapsules"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../CardGlow:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.958333, 1, 1.20833),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../selection/selectors:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../selection/difficulty:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.958333, 1, 1.75),
+"transitions": PackedFloat32Array(1, 1, 0.25, 1),
+"update": 0,
+"values": [Vector2(-344.855, -3.5), Vector2(-347.568, -3.5), Vector2(-350, -3.5), Vector2(6, -3.5)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../sortedLetters:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../scoreDisplay:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../album/albumAnimate:current_animation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.998245, 1.91667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"roll in", &"RESET"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../album:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.958333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"startModulateColor"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfyh0"]
+_data = {
+&"RESET": SubResource("Animation_elik6"),
+&"freeplayTransition": SubResource("Animation_v4bcf")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_elik6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_db2rw"]
 animations = [{
@@ -254,6 +515,56 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_u7b7v"]
+animations = [{
+"frames": [{
+"duration": 400.0,
+"texture": ExtResource("5_onrjx")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_xhuce")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_plix0")
+}, {
+"duration": 2.0,
+"texture": ExtResource("8_1wpmf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c6ab2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c6ab2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_go3d4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_124is")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8d6ma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_i15at")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_yhi1e")
+}, {
+"duration": 2.0,
+"texture": ExtResource("16_x1cby")
+}, {
+"duration": 2.0,
+"texture": ExtResource("17_jeqlu")
+}, {
+"duration": 2.0,
+"texture": ExtResource("18_jcyph")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
 [sub_resource type="Animation" id="Animation_voc27"]
 length = 0.001
 tracks/0/type = "value"
@@ -387,14 +698,23 @@ _data = {
 &"roll in": SubResource("Animation_v76kt")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bfxpk"]
+blend_mode = 1
+
 [node name="freeplayMain" type="CanvasLayer"]
 metadata/_edit_horizontal_guides_ = [-1504.0]
 
 [node name="freeplayMain" type="Node2D" parent="."]
 script = ExtResource("1_vylog")
+metadata/currDJAnim = "Boyfriend DJ"
+
+[node name="transition" type="AnimationPlayer" parent="freeplayMain"]
+root_node = NodePath("../PinkBack")
+libraries = {
+&"": SubResource("AnimationLibrary_qfyh0")
+}
 
 [node name="soundsFreeplay" type="AudioStreamPlayer" parent="freeplayMain"]
-volume_db = -5.0
 mix_target = 2
 max_polyphony = 7
 
@@ -403,13 +723,15 @@ volume_db = -10.0
 mix_target = 2
 
 [node name="PinkBack" type="Sprite2D" parent="freeplayMain"]
-modulate = Color(1, 0.847059, 0.388235, 1)
+modulate = Color(1, 0.831373, 0.913725, 1)
 texture_repeat = 2
 position = Vector2(254, 360)
 texture = ExtResource("2_qumsa")
+script = ExtResource("3_45d1d")
 
 [node name="FreeplayBGdad" type="Sprite2D" parent="freeplayMain"]
 z_index = -5
+material = SubResource("CanvasItemMaterial_elik6")
 position = Vector2(960, 360)
 scale = Vector2(1.398, 1.398)
 texture = ExtResource("3_i52rs")
@@ -499,12 +821,6 @@ z_index = 1
 position = Vector2(640, 360)
 texture = ExtResource("4_vmawb")
 
-[node name="highscore text" type="AnimatedSprite2D" parent="freeplayMain"]
-position = Vector2(1004, 91)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_u7b7v")
-frame_progress = 0.189348
-
 [node name="ColorRect" type="ColorRect" parent="freeplayMain"]
 z_index = 200
 offset_left = -34.0
@@ -547,6 +863,7 @@ sprite_frames = SubResource("SpriteFrames_db2rw")
 animation = &"normal"
 
 [node name="selectors" type="Node2D" parent="freeplayMain/selection"]
+visible = false
 position = Vector2(159, -3)
 
 [node name="selector v2" type="AnimatedSprite2D" parent="freeplayMain/selection/selectors"]
@@ -560,13 +877,19 @@ position = Vector2(-305.5, 0)
 sprite_frames = SubResource("SpriteFrames_54kws")
 frame_progress = 0.491968
 
-[node name="ClearBox" type="Sprite2D" parent="freeplayMain"]
-position = Vector2(1216.5, 90)
-texture = ExtResource("56_eciae")
-
 [node name="scoreDisplay" type="Node2D" parent="freeplayMain"]
 position = Vector2(947.5, 158.5)
 script = ExtResource("58_co6ng")
+
+[node name="highscore text" type="AnimatedSprite2D" parent="freeplayMain/scoreDisplay"]
+position = Vector2(56.5, -67.5)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_u7b7v")
+frame_progress = 0.189348
+
+[node name="ClearBox" type="Sprite2D" parent="freeplayMain/scoreDisplay"]
+position = Vector2(269, -68.5)
+texture = ExtResource("56_eciae")
 
 [node name="album" type="Node2D" parent="freeplayMain"]
 position = Vector2(1152, 494)
@@ -592,3 +915,21 @@ hframes = 2
 z_index = 9
 position = Vector2(36, 308)
 scale = Vector2(0.5, 0.5)
+
+[node name="CardGlow" type="Sprite2D" parent="freeplayMain"]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("CanvasItemMaterial_bfxpk")
+position = Vector2(244, 374)
+texture = ExtResource("67_45d1d")
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+initial_position = 2
+size = Vector2i(150, 44)
+hide_on_checkable_item_selection = false
+submenu_popup_delay = 1.0
+item_count = 1
+item_0/text = "Pico Mix?"
+item_0/icon = ExtResource("67_qfyh0")
+item_0/checkable = 1
+item_0/checked = true
+item_0/id = 0

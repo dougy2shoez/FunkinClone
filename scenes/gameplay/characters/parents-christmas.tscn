@@ -1,25 +1,36 @@
-[gd_scene load_steps=23 format=3 uid="uid://ch0i2t8mdycjh"]
+[gd_scene load_steps=34 format=3 uid="uid://ch0i2t8mdycjh"]
 
-[ext_resource type="Shader" path="res://scenes/playScene.gdshader" id="1_hablw"]
-[ext_resource type="Script" path="res://scripts/gameplay/main/element/dad.gd" id="2_85tmu"]
-[ext_resource type="Texture2D" uid="uid://dyitwpjypkta2" path="res://assets/images/characters/parents/christmas/momDad0001.png" id="3_2vaxe"]
-[ext_resource type="Texture2D" uid="uid://b3m4yfjnfcfhg" path="res://assets/images/characters/parents/christmas/momDad0002.png" id="4_t0jwb"]
-[ext_resource type="Texture2D" uid="uid://cy2i0s202yy65" path="res://assets/images/characters/parents/christmas/momDad0003.png" id="5_8ofk0"]
-[ext_resource type="Texture2D" uid="uid://dqgn6m8yhwxgw" path="res://assets/images/characters/parents/christmas/momDad0004.png" id="6_3ngui"]
-[ext_resource type="Texture2D" uid="uid://dwhsk8w0i82a3" path="res://assets/images/characters/parents/christmas/momDad0005.png" id="7_ie76k"]
-[ext_resource type="Texture2D" uid="uid://1m23ploq4jdl" path="res://assets/images/characters/parents/christmas/momDad0006.png" id="8_7fdpl"]
-[ext_resource type="Texture2D" uid="uid://c07suqnxd1o8p" path="res://assets/images/characters/parents/christmas/momDad0019.png" id="9_tfmjr"]
-[ext_resource type="Texture2D" uid="uid://bm1epiekdbqed" path="res://assets/images/characters/parents/christmas/momDad0020.png" id="10_u3lt5"]
-[ext_resource type="Texture2D" uid="uid://cvvpcedwdv1mf" path="res://assets/images/characters/parents/christmas/momDad0021.png" id="11_abit2"]
-[ext_resource type="Texture2D" uid="uid://csoa6fjpnkquf" path="res://assets/images/characters/parents/christmas/momDad0025.png" id="12_fyby4"]
-[ext_resource type="Texture2D" uid="uid://jd5x0vpsktsh" path="res://assets/images/characters/parents/christmas/momDad0026.png" id="13_1oxn6"]
-[ext_resource type="Texture2D" uid="uid://btd1stdqe4gyf" path="res://assets/images/characters/parents/christmas/momDad0027.png" id="14_ley5v"]
-[ext_resource type="Texture2D" uid="uid://2vxfe7n0plkg" path="res://assets/images/characters/parents/christmas/momDad0007.png" id="15_iv4qh"]
-[ext_resource type="Texture2D" uid="uid://c7xou7vrhqxov" path="res://assets/images/characters/parents/christmas/momDad0008.png" id="16_2xot7"]
-[ext_resource type="Texture2D" uid="uid://cypkm211jjbrh" path="res://assets/images/characters/parents/christmas/momDad0009.png" id="17_xnydp"]
-[ext_resource type="Texture2D" uid="uid://dc3ymyvkw0u2q" path="res://assets/images/characters/parents/christmas/momDad0013.png" id="18_n7aj0"]
-[ext_resource type="Texture2D" uid="uid://d0j405cik876r" path="res://assets/images/characters/parents/christmas/momDad0014.png" id="19_qpjkq"]
-[ext_resource type="Texture2D" uid="uid://m8lf1ih6x403" path="res://assets/images/characters/parents/christmas/momDad0015.png" id="20_co3q0"]
+[ext_resource type="Shader" uid="uid://dhx8cmvi3ln8r" path="res://scenes/playScene.gdshader" id="1_hablw"]
+[ext_resource type="Script" uid="uid://c1yocjykvr0qn" path="res://scripts/gameplay/main/element/dad.gd" id="2_85tmu"]
+[ext_resource type="Texture2D" uid="uid://djkniuaonxx0c" path="res://assets/images/characters/parents/christmas/momDad0001.png" id="3_2vaxe"]
+[ext_resource type="Texture2D" uid="uid://cvh0pwq3day56" path="res://assets/images/characters/parents/christmas/momDad0002.png" id="4_t0jwb"]
+[ext_resource type="Texture2D" uid="uid://c2e4euqdk4equ" path="res://assets/images/characters/parents/christmas/momDad0003.png" id="5_8ofk0"]
+[ext_resource type="Texture2D" uid="uid://20nnypsntfoc" path="res://assets/images/characters/parents/christmas/momDad0004.png" id="6_3ngui"]
+[ext_resource type="Texture2D" uid="uid://cu3lm2yxh6q4t" path="res://assets/images/characters/parents/christmas/momDad0005.png" id="7_ie76k"]
+[ext_resource type="Texture2D" uid="uid://b1y0o1gw3wobd" path="res://assets/images/characters/parents/christmas/momDad0006.png" id="8_7fdpl"]
+[ext_resource type="Texture2D" uid="uid://3lwthwwepvjg" path="res://assets/images/characters/parents/christmas/momDad0019.png" id="9_tfmjr"]
+[ext_resource type="Texture2D" uid="uid://b4lx53x70sorw" path="res://assets/images/characters/parents/christmas/momDad0020.png" id="10_u3lt5"]
+[ext_resource type="Texture2D" uid="uid://dmoxd7q40057" path="res://assets/images/characters/parents/christmas/momDad0021.png" id="11_abit2"]
+[ext_resource type="Texture2D" uid="uid://b8mgy8jxd2f8b" path="res://assets/images/characters/parents/christmas/momDad0025.png" id="12_fyby4"]
+[ext_resource type="Texture2D" uid="uid://bmilt7wlj5cq" path="res://assets/images/characters/parents/christmas/momDad0023.png" id="12_s7jvf"]
+[ext_resource type="Texture2D" uid="uid://c3hxpeytw4qlo" path="res://assets/images/characters/parents/christmas/momDad0026.png" id="13_1oxn6"]
+[ext_resource type="Texture2D" uid="uid://bqdlun6jktui7" path="res://assets/images/characters/parents/christmas/momDad0024.png" id="13_k4c5p"]
+[ext_resource type="Texture2D" uid="uid://da57gsyyrn0nm" path="res://assets/images/characters/parents/christmas/momDad0027.png" id="14_ley5v"]
+[ext_resource type="Texture2D" uid="uid://e50hylxaoyny" path="res://assets/images/characters/parents/christmas/momDad0007.png" id="15_iv4qh"]
+[ext_resource type="Texture2D" uid="uid://ukhpl6txk8h1" path="res://assets/images/characters/parents/christmas/momDad0008.png" id="16_2xot7"]
+[ext_resource type="Texture2D" uid="uid://bb27qm5j14okk" path="res://assets/images/characters/parents/christmas/momDad0028.png" id="17_lswcj"]
+[ext_resource type="Texture2D" uid="uid://b2i4kx3rhe354" path="res://assets/images/characters/parents/christmas/momDad0009.png" id="17_xnydp"]
+[ext_resource type="Texture2D" uid="uid://cpiywfdcytfsa" path="res://assets/images/characters/parents/christmas/momDad0013.png" id="18_n7aj0"]
+[ext_resource type="Texture2D" uid="uid://ded2t700a0ldh" path="res://assets/images/characters/parents/christmas/momDad0029.png" id="18_xyipj"]
+[ext_resource type="Texture2D" uid="uid://b6lh88ktg3tdt" path="res://assets/images/characters/parents/christmas/momDad0030.png" id="19_k7tht"]
+[ext_resource type="Texture2D" uid="uid://d6xno1g81otj" path="res://assets/images/characters/parents/christmas/momDad0014.png" id="19_qpjkq"]
+[ext_resource type="Texture2D" uid="uid://mrpamof1bh1s" path="res://assets/images/characters/parents/christmas/momDad0015.png" id="20_co3q0"]
+[ext_resource type="Texture2D" uid="uid://7s5xuday1vgt" path="res://assets/images/characters/parents/christmas/momDad0010.png" id="23_ot406"]
+[ext_resource type="Texture2D" uid="uid://dbsxjppr025wu" path="res://assets/images/characters/parents/christmas/momDad0011.png" id="24_yifk8"]
+[ext_resource type="Texture2D" uid="uid://u1qs73jqumqj" path="res://assets/images/characters/parents/christmas/momDad0012.png" id="25_a4avd"]
+[ext_resource type="Texture2D" uid="uid://1ubao65d7efw" path="res://assets/images/characters/parents/christmas/momDad0016.png" id="29_glrxl"]
+[ext_resource type="Texture2D" uid="uid://ceobq7pihuswp" path="res://assets/images/characters/parents/christmas/momDad0017.png" id="30_kkc42"]
+[ext_resource type="Texture2D" uid="uid://2ha458yrj8nr" path="res://assets/images/characters/parents/christmas/momDad0018.png" id="31_fnhmg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_76gk8"]
 shader = ExtResource("1_hablw")
@@ -69,6 +80,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("12_s7jvf")
+}, {
+"duration": 10000.0,
+"texture": ExtResource("13_k4c5p")
+}],
+"loop": true,
+"name": &"singDOWN-mom",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("12_fyby4")
 }, {
 "duration": 1.0,
@@ -79,6 +101,20 @@ animations = [{
 }],
 "loop": false,
 "name": &"singLEFT",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_lswcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_xyipj")
+}, {
+"duration": 1000.0,
+"texture": ExtResource("19_k7tht")
+}],
+"loop": false,
+"name": &"singLEFT-mom",
 "speed": 12.0
 }, {
 "frames": [{
@@ -97,6 +133,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("23_ot406")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_yifk8")
+}, {
+"duration": 100000.0,
+"texture": ExtResource("25_a4avd")
+}],
+"loop": false,
+"name": &"singRIGHT-mom",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("18_n7aj0")
 }, {
 "duration": 1.0,
@@ -108,6 +158,20 @@ animations = [{
 "loop": false,
 "name": &"singUP",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_glrxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_kkc42")
+}, {
+"duration": 10000.0,
+"texture": ExtResource("31_fnhmg")
+}],
+"loop": false,
+"name": &"singUP-mom",
+"speed": 12.0
 }]
 
 [node name="dad" type="Node2D"]
@@ -115,14 +179,14 @@ material = SubResource("ShaderMaterial_76gk8")
 use_parent_material = true
 script = ExtResource("2_85tmu")
 
-[node name="santa" type="Node2D" parent="."]
-position = Vector2(-37, -354)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="santa"]
-
 [node name="animate" type="AnimatedSprite2D" parent="."]
 z_index = 1000
 use_parent_material = true
-position = Vector2(-37, -354)
+position = Vector2(111, -356)
 sprite_frames = SubResource("SpriteFrames_1fsi3")
-animation = &"idle"
+animation = &"singUP-mom"
+frame_progress = 0.0770984
+
+[node name="cameraPos" type="Marker2D" parent="."]
+position = Vector2(0, -6)
+gizmo_extents = 56.5

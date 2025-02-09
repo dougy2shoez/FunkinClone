@@ -241,7 +241,7 @@ script = ExtResource("1_ht34o")
 max_polyphony = 15
 
 [node name="musicMenu" type="AudioStreamPlayer" parent="."]
-volume_db = -39.694
+volume_db = -35.946
 autoplay = true
 script = ExtResource("1_axhip")
 
@@ -278,7 +278,8 @@ script = ExtResource("55_uqgvj")
 
 [node name="Gradient" type="Sprite2D" parent="."]
 z_index = 50
-position = Vector2(640, 223)
+position = Vector2(376.25, 223)
+scale = Vector2(2.34784, 1)
 texture = ExtResource("55_7p4ut")
 script = ExtResource("56_5by4q")
 
@@ -292,7 +293,7 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("58_oc0ek")
 
 [node name="menuCam" type="Camera2D" parent="."]
-position = Vector2(640, 288)
+offset = Vector2(640, 360)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 drag_vertical_offset = 1.0

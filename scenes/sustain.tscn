@@ -93,7 +93,7 @@ offset_bottom = 1511.0
 script = ExtResource("1_gqqo7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Sustain"]
-position = Vector2(1233.9, 32)
-scale = Vector2(1.3, 1.3)
+position = Vector2(1229.61, 32)
+scale = Vector2(1.4, 1.4)
 sprite_frames = SubResource("SpriteFrames_4ewsy")
 animation = &"3_hold"

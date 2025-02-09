@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://dtq6h3yi6uq3r"]
+[gd_scene load_steps=46 format=3 uid="uid://dtq6h3yi6uq3r"]
 
+[ext_resource type="Texture2D" uid="uid://btayqyvrkyf60" path="res://assets/images/charSelect/placement.png" id="1_55mif"]
 [ext_resource type="AudioStream" uid="uid://1ejmdbdd588" path="res://assets/music/stayFunky/stayFunky.ogg" id="1_bo3j6"]
 [ext_resource type="Texture2D" uid="uid://btdj4uq82gvho" path="res://assets/images/charSelect/stageLight0001.png" id="1_njovc"]
 [ext_resource type="Texture2D" uid="uid://bmrnwcn21krrr" path="res://assets/images/charSelect/bg touched up0001.png" id="1_ujdnh"]
@@ -9,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://lcr4t32ch22k" path="res://assets/images/charSelect/crowd/crowd0002.png" id="4_g1v06"]
 [ext_resource type="Texture2D" uid="uid://dowdhqd2lj7dy" path="res://assets/images/charSelect/crowd/crowd0003.png" id="5_12biy"]
 [ext_resource type="Texture2D" uid="uid://c18kn4dydw85c" path="res://assets/images/charSelect/crowd/crowd0004.png" id="6_w2d1u"]
-[ext_resource type="Texture2D" uid="uid://bk2i5cildgnd" path="res://ref/Screenshot 2025-01-21 160345.png" id="7_qg3pe"]
 [ext_resource type="Texture2D" uid="uid://gsofoiooh300" path="res://assets/images/charSelect/stage.png" id="8_ujdnh"]
 [ext_resource type="Texture2D" uid="uid://bvxa73uw22ccr" path="res://assets/images/charSelect/speakers/Speakers ALL0001.png" id="11_g118o"]
 [ext_resource type="Texture2D" uid="uid://or5m35063anw" path="res://assets/images/charSelect/speakers/Speakers ALL0002.png" id="12_hbejd"]
@@ -17,9 +17,25 @@
 [ext_resource type="Texture2D" uid="uid://wxlm45km126" path="res://assets/images/charSelect/speakers/Speakers ALL0004.png" id="14_os600"]
 [ext_resource type="Texture2D" uid="uid://64838ilcyokl" path="res://assets/images/charSelect/curtains.png" id="15_oslcb"]
 [ext_resource type="Texture2D" uid="uid://cbtwr06vxej1l" path="res://assets/images/charSelect/bar/bar0001.png" id="17_os600"]
+[ext_resource type="Texture2D" uid="uid://btj6ay45k40tg" path="res://assets/images/charSelect/charSelector.png" id="17_tj5r2"]
+[ext_resource type="Script" uid="uid://dwv3clgo8aefg" path="res://scripts/ui/charSelect/cursor.gd" id="18_18ye4"]
 [ext_resource type="Texture2D" uid="uid://bj5si5n3n64u2" path="res://assets/images/charSelect/bar/bar0002.png" id="18_oslcb"]
 [ext_resource type="Texture2D" uid="uid://cxxuh0mfonfkm" path="res://assets/images/charSelect/bar/bar0003.png" id="19_oqk14"]
+[ext_resource type="Shader" path="res://assets/shaders/blend.gdshader" id="19_u8jpj"]
+[ext_resource type="Script" path="res://scenes/iconPlacement.gd" id="20_tj5r2"]
 [ext_resource type="Texture2D" uid="uid://cyp2fgdlv6iu8" path="res://assets/images/charSelect/bar/bar0004.png" id="20_tr6ou"]
+[ext_resource type="Texture2D" uid="uid://q8n5jjs5j1h2" path="res://assets/images/charSelect/chooseDipshit.png" id="21_yla0d"]
+[ext_resource type="Texture2D" uid="uid://bgtjc5c57oxo2" path="res://assets/images/charSelect/dipshitBacking/CHOOSE horizontal offset instance 1/CHOOSE horizontal offset instance 10019.png" id="22_hu716"]
+[ext_resource type="Texture2D" uid="uid://cc3ks8inx0xbu" path="res://assets/images/charSelect/dipshitBacking/CHOOSE horizontal offset instance 1/CHOOSE horizontal offset instance 10000.png" id="23_bj43a"]
+[ext_resource type="Texture2D" uid="uid://bsk5pefxvltdx" path="res://assets/images/charSelect/dipshitBacking/CHOOSE horizontal offset instance 1/CHOOSE horizontal offset instance 10001.png" id="24_0rt6i"]
+[ext_resource type="Texture2D" uid="uid://cny1cgnvnfsa4" path="res://assets/images/charSelect/dipshitBlur/CHOOSE vertical offset instance 1/CHOOSE vertical offset instance 10000.png" id="25_ck3i8"]
+[ext_resource type="Texture2D" uid="uid://dybd08avofgpm" path="res://assets/images/charSelect/dipshitBlur/CHOOSE vertical offset instance 1/CHOOSE vertical offset instance 10001.png" id="26_xsvk7"]
+[ext_resource type="Texture2D" uid="uid://3cb524e243dp" path="res://assets/images/charSelect/dipshitBlur/CHOOSE vertical offset instance 1/CHOOSE vertical offset instance 10002.png" id="27_7usi4"]
+[ext_resource type="Texture2D" uid="uid://cxha3rggydf6a" path="res://assets/images/charSelect/dipshitBlur/CHOOSE vertical offset instance 1/CHOOSE vertical offset instance 10003.png" id="28_ouxvc"]
+[ext_resource type="Texture2D" uid="uid://c0alsiamn80r4" path="res://assets/images/charSelect/dipshitBlur/CHOOSE vertical offset instance 1/CHOOSE vertical offset instance 10004.png" id="29_7on8l"]
+[ext_resource type="Texture2D" uid="uid://b2fnc5e2ef1dq" path="res://assets/images/charSelect/dipshitBlur/CHOOSE vertical offset instance 1/CHOOSE vertical offset instance 10005.png" id="30_0xhuf"]
+[ext_resource type="Texture2D" uid="uid://cny5iqdqxy188" path="res://assets/images/charSelect/dipshitBlur/CHOOSE vertical offset instance 1/CHOOSE vertical offset instance 10006.png" id="31_lx13t"]
+[ext_resource type="Texture2D" uid="uid://dk6gs3ufd36r" path="res://assets/images/charSelect/dipshitBlur/CHOOSE vertical offset instance 1/CHOOSE vertical offset instance 10007.png" id="32_8ism7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oqk14"]
 animations = [{
@@ -89,6 +105,10 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r63gk"]
+shader = ExtResource("19_u8jpj")
+shader_parameter/intensity = 1.0
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_roar1"]
 blend_mode = 3
 
@@ -112,7 +132,62 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_4j180"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_hu716")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_bj43a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_0rt6i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pligx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_ck3i8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_xsvk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_7usi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ouxvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_7on8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_0xhuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_lx13t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_8ism7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
 [node name="characterSelect" type="Node2D"]
+
+[node name="Placement" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 4)
+texture = ExtResource("1_55mif")
+centered = false
 
 [node name="stayFunky" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_bo3j6")
@@ -150,11 +225,6 @@ sprite_frames = SubResource("SpriteFrames_g118o")
 autoplay = "default"
 frame_progress = 0.466843
 
-[node name="Screenshot2025-01-21160345" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(658, 360)
-texture = ExtResource("7_qg3pe")
-
 [node name="Stage" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(657, 621)
@@ -183,9 +253,51 @@ texture = ExtResource("15_oslcb")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="cursor" type="Node2D" parent="UI"]
+position = Vector2(426, -248)
+
+[node name="back" type="Sprite2D" parent="UI/cursor"]
+modulate = Color(0.243137, 0.733333, 1, 1)
+z_index = 2
+material = SubResource("ShaderMaterial_r63gk")
+position = Vector2(30, 521)
+texture = ExtResource("17_tj5r2")
+centered = false
+
+[node name="CharSelector" type="Sprite2D" parent="UI/cursor"]
+z_index = 2
+position = Vector2(30, 521)
+texture = ExtResource("17_tj5r2")
+centered = false
+script = ExtResource("18_18ye4")
+
+[node name="iconPlacement" type="Node2D" parent="UI"]
+script = ExtResource("20_tj5r2")
+
 [node name="bar" type="AnimatedSprite2D" parent="UI"]
 material = SubResource("CanvasItemMaterial_roar1")
 position = Vector2(647, 104)
 sprite_frames = SubResource("SpriteFrames_2ma7n")
 autoplay = "default"
 frame_progress = 0.832829
+
+[node name="ChooseDipshit" type="Sprite2D" parent="UI"]
+z_index = 5
+position = Vector2(426, -11)
+texture = ExtResource("21_yla0d")
+centered = false
+
+[node name="back" type="AnimatedSprite2D" parent="UI/ChooseDipshit"]
+z_index = -1
+position = Vector2(-4, -2)
+sprite_frames = SubResource("SpriteFrames_4j180")
+autoplay = "default"
+frame_progress = 0.295854
+centered = false
+
+[node name="blur" type="AnimatedSprite2D" parent="UI/ChooseDipshit"]
+z_index = -1
+position = Vector2(198, 315)
+sprite_frames = SubResource("SpriteFrames_pligx")
+autoplay = "default"
+frame_progress = 0.0983357

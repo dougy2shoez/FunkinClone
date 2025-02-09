@@ -34,14 +34,19 @@ func calculateRating(msOff: float, rating: Array):
 	msOff = abs(msOff)
 	if  msOff < 15:
 		rating[0] = 1 
+		MasterVars.songStats["rating"]["sick"] += 1
 	elif msOff < 45:
 		rating[0] = 2
+		MasterVars.songStats["rating"]["sick"] += 1
 	elif msOff < 90:
 		rating[0] = 3
+		MasterVars.songStats["rating"]["good"] += 1
 	elif msOff < 135:
 		rating[0] = 4
+		MasterVars.songStats["rating"]["bad"] += 1
 	elif msOff < 160:
 		rating[0] = 5
+		MasterVars.songStats["rating"]["shit"] += 1
 func _process(delta: float) -> void:
 	z_index = 300
 	var conductorPosition = float(get_parent().conductorPostion)
@@ -58,7 +63,7 @@ func _process(delta: float) -> void:
 			HP = get_parent().HP
 			if songArrayData.has("l"):
 				if songArrayData["l"] > 0:
-					for i in ((songArrayData["l"] / 8)) / scrollSpeed - 1:
+					for i in ((songArrayData["l"] / 7.5)) / scrollSpeed - 1:
 						yID = i
 						stnID = noteID + 1
 						stnName = "hold"
@@ -82,24 +87,25 @@ func _process(delta: float) -> void:
 					strumAnim.childSprite.play(str(int(noteID)) + "_confirm")
 					get_parent().currSplash = noteID
 					currBFAnim[1] = 1
+					currBFAnim[2] = 1.0
 					currBFAnim[0] = ("sing" + str(dirs[noteID]))
 					if songArrayData.has("l"):
 						if songArrayData["l"] > 0:
 							strumAnim.coverSprite.play(str(int(noteID)) + "_loop")
 			if wasHit:
-				
+				if strumAnim.childSprite.animation == (str(int(noteID)) + "_confirm"): currBFAnim[2] += 2.0
 				if not oneTimeRun: 
 					if conductorPosition - timeID < 0: yTeleport = 0 - position.y
 					get_parent().playingVocalsP2 = true
-					HP[0] =  HP[0] + 0.035 - abs((conductorPosition - timeID) * 0.0004)
+					HP[0] += 0.035 - abs((conductorPosition - timeID) * 0.0004)
 					rating[1] = int(noteID)
 					calculateRating(abs(conductorPosition - timeID), get_parent().ratingPos)
 					if abs(conductorPosition - timeID) < 6: 
 						get_parent().get_parent().get_parent().get_node("info").get_node("Score2").text = "+" + str(500 + Score[1])
-						Score[0] = Score[0] + 500 + (Score[1] / 1.5)
+						Score[0] += 500 + (Score[1] / 1.5)
 					else: 
 						get_parent().get_parent().get_parent().get_node("info").get_node("Score2").text = "+" + str(519.2 - (abs(conductorPosition - timeID) * 3.2) + Score[1])
-						Score[0] = Score[0] + 519.2 - (abs(conductorPosition - timeID) * 3.2) + (Score[1] / 2)
+						Score[0] += 519.2 - (abs(conductorPosition - timeID) * 3.2) + (Score[1] / 2)
 					oneTimeRun = true
 					
 				wasHitConditionCheck = 999
@@ -115,6 +121,7 @@ func _process(delta: float) -> void:
 					strumAnim.childSprite.play(str(int(noteID)) + "_confirm")
 				if Input.is_action_just_released("" + str(int(noteID))):
 					idArray.erase(conductorCount)
+					currBFAnim[2] = 1.0
 					queue_free()
 		elif conductorPosition - timeID > 161:
 			idArray.erase(conductorCount)
@@ -125,7 +132,8 @@ func _process(delta: float) -> void:
 				get_parent().Score[1] = 0
 				if not HP[0] == 0:
 					HP[0] =  HP[0] - 0.075
-				Score[0] = Score[0] - 10
+				Score[0] -= 10
+				MasterVars.songStats["rating"]["missed"] += 1
 				get_parent().playingVocalsP2 = false
 				missAnim = true
 			if position.y < -500:
@@ -139,7 +147,7 @@ func _process(delta: float) -> void:
 			currDADAnim = get_parent().currDADAnim
 			if songArrayData.has("l"):
 				if songArrayData["l"] > 0:
-					for i in (songArrayData["l"] / 8) / scrollSpeed - 1:
+					for i in (songArrayData["l"] / 7.5) / scrollSpeed - 1:
 						yID = i
 						stnID = noteID + 1
 						stnName = "hold"
@@ -164,9 +172,14 @@ func _process(delta: float) -> void:
 			timerNoteAnim += delta
 			if songArrayData.has("l"):
 				enemyAnimTime = ((songArrayData["l"])/ 1000)
+				currDADAnim[2] = ((songArrayData["l"])/ 1000) + 1.0
 				if songArrayData["l"] > 0: strumAnim.coverSprite.play(str(int(noteID) - 4) + "_loop")
-				else: enemyAnimTime = .25
-			else: enemyAnimTime = .25
+				else: 
+					enemyAnimTime = .25
+					currDADAnim[2] = 1.0
+			else:
+				enemyAnimTime = .25
+				currDADAnim[2] = 1.0
 			if timerNoteAnim > enemyAnimTime:
 				strumAnim.childSprite.play(str(int(noteID) - 4))
 				strumAnim.coverSprite.play("blankState")

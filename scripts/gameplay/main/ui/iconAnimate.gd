@@ -10,10 +10,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	hpPos = get_parent().hpPos
 	if name == "playerIcon":
-		position.x = 85
+		position.x += (70 - position.x) / (0.115 / delta)
 		if hpPos < 0.25: $animate.set_frame(1)
 		else: $animate.set_frame(0)
 	else:
 		if hpPos > 1.75: $animate.set_frame(1)
 		else: $animate.set_frame(0)
-		position.x = -45
+		position.x += (-20 - position.x) / (0.115 / delta)

@@ -1498,8 +1498,7 @@ animations = [{
 script = ExtResource("1_bv1px")
 
 [node name="animate" type="AnimatedSprite2D" parent="."]
-z_index = 1000
-position = Vector2(-75, -219)
+position = Vector2(21, -219)
 sprite_frames = SubResource("SpriteFrames_2umrv")
 animation = &"singUP"
 frame_progress = 0.816132

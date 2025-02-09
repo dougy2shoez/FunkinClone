@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://tnd46kiwrfm7"]
+[gd_scene load_steps=17 format=3 uid="uid://tnd46kiwrfm7"]
 
 [ext_resource type="Texture2D" uid="uid://cr2arhg56fbrf" path="res://assets/images/characters/boyfriend/idle.png" id="1_0gc27"]
-[ext_resource type="Shader" uid="uid://dhx8cmvi3ln8r" path="res://scenes/playScene.gdshader" id="1_dhls8"]
 [ext_resource type="Texture2D" uid="uid://dcpulqa2re3kp" path="res://assets/images/characters/boyfriend/idle1.png" id="2_gjiu7"]
 [ext_resource type="Texture2D" uid="uid://b0cysgcie0x1p" path="res://assets/images/characters/boyfriend/idle2.png" id="3_4xiog"]
 [ext_resource type="Texture2D" uid="uid://bhuikre801npr" path="res://assets/images/characters/boyfriend/idle3.png" id="4_ybm30"]
@@ -16,12 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d1ehkq3kqgd1n" path="res://assets/images/characters/boyfriend/singUP1.png" id="13_jkyv1"]
 [ext_resource type="Script" uid="uid://dyl17s02abwi1" path="res://scripts/gameplay/main/element/bf.gd" id="14_88tgd"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b6kdf"]
-shader = ExtResource("1_dhls8")
-shader_parameter/hue = 0.0
-shader_parameter/saturation = 1.0
-shader_parameter/brightness = 1.0
-shader_parameter/contrast = 1.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2bysd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2umrv"]
 animations = [{
@@ -91,17 +85,16 @@ animations = [{
 }]
 
 [node name="bf" type="Node2D"]
-material = SubResource("ShaderMaterial_b6kdf")
+material = SubResource("ShaderMaterial_2bysd")
 script = ExtResource("14_88tgd")
 
 [node name="animate" type="AnimatedSprite2D" parent="."]
 z_index = 300
-use_parent_material = true
-position = Vector2(-54.25, -244.75)
+position = Vector2(-61, -238)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_2umrv")
 animation = &"idle"
-frame_progress = 0.0215604
+frame_progress = 0.691646
 
 [node name="cameraPos" type="Marker2D" parent="."]
 position = Vector2(26, 14)

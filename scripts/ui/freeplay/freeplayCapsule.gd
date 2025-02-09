@@ -11,7 +11,6 @@ func _ready() -> void:
 @onready var offscreenPositions: Array = [[541,-30],[519,781]]
 @onready var selected = get_parent().currSelect
 @onready var IDCapsule = get_parent().IDCapsule
-@onready var currCHARACTER = get_parent().currCHARACTER
 @onready var songList = get_parent().songList
 @onready var songID = songList[IDCapsule - 1] if IDCapsule != null else null
 @onready var baseSongMetaData = get_parent().baseSongMetadata
@@ -95,7 +94,7 @@ func ifSelected(id):
 func selectedSong():
 	MasterVars.BPMGLOBAL = metaDATACAPSULE["timeChanges"][0]["bpm"]
 	get_tree().change_scene_to_file("res://scenes/playScene.tscn")
-	get_parent().get_parent().queue_free()	
+	get_parent().queue_free()
 
 
 

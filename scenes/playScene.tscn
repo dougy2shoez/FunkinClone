@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://j7lr3bhuaaik"]
 
 [ext_resource type="Script" uid="uid://nukiy2cqmdgi" path="res://scripts/gameplay/playScene.gd" id="1_aheq8"]
-[ext_resource type="Shader" uid="uid://dhx8cmvi3ln8r" path="res://scenes/playScene.gdshader" id="1_x3k75"]
+[ext_resource type="Shader" uid="uid://dr6x1mj3knaws" path="res://assets/shaders/adjustColor.gdshader" id="1_ge1rw"]
 [ext_resource type="Script" uid="uid://243xcypexbk8" path="res://scripts/gameplay/main/ui/healthBar.gd" id="5_jod1u"]
 [ext_resource type="Script" uid="uid://bsm73or63pt7n" path="res://scripts/gameplay/main/ui/icon.gd" id="7_dxhd3"]
 [ext_resource type="FontFile" uid="uid://brlll27lfk4sk" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="7_spm3b"]
@@ -16,11 +16,11 @@
 [ext_resource type="Script" uid="uid://qrnsll6tnds7" path="res://scripts/gameplay/voicesPLAYER.gd" id="23_4804c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j5cyo"]
-shader = ExtResource("1_x3k75")
-shader_parameter/hue = 5.85
-shader_parameter/saturation = 0.735
-shader_parameter/brightness = 0.85
-shader_parameter/contrast = 1.0
+shader = ExtResource("1_ge1rw")
+shader_parameter/hue = -26.0
+shader_parameter/saturation = -16.0
+shader_parameter/brightness = -5.0
+shader_parameter/contrast = 0.0
 
 [node name="PlayScene" type="Node2D"]
 process_mode = 1
@@ -31,6 +31,7 @@ script = ExtResource("1_aheq8")
 title = "Info"
 position = Vector2i(0, 65)
 size = Vector2i(185, 255)
+visible = false
 
 [node name="Score2" type="RichTextLabel" parent="info"]
 clip_contents = false
@@ -50,6 +51,7 @@ autowrap_mode = 0
 selection_enabled = true
 
 [node name="gameCam" type="Camera2D" parent="."]
+position = Vector2(681, -1859)
 ignore_rotation = false
 zoom = Vector2(0.77, 0.77)
 position_smoothing_enabled = true
@@ -59,17 +61,13 @@ drag_left_margin = 0.4
 editor_draw_screen = false
 script = ExtResource("18_ilo1c")
 
-[node name="ref" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(640, 360)
-
 [node name="UILayer" type="CanvasLayer" parent="."]
 script = ExtResource("18_4wjrt")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="UILayer"]
-offset_left = 1069.0
+offset_left = 1063.0
 offset_top = 686.0
-offset_right = 1276.0
+offset_right = 1307.0
 offset_bottom = 739.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -77,7 +75,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("7_spm3b")
 bbcode_enabled = true
 text = "
-PROTOTYPE: Joey Engine"
+FunkinClone (PROTOTYPE)"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -127,7 +125,7 @@ scale = Vector2(-1, 1)
 [node name="Green" type="ColorRect" parent="UILayer/HealthBar/ColorBase/GreenStretch"]
 editor_description = "stretchy thing
 "
-offset_right = 316.0
+offset_right = 313.0
 offset_bottom = 14.0
 color = Color(0.4, 1, 0.2, 1)
 
@@ -143,21 +141,17 @@ script = ExtResource("7_dxhd3")
 [node name="Conductor" type="Node" parent="UILayer"]
 process_physics_priority = -1
 script = ExtResource("14_uannv")
-scrollSpeed = 0.9
 timerCountDown = 0.0
 metadata/_custom_type_script = ExtResource("14_uannv")
 
 [node name="Inst" type="AudioStreamPlayer" parent="UILayer/Conductor"]
-volume_db = -5.0
 bus = &"Vis"
 script = ExtResource("21_ejo5q")
 
 [node name="VoicesDAD" type="AudioStreamPlayer" parent="UILayer/Conductor"]
-volume_db = -5.0
 script = ExtResource("18_o7v37")
 
 [node name="VoicesBF" type="AudioStreamPlayer" parent="UILayer/Conductor"]
-pitch_scale = 4.0
 script = ExtResource("23_4804c")
 
 [node name="overlayPause" type="CanvasLayer" parent="."]

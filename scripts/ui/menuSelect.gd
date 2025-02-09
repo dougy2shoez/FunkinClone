@@ -10,11 +10,13 @@ func _ready() -> void:
 
 func confirmedPress(id: int):
 	$selected.play()
-	if id == 0:
-		pass
-	elif id == 1:
-		get_parent().get_parent().add_child(preload("res://scenes/freeplayMain.tscn").instantiate())
-		get_parent().process_mode = Node.PROCESS_MODE_DISABLED
+	match id:
+		0:
+			pass
+		1:
+			get_parent().get_node("musicMenu").stop()
+			get_parent().get_parent().add_child(preload("res://scenes/freeplayMain.tscn").instantiate())
+			get_parent().process_mode = Node.PROCESS_MODE_DISABLED
 
 func ifSelected():
 	if get_parent().selectedMenu == id:

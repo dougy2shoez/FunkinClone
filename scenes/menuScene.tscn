@@ -293,7 +293,6 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("58_oc0ek")
 
 [node name="menuCam" type="Camera2D" parent="."]
-offset = Vector2(640, 360)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 drag_vertical_offset = 1.0

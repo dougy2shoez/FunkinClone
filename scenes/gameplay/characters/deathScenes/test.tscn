@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8ovbclcvxams"]
+
+[ext_resource type="PackedScene" uid="uid://cop0ic4v6yax3" path="res://scenes/gameplay/characters/deathScenes/bf.tscn" id="1_aohgf"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_aohgf")]
+position = Vector2(590, 318)

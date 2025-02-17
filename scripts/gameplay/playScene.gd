@@ -15,8 +15,10 @@ var checkRun = false
 var ArrayCount = 0
 var cameraX
 var cameraY
+var isPausable = true
 var elementData
 var stageScene
+var playerDead = false
 var packedStage
 var hueChangeAll = true
 var hueChange: Dictionary = {}
@@ -48,7 +50,14 @@ func loadStage(StageName: String):
 # 223, 303, y 44.0
 # 0.59, 0.725
 func _process(delta: float) -> void:
-	var songName = $UILayer/Conductor.songName
+	if playerDead:
+		$gameCam.position = $bf.position - Vector2(200,250)
+		$gameCam.camZoom = 1
+		$bf/deathCharScn.onDeath()
+		$bf/deathCharScn.visible = true
+		$bf/animate.visible = false
+
+
 
 func applyCHARACTERS(bf: String, dad: String, gf: String):
 	var gfPos: Array[int]
@@ -60,8 +69,33 @@ func applyCHARACTERS(bf: String, dad: String, gf: String):
 	add_child(gfScene.instantiate())
 	
 	
-	
-
-
-
-	
+	 	
+func initDeath():
+	isPausable = false
+	playerDead = true
+	$UILayer.visible = false
+	$stage.visible = false
+	$gf.visible = false
+	$deathBlack.z_index = -10
+	$deathBlack.visible = true
+	$dad.visible = false
+func reInitSong():
+	if playerDead:
+		isPausable = true
+		get_tree().reload_current_scene()
+		$deathBlack.z_index = 1000
+		$deathBlack.modulate.a -= get_process_delta_time() * 2.5
+		$UILayer.visible = true
+		$stage.visible = true
+		$gf.visible = true
+		$deathBlack.z_index = -10
+		$dad.visible = true
+		$bf/animate.visible = true
+		$bf/animate.visible = true
+		$bf/animate.visible = true
+		$bf/animate.visible = true
+		$bf/animate.visible = true
+		$UILayer/NoteConductor.Dead = false
+		playerDead = false
+	else:
+		$bf/animate.visible = true

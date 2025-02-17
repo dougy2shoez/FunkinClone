@@ -4,6 +4,7 @@ extends Node2D
 @onready var iconAnimate: String
 @onready var isEnemy = false
 func _ready() -> void:
+	Conductor.connect("onBeatHit", onBeatHit)
 	pass
 
 var lastBeat = 0
@@ -22,20 +23,19 @@ func createIcon(player: String, opp: String):
 func _process(delta: float) -> void:
 	if createdIcons:
 		hpPos = get_parent().hpPos
-		position.x += (((hpPos - 1.91) * -299) - position.x) / (.1 / delta)
-		if lastBeat != get_parent().get_parent().get_node("Conductor").currBeat:
-			$enemyIcon.scale.x += 0.05
-			$playerIcon.position.x += 6
-			$enemyIcon.scale.y += 0.05
-			$playerIcon.scale.x += -0.05
-			$enemyIcon.position.x += -6
-			$playerIcon.scale.y += 0.05
-			scale.x += 0.15
-			scale.y += 0.15
-			lastBeat = get_parent().get_parent().get_node("Conductor").currBeat
+		position.x += (((hpPos - 1.91) * -299) - position.x) / (.086 / delta)
 		setIconBopTween(delta)
 
-
+func onBeatHit():
+	if createdIcons:
+		$enemyIcon.scale.x += 0.05
+		$playerIcon.position.x += 6
+		$enemyIcon.scale.y += 0.05
+		$playerIcon.scale.x += -0.05
+		$enemyIcon.position.x += -6
+		$playerIcon.scale.y += 0.05
+		scale.x += 0.15
+		scale.y += 0.15
 
 func setIconBopTween(delta: float):
 	$playerIcon.scale.x += (-1 - $playerIcon.scale.x) / (0.1 / delta)

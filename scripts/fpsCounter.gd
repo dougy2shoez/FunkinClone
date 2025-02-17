@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			isFullscreenToggled = false
 	if Input.is_action_just_pressed("reloadScene"):
+		get_tree().paused = false
 		get_tree().reload_current_scene()
 	text = (" FPS: " + str(int(1.0/float(delta))))
 	pass

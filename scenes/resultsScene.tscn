@@ -81,7 +81,7 @@
 [ext_resource type="Texture2D" uid="uid://b6a4n6gnkvx3f" path="res://assets/images/ResultsScreen/ratingsPopIn/Categories0010.png" id="81_v43t4"]
 [ext_resource type="Texture2D" uid="uid://bjewfpw45atl0" path="res://assets/images/ResultsScreen/tallieNumber/7.png" id="82_26luq"]
 [ext_resource type="Texture2D" uid="uid://dtntp4du5jidl" path="res://assets/images/ResultsScreen/ratingsPopIn/Categories0011.png" id="82_a6oai"]
-[ext_resource type="Script" path="res://scripts/ui/results/numberClear.gd" id="82_oauhx"]
+[ext_resource type="Script" uid="uid://d3mt0w43p3q2l" path="res://scripts/ui/results/numberClear.gd" id="82_oauhx"]
 [ext_resource type="Texture2D" uid="uid://b55wabhionghv" path="res://ref/screenshot-2025-01-27-18-07-23.png" id="83_7l3m2"]
 [ext_resource type="Script" uid="uid://dfa5xrjohvl1s" path="res://addons/gdanimate/animate_symbol.gd" id="85_htgtk"]
 [ext_resource type="Texture2D" uid="uid://bbj8e4r8k38h1" path="res://assets/images/ResultsScreen/clearPercentText.png" id="86_7hv2o"]
@@ -431,6 +431,6 @@ position = Vector2(851, 399)
 scale = Vector2(1.25, 1.25)
 script = ExtResource("85_htgtk")
 atlas = "res://assets/images/ResultsScreen/results-pico/resultsGOOD"
-frame = 140
+frame = 2
 symbol = "pico good placeholder"
 playing = true

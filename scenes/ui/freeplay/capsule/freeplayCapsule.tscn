@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://c8b2nbadngdfl"]
+[gd_scene load_steps=102 format=3 uid="uid://bpfg6mrt5qdgq"]
 
 [ext_resource type="Script" uid="uid://d04c7hgghea86" path="res://scripts/ui/freeplay/freeplayCapsule.gd" id="1_korkp"]
 [ext_resource type="Texture2D" uid="uid://bxy0wkqwupysn" path="res://assets/images/Freeplay/capsule/characters/default/mp3 capsule w backing0000.png" id="2_6jyjx"]
@@ -87,13 +87,13 @@
 [ext_resource type="Script" uid="uid://c7bvtbgl43vxy" path="res://scripts/ui/freeplay/capsuleGlowingText.gd" id="41_oo6tt"]
 [ext_resource type="Texture2D" uid="uid://b57wo5wbj1d6e" path="res://assets/images/Freeplay/icons/spiritpixel/confirm0003.png" id="41_yed8q"]
 [ext_resource type="Texture2D" uid="uid://cvuoxpyom8nvg" path="res://assets/images/Freeplay/icons/spiritpixel/confirm0004.png" id="42_3vaqk"]
-[ext_resource type="Shader" uid="uid://d1yusylovx6r6" path="res://scenes/BLUR.gdshader" id="42_e8w8h"]
 [ext_resource type="Texture2D" uid="uid://crje1e3fomnj6" path="res://assets/images/Freeplay/icons/spookypixel/confirm0001.png" id="43_0vwyp"]
 [ext_resource type="Texture2D" uid="uid://b3c1j82nvycy" path="res://assets/images/Freeplay/icons/spookypixel/confirm0002.png" id="44_hx2te"]
 [ext_resource type="Texture2D" uid="uid://ci160bemxiqe1" path="res://assets/images/Freeplay/icons/spookypixel/confirm0003.png" id="45_q7y6s"]
 [ext_resource type="Texture2D" uid="uid://bchrrmybf06kw" path="res://assets/images/Freeplay/icons/spookypixel/confirm0004.png" id="46_nnttr"]
+[ext_resource type="Shader" uid="uid://d1yusylovx6r6" path="res://scenes/BLUR.gdshader" id="92_puw50"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_nnttr"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_kujb5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -538,59 +538,150 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pfhlk"]
-resource_local_to_scene = true
-shader = ExtResource("42_e8w8h")
-shader_parameter/blur_scale = Vector2(0.105, 0.08)
-shader_parameter/glow_color = Color(0, 0.8, 1, 1)
-shader_parameter/glow_strength = 50.01
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4m2db"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iwctj"]
-resource_local_to_scene = true
-shader = ExtResource("42_e8w8h")
-shader_parameter/blur_scale = Vector2(0, 0.205)
-shader_parameter/glow_color = Color(0, 0.8, 1, 1)
-shader_parameter/glow_strength = 44.02
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p0xo6"]
+shader = ExtResource("92_puw50")
+shader_parameter/blur_scale = Vector2(0.155, 0.15)
+shader_parameter/glow_color = Color(0, 0.783333, 1, 1)
+shader_parameter/glow_strength = 100.0
 
-[sub_resource type="GDScript" id="GDScript_75v00"]
-script/source = "extends RichTextLabel
+[sub_resource type="Shader" id="Shader_ahmbb"]
+code = "shader_type canvas_item;
+		// Modified version of a tilt shift shader from Martin Jonasson (http://grapefrukt.com/)
+		// Read http://notes.underscorediscovery.com/ for context on shaders and this file
+		// License : MIT
+
+			/*
+				Take note that blurring in a single pass (the two for loops below) is more expensive than separating
+				the x and the y blur into different passes. This was used where bleeding edge performance
+				was not crucial and is to illustrate a point.
+
+				The reason two passes is cheaper?
+				   texture2D is a fairly high cost call, sampling a texture.
+
+				   So, in a single pass, like below, there are 3 steps, per x and y.
+
+				   That means a total of 9 \"taps\", it touches the texture to sample 9 times.
+
+				   Now imagine we apply this to some geometry, that is equal to 16 pixels on screen (tiny)
+				   (16 * 16) * 9 = 2304 samples taken, for width * height number of pixels, * 9 taps
+				   Now, if you split them up, it becomes 3 for x, and 3 for y, a total of 6 taps
+				   (16 * 16) * 6 = 1536 samples
+
+				   That\\'s on a *tiny* sprite, let\\'s scale that up to 128x128 sprite...
+				   (128 * 128) * 9 = 147,456
+				   (128 * 128) * 6 =  98,304
+
+				   That\\'s 33.33..% cheaper for splitting them up.
+				   That\\'s with 3 steps, with higher steps (more taps per pass...)
+
+				   A really smooth, 6 steps, 6*6 = 36 taps for one pass, 12 taps for two pass
+				   You will notice, the curve is not linear, at 12 steps it\\'s 144 vs 24 taps
+				   It becomes orders of magnitude slower to do single pass!
+				   Therefore, you split them up into two passes, one for x, one for y.
+			*/
+
+		// I am hardcoding the constants like a jerk
+uniform vec4 glow_color : source_color = vec4(1.0);
+		const float bluramount  = 1.0;
+		const float center      = 1.0;
+		const float stepSize    = 0.004;
+		const float steps       = 3.0;
+
+		const float minOffs     = (float(steps-1.0)) / -2.0;
+		const float maxOffs     = (float(steps-1.0)) / +2.0;
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+		vec4 blur9(sampler2D image, vec2 uv, vec2 resolution, vec2 direction) {
 
+      vec4 color = vec4(0.0);
+			vec2 off1 = vec2(1.3846153846) * direction;
+			vec2 off2 = vec2(3.2307692308) * direction;
+			color += texture(image, uv) * 0.2270270270;
+			color += texture(image, uv + (off1 / resolution)) * 0.3162162162;
+			color += texture(image, uv - (off1 / resolution)) * 0.3162162162;
+			color += texture(image, uv + (off2 / resolution)) * 0.0702702703;
+			color += texture(image, uv - (off2 / resolution)) * 0.0702702703;
+			return color;
+		}
 
-# Called every frat5def45erme. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if name.contains(\"glowEffect\"):
-		# material.set_shader_parameter('glow_color',get_parent().get_parent().get_parent().get_parent().capsuleColor[0])
-		text = get_parent().text
-	pass
+		vec4 blur13(sampler2D image, vec2 uv, vec2 resolution, vec2 direction) {
+			vec4 color = vec4(0.0);
+			vec2 off1 = vec2(1.411764705882353) * direction;
+			vec2 off2 = vec2(3.2941176470588234) * direction;
+			vec2 off3 = vec2(5.176470588235294) * direction;
+			color += texture(image, uv) * 0.1964825501511404;
+			color += texture(image, uv + (off1 / resolution)) * 0.2969069646728344;
+			color += texture(image, uv - (off1 / resolution)) * 0.2969069646728344;
+			color += texture(image, uv + (off2 / resolution)) * 0.09447039785044732;
+			color += texture(image, uv - (off2 / resolution)) * 0.09447039785044732;
+			color += texture(image, uv + (off3 / resolution)) * 0.010381362401148057;
+			color += texture(image, uv - (off3 / resolution)) * 0.010381362401148057;
+			return color;
+		}
+
+    uniform float _amount;
+
+void fragment() {
+	COLOR = vec4(glow_color.rgb, texture(TEXTURE, UV).a);
+	vec4 blurred;
+	vec4 blurredShit = blur13(TEXTURE, UV, vec2(textureSize(TEXTURE, 0)), vec2(0.0, _amount * 2.0));
+	blurredShit = mix(blur13(TEXTURE, UV, vec2(textureSize(TEXTURE, 0)), vec2(_amount * 2.0, 0.0)), blurredShit, 0.5);
+	// Work out how much to blur based on the mid point
+	// _amount = pow((openfl_TextureCoordv.y * center) * 2.0 - 1.0, 2.0) * bluramount;
+	// This is the accumulation of color from the surrounding pixels in the texture
+	blurred = vec4(0.0, 0.0, 0.0, 1.0);
+
+	// From minimum offset to maximum offset
+	for (float offsX = minOffs; offsX <= maxOffs; ++offsX) {
+		for (float offsY = minOffs; offsY <= maxOffs; ++offsY) {
+
+			// copy the coord so we can mess with it
+			vec2 temp_tcoord = UV;
+			//work out which uv we want to sample now
+			temp_tcoord.x += offsX * _amount * stepSize;
+			temp_tcoord.y += offsY * _amount * stepSize;
+			// accumulate the sample
+			blurred += texture(TEXTURE, temp_tcoord);
+		}
+	}
+
+	// because we are doing an average, we divide by the amount (x AND y, hence steps * steps)
+	blurred /= float(steps * steps);
+
+	// return the final blurred color
+	COLOR = blurredShit;
+	COLOR.rgb = glow_color.rgb;
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_okual"]
-shader = ExtResource("42_e8w8h")
-shader_parameter/blur_scale = Vector2(0.07, 0.03)
-shader_parameter/glow_color = Color(0.2201, 0.587525, 0.71, 1)
-shader_parameter/glow_strength = 7.5
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3elvf"]
+shader = SubResource("Shader_ahmbb")
+shader_parameter/glow_color = Color(0, 0.8, 1, 1)
+shader_parameter/_amount = 0.9
 
 [node name="freeplayCapsule" type="Node2D"]
 script = ExtResource("1_korkp")
 metadata/_edit_vertical_guides_ = [-236.0]
 
 [node name="capsuleBase" type="AnimatedSprite2D" parent="."]
-z_index = 10
-position = Vector2(1, 2)
+z_index = 21
+position = Vector2(2, 3)
 scale = Vector2(0.81, 0.81)
-sprite_frames = SubResource("SpriteFrames_nnttr")
+sprite_frames = SubResource("SpriteFrames_kujb5")
 animation = &"Selected"
-frame_progress = 0.0198363
+frame_progress = 0.510826
 
 [node name="icon" type="AnimatedSprite2D" parent="capsuleBase"]
 z_index = 5
 texture_filter = 1
-position = Vector2(-253.086, -12.3457)
+position = Vector2(-254.321, -13.5802)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_srwcw")
 animation = &"dad"
@@ -598,21 +689,21 @@ frame_progress = 0.000866709
 
 [node name="heart" type="AnimatedSprite2D" parent="capsuleBase"]
 visible = false
-position = Vector2(107.531, -10.3704)
+position = Vector2(106.296, -11.6049)
 scale = Vector2(1.22222, 1.22222)
 sprite_frames = SubResource("SpriteFrames_yb7yg")
 frame_progress = 0.121567
 script = ExtResource("9_0bcfa")
 
 [node name="isNew" type="AnimatedSprite2D" parent="capsuleBase"]
-position = Vector2(238.642, -57.0371)
+position = Vector2(237.407, -58.2716)
 scale = Vector2(1.22222, 1.22222)
 sprite_frames = SubResource("SpriteFrames_1jlk7")
 frame_progress = 0.644933
 script = ExtResource("9_0bcfa")
 
 [node name="rank" type="AnimatedSprite2D" parent="capsuleBase"]
-position = Vector2(163.087, -4.81486)
+position = Vector2(161.852, -6.04943)
 scale = Vector2(1.22222, 1.22222)
 sprite_frames = SubResource("SpriteFrames_1wlke")
 animation = &"P_UPPER"
@@ -621,23 +712,31 @@ script = ExtResource("9_0bcfa")
 
 [node name="TextContainer" type="Control" parent="capsuleBase"]
 clip_children = 2
-z_index = 1
+z_index = 2
 clip_contents = true
 layout_mode = 3
-anchors_preset = 0
-offset_left = -189.012
-offset_top = -29.8272
-offset_right = 104.988
-offset_bottom = 9.17284
+anchor_left = 0.11442
+anchor_top = 0.000457043
+anchor_right = 0.134027
+anchor_bottom = 0.000457259
+offset_left = -274.025
+offset_top = -31.0617
+offset_right = 19.9752
+offset_bottom = 7.93827
 scale = Vector2(1.125, 1.1)
+metadata/_edit_use_anchors_ = true
 
 [node name="songName" type="RichTextLabel" parent="capsuleBase/TextContainer"]
+z_index = 7
+material = SubResource("ShaderMaterial_4m2db")
 use_parent_material = true
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.00322764
-anchor_right = 0.00322764
+anchor_left = 0.0500775
+anchor_top = 0.0518574
+anchor_right = 0.0500776
+anchor_bottom = 0.0518574
 offset_left = 6.88892
 offset_top = 5.22223
 offset_right = 226.889
@@ -647,195 +746,81 @@ theme_override_constants/table_h_separation = 0
 theme_override_fonts/normal_font = ExtResource("40_qsp00")
 theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
-text = "Satin Panties Erect"
+text = "ZetaxiNO"
 autowrap_mode = 0
 script = ExtResource("41_oo6tt")
 metadata/_edit_use_anchors_ = true
 
-[node name="glowEffect" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
+[node name="notSelected" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
 show_behind_parent = true
-material = SubResource("ShaderMaterial_pfhlk")
+z_index = -2
+material = SubResource("ShaderMaterial_p0xo6")
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.777273
-anchor_top = 0.525
-anchor_right = 0.777273
-anchor_bottom = 0.525
-offset_left = -171.0
-offset_top = -21.0
-offset_right = 48.9999
-offset_bottom = 19.0
-theme_override_constants/table_h_separation = 0
-theme_override_fonts/normal_font = ExtResource("40_qsp00")
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
-text = "Satin Panties Erect"
-autowrap_mode = 0
-script = ExtResource("41_oo6tt")
-metadata/_edit_use_anchors_ = true
-
-[node name="glowEffect5" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
-show_behind_parent = true
-material = SubResource("ShaderMaterial_iwctj")
-clip_contents = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.628222
-anchor_top = 0.469444
-anchor_right = 0.628222
-anchor_bottom = 0.469444
-offset_left = -138.45
-offset_top = -15.7777
-offset_right = 145.55
-offset_bottom = 24.2223
-theme_override_constants/table_h_separation = 0
-theme_override_fonts/normal_font = ExtResource("40_qsp00")
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
-text = "Satin Panties Erect"
-autowrap_mode = 0
-script = SubResource("GDScript_75v00")
-metadata/_edit_use_anchors_ = true
-
-[node name="glowEffect4" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
-show_behind_parent = true
-material = SubResource("ShaderMaterial_iwctj")
-clip_contents = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.501754
-anchor_top = 0.469725
-anchor_right = 0.501754
-anchor_bottom = 0.469725
-offset_left = -113.543
-offset_top = -18.3456
-offset_right = 170.457
-offset_bottom = 21.6544
-theme_override_constants/table_h_separation = 0
-theme_override_fonts/normal_font = ExtResource("40_qsp00")
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
-text = "Satin Panties Erect"
-autowrap_mode = 0
-script = SubResource("GDScript_75v00")
-metadata/_edit_use_anchors_ = true
-
-[node name="glowEffect2" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
-show_behind_parent = true
-material = SubResource("ShaderMaterial_iwctj")
-clip_contents = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.64676
-anchor_top = 0.469725
-anchor_right = 0.64676
-anchor_bottom = 0.469725
-offset_left = -141.184
-offset_top = -20.6173
-offset_right = 142.816
-offset_bottom = 19.3827
-theme_override_constants/table_h_separation = 0
-theme_override_fonts/normal_font = ExtResource("40_qsp00")
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
-text = "Satin Panties Erect"
-autowrap_mode = 0
-script = SubResource("GDScript_75v00")
-metadata/_edit_use_anchors_ = true
-
-[node name="glowEffect3" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
-show_behind_parent = true
-material = SubResource("ShaderMaterial_pfhlk")
-clip_contents = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.777273
-anchor_top = 0.525
-anchor_right = 0.777273
-anchor_bottom = 0.525
-offset_left = -171.0
-offset_top = -21.0
-offset_right = 48.9999
-offset_bottom = 19.0
-theme_override_constants/table_h_separation = 0
-theme_override_fonts/normal_font = ExtResource("40_qsp00")
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
-text = "Satin Panties Erect"
-autowrap_mode = 0
-script = ExtResource("41_oo6tt")
-metadata/_edit_use_anchors_ = true
-
-[node name="glowEffect6" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
-show_behind_parent = true
-material = SubResource("ShaderMaterial_pfhlk")
-clip_contents = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.787249
-anchor_top = 0.525
-anchor_right = 0.787249
-anchor_bottom = 0.525
-offset_left = -171.0
-offset_top = -21.0
-offset_right = 48.9999
-offset_bottom = 19.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_constants/table_h_separation = 0
-theme_override_fonts/normal_font = ExtResource("40_qsp00")
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
-text = "Satin Panties Erect"
-autowrap_mode = 0
-script = ExtResource("41_oo6tt")
-metadata/_edit_use_anchors_ = true
-
-[node name="glowEffect7" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
-z_index = -1
-material = SubResource("ShaderMaterial_okual")
-clip_contents = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0326958
-anchor_top = -0.233053
-anchor_right = -0.0326958
-anchor_bottom = -0.233053
-offset_left = 6.88892
-offset_top = 5.22223
-offset_right = 226.889
-offset_bottom = 45.2222
+anchor_left = 0.117142
+anchor_top = 4.01946
+anchor_right = 0.117142
+anchor_bottom = 4.01946
+offset_left = -25.6868
+offset_top = -161.166
+offset_right = 194.313
+offset_bottom = -121.166
 theme_override_colors/default_color = Color(0.960784, 1, 1, 1)
 theme_override_constants/table_h_separation = 0
 theme_override_fonts/normal_font = ExtResource("40_qsp00")
 theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
-text = "Satin Panties Erect"
+text = "ZetaxiNO"
 autowrap_mode = 0
-context_menu_enabled = true
-script = ExtResource("41_oo6tt")
 metadata/_edit_use_anchors_ = true
 
-[node name="glowEffect8" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
-z_index = -1
-material = SubResource("ShaderMaterial_okual")
+[node name="songName2" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
+visible = false
+show_behind_parent = true
+z_index = -2
+material = SubResource("ShaderMaterial_3elvf")
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0326958
-anchor_top = -0.261111
-anchor_right = -0.0326958
-anchor_bottom = -0.261111
-offset_left = 6.88892
-offset_top = 5.22223
-offset_right = 226.889
-offset_bottom = 45.2222
+anchor_left = 0.147071
+anchor_top = 4.01947
+anchor_right = 0.147071
+anchor_bottom = 4.01947
+offset_left = -32.3557
+offset_top = -161.166
+offset_right = 187.644
+offset_bottom = -121.166
 theme_override_colors/default_color = Color(0.960784, 1, 1, 1)
 theme_override_constants/table_h_separation = 0
 theme_override_fonts/normal_font = ExtResource("40_qsp00")
 theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
-text = "Satin Panties Erect"
+text = "ZetaxiNO"
 autowrap_mode = 0
-script = ExtResource("41_oo6tt")
+metadata/_edit_use_anchors_ = true
+
+[node name="songName" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
+visible = false
+show_behind_parent = true
+z_index = -2
+material = SubResource("ShaderMaterial_3elvf")
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41517
+anchor_top = 2.12674
+anchor_right = 0.41517
+anchor_bottom = 2.12674
+offset_left = -91.2529
+offset_top = -85.4567
+offset_right = 128.747
+offset_bottom = -45.4568
+theme_override_colors/default_color = Color(0.960784, 1, 1, 1)
+theme_override_constants/table_h_separation = 0
+theme_override_fonts/normal_font = ExtResource("40_qsp00")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "ZetaxiNO"
+autowrap_mode = 0
 metadata/_edit_use_anchors_ = true

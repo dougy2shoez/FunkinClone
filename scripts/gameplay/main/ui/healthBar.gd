@@ -5,5 +5,5 @@ extends Node2D
 
 
 func _process(delta: float) -> void:
-	hpPos = get_parent().get_node("Conductor").HP[0]
-	$ColorBase/GreenStretch.scale.x += (((0 - hpPos * 0.94) - $ColorBase/GreenStretch.scale.x) / (.1 / delta))
+	hpPos = get_parent().get_node("NoteConductor").HP[0]
+	$ColorBase/GreenStretch.scale.x += (((0 - hpPos * 0.953) - $ColorBase/GreenStretch.scale.x) / (.086 / delta))

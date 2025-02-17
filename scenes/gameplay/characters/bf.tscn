@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://tnd46kiwrfm7"]
+[gd_scene load_steps=25 format=3 uid="uid://tnd46kiwrfm7"]
 
 [ext_resource type="Texture2D" uid="uid://cr2arhg56fbrf" path="res://assets/images/characters/boyfriend/idle.png" id="1_0gc27"]
 [ext_resource type="Texture2D" uid="uid://dcpulqa2re3kp" path="res://assets/images/characters/boyfriend/idle1.png" id="2_gjiu7"]
@@ -9,11 +9,19 @@
 [ext_resource type="Texture2D" uid="uid://bt5s1gr65brul" path="res://assets/images/characters/boyfriend/singDOWN1.png" id="7_5xmtc"]
 [ext_resource type="Texture2D" uid="uid://c80wbt8fcgxpi" path="res://assets/images/characters/boyfriend/singLEFT.png" id="8_0ym74"]
 [ext_resource type="Texture2D" uid="uid://c2johyjd7ckel" path="res://assets/images/characters/boyfriend/singLEFT1.png" id="9_lql13"]
+[ext_resource type="Texture2D" uid="uid://dmusrwtvws52t" path="res://assets/images/characters/boyfriend/singDOWNmiss.png" id="9_p6rh8"]
 [ext_resource type="Texture2D" uid="uid://ff38qnfeffn7" path="res://assets/images/characters/boyfriend/singRIGHT.png" id="10_an824"]
+[ext_resource type="Texture2D" uid="uid://civx256p7e5s3" path="res://assets/images/characters/boyfriend/singDOWNmiss1.png" id="10_c4ogp"]
 [ext_resource type="Texture2D" uid="uid://cvqlau1b5db3r" path="res://assets/images/characters/boyfriend/singRIGHT1.png" id="11_ta3h6"]
 [ext_resource type="Texture2D" uid="uid://cy22xbohhi34k" path="res://assets/images/characters/boyfriend/singUP.png" id="12_y0qai"]
+[ext_resource type="Texture2D" uid="uid://bm0ubp8xvmo6d" path="res://assets/images/characters/boyfriend/singLEFTmiss.png" id="13_8tvde"]
 [ext_resource type="Texture2D" uid="uid://d1ehkq3kqgd1n" path="res://assets/images/characters/boyfriend/singUP1.png" id="13_jkyv1"]
 [ext_resource type="Script" uid="uid://dyl17s02abwi1" path="res://scripts/gameplay/main/element/bf.gd" id="14_88tgd"]
+[ext_resource type="Texture2D" uid="uid://duuwrxmgr055i" path="res://assets/images/characters/boyfriend/singLEFTmiss1.png" id="14_q7dvw"]
+[ext_resource type="Texture2D" uid="uid://4nohv3tpl06f" path="res://assets/images/characters/boyfriend/singRIGHTmiss.png" id="17_jhcad"]
+[ext_resource type="Texture2D" uid="uid://cdtriatn6kmtf" path="res://assets/images/characters/boyfriend/singRIGHTmiss1.png" id="18_as7qm"]
+[ext_resource type="Texture2D" uid="uid://yxi6kiipq75w" path="res://assets/images/characters/boyfriend/singUPmiss.png" id="21_o0x2f"]
+[ext_resource type="Texture2D" uid="uid://bk5k1yj1kmt0q" path="res://assets/images/characters/boyfriend/singUPmiss1.png" id="22_05bcm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2bysd"]
 
@@ -52,6 +60,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_jbdyv")
+}, {
+"duration": 2.0,
+"texture": ExtResource("9_p6rh8")
+}, {
+"duration": 10000.0,
+"texture": ExtResource("10_c4ogp")
+}],
+"loop": true,
+"name": &"singDOWNMiss",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("8_0ym74")
 }, {
 "duration": 999999.0,
@@ -60,6 +82,20 @@ animations = [{
 "loop": false,
 "name": &"singLEFT",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0ym74")
+}, {
+"duration": 2.0,
+"texture": ExtResource("13_8tvde")
+}, {
+"duration": 10000.0,
+"texture": ExtResource("14_q7dvw")
+}],
+"loop": true,
+"name": &"singLEFTMiss",
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -74,6 +110,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("10_an824")
+}, {
+"duration": 2.0,
+"texture": ExtResource("17_jhcad")
+}, {
+"duration": 10000.0,
+"texture": ExtResource("18_as7qm")
+}],
+"loop": true,
+"name": &"singRIGHTMiss",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("12_y0qai")
 }, {
 "duration": 999999.0,
@@ -82,6 +132,20 @@ animations = [{
 "loop": false,
 "name": &"singUP",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_y0qai")
+}, {
+"duration": 2.0,
+"texture": ExtResource("21_o0x2f")
+}, {
+"duration": 10000.0,
+"texture": ExtResource("22_05bcm")
+}],
+"loop": true,
+"name": &"singUPMiss",
+"speed": 24.0
 }]
 
 [node name="bf" type="Node2D"]
@@ -90,12 +154,11 @@ script = ExtResource("14_88tgd")
 
 [node name="animate" type="AnimatedSprite2D" parent="."]
 z_index = 300
-position = Vector2(-61, -238)
+position = Vector2(34, -238)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_2umrv")
 animation = &"idle"
-frame_progress = 0.691646
 
 [node name="cameraPos" type="Marker2D" parent="."]
-position = Vector2(26, 14)
+position = Vector2(1, 20)
 gizmo_extents = 56.5

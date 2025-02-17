@@ -2,7 +2,7 @@ extends Node2D
 
 
 const VU_COUNT = 7.0
-const FREQ_MAX = 4000.0
+const FREQ_MAX = 2000.0
 
 const WIDTH = 800
 const HEIGHT = 250

@@ -1,17 +1,15 @@
 extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	visible = false
-	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	visible = true
-	if Input.is_action_just_pressed("confirm"):
-		visible = false
-		get_tree().paused = false
-	
-	pass
+	if get_parent().get_parent().isPausable:
+		if Input.is_action_just_pressed("confirm"):
+			visible = not visible 
+			get_tree().paused = not get_tree().paused
+	else: visible = false
+	if get_tree().paused:
+		modulate.a += (1-modulate.a) / (0.075 / delta)
+	else: 
+		modulate.a = 0

@@ -37,12 +37,11 @@ func eventsDict(EventData: Dictionary):
 @onready var stageExists = get_parent().has_node("stage")
 var eventData: Array = []
 var getEventData = false
-var conductorPosition = 0
 var eventCount = 0
 var camZoom = 1
 var bfOffset: Array = [0,0]
 var dadOffset: Array = [0,0]
-@onready var conductorNode = get_parent().get_node("UILayer/Conductor")
+@onready var conductorNode = get_parent().get_node("UILayer/NoteConductor")
 func _process(delta: float) -> void:
 	if name ==  "gameCam":
 		if not getEventData and conductorNode.loadedSongData:
@@ -52,14 +51,14 @@ func _process(delta: float) -> void:
 			print(eventData) 
 			bfOffset = get_parent().stageData["characters"]["bf"]["cameraOffsets"]
 			dadOffset = get_parent().stageData["characters"]["dad"]["cameraOffsets"]
+
 			position = get_parent().get_node("stage").get_node("Positions").get_node("GF").get_node("cameraPos").position + get_parent().get_node("stage").get_node("Positions").get_node("GF").position + get_parent().get_node("gf").get_node("cameraPos").position
 		if getEventData:
-			conductorPosition = conductorNode.conductorPostion
 			$".".zoom.x += (camZoom - $".".zoom.x)/(0.5/delta)
 			$".".zoom.y += (camZoom - $".".zoom.y)/(0.5/delta)
 			if eventCount < eventData.size():
-				if conductorPosition > eventData[eventCount]["t"]:
-					print(conductorPosition)
+				if Conductor.songPosition > eventData[eventCount]["t"]:
+					print(Conductor.songPosition)
 					eventsDict(eventData[eventCount])
 					eventCount += 1
 	elif name == "menuCam":

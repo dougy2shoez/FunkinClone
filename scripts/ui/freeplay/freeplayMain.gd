@@ -1,10 +1,10 @@
 extends Node2D
 
-@onready var capsuleScene = preload("res://scenes/freeplayCapsule.tscn")
+@onready var capsuleScene = preload("res://scenes/ui/freeplay/capsule/freeplayCapsule.tscn")
 @onready var currSelect = 1
 @onready var sounds: Dictionary = {"scroll": preload("res://assets/sounds/scrollMenu.ogg"), "confirm": preload("res://assets/sounds/confirmMenu.ogg")}
 @onready var IDCapsule = 0
-var difficulties: Array = ["normal","hard","erect","nightmare","easy"]
+var difficulties: Array = ["easy","normal","hard","erect","nightmare"]
 @onready var levelsData: Array
 @onready var erasedSongs: Array
 @onready var currHiScore = 0
@@ -22,11 +22,18 @@ func loadJsonData(filePath: String):
 	else: print("doesnt exist in specified directory!")
 
 func loadCapsules():
+	songList.clear()
+	for i in levelDir.size():
+		var levelData = loadJsonData("res://assets/data/levels/" + str(levelDir[i]))
+		for ia in levelData["songs"].size():
+			songList.append(levelData["songs"][ia])
 	killAllCapsules = false
 	var songID
 	var capsuleSpawned = false
-	IDCapsule = null 
-	add_child(capsuleScene.instantiate())
+	if not loadedRandom:
+		IDCapsule = null
+		add_child(capsuleScene.instantiate())
+		loadedRandom = true
 	IDCapsule = 1
 	for i in songList.size():
 		print(IDCapsule)
@@ -44,8 +51,15 @@ var lengthSongs = 0
 var countINDEX = 0
 var songList: Array
 var baseSongMetadata
+var loadedRandom = false
 var levelDir = DirAccess.get_files_at("res://assets/data/levels")
 func _ready() -> void:
+	loadedRandom = false
+	if MasterVars.currCharacter != "bf":
+		#if FileAccess.file_exists("res://scenes/ui/freeplay/capsule/freeplayCapsule-" + MasterVars.currCharacter + ".tscn"):
+		capsuleScene = load("res://scenes/ui/freeplay/capsule/freeplayCapsule-" + MasterVars.currCharacter + ".tscn")
+		#if FileAccess.file_exists("res://assets/images/Freeplay/freeplayBGdad_" + MasterVars.currCharacter + ".png"):
+		$FreeplayBGdad.texture = load("res://assets/images/Freeplay/freeplayBGdad_" + MasterVars.currCharacter + ".png")
 	if MasterVars.currCharacter == "bf": MasterVars.songType = ""
 	else: MasterVars.songType = MasterVars.currCharacter
 	for i in levelDir.size():
@@ -54,7 +68,7 @@ func _ready() -> void:
 			songList.append(levelData["songs"][ia])
 	print(songList)
 	$transition.play("freeplayTransition")
-	
+	 	 	
 	
 
 
@@ -79,6 +93,7 @@ var stringScoreDisplay: String
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("decline"):
 		get_tree().change_scene_to_file("res://scenes/charSelect.tscn")
+		queue_free()
 	#if Input.is_action_just_pressed("decline"):
 	#	MasterVars.songName = "darnell"
 	#	MasterVars.songName = "bf"
@@ -94,8 +109,10 @@ func _process(delta: float) -> void:
 	$musicFreeplay.volume_db += (-6.5 - $musicFreeplay.volume_db) / (0.25/delta) 
 	if Input.is_action_just_pressed("ui_up"):
 		currSelect -= 1
+		print(currSelect)
 		scrollMenu()
 	elif Input.is_action_just_pressed("ui_down"):
 		currSelect += 1
+		print(currSelect)
 		scrollMenu()
 	pass

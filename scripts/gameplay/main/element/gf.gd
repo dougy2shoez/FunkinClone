@@ -1,5 +1,4 @@
 extends Node2D
-
 @onready var stagePositionsAccess = get_parent().get_node("stage").get_node("Positions")
 @onready var stageExists = get_parent().has_node("stage")
 func _ready() -> void:
@@ -10,12 +9,12 @@ func _ready() -> void:
 	z_index = get_parent().stageData["characters"]["gf"]["zIndex"]
 
 var runOnce = false
-var conductor
+var noteConductor
 @onready var hueChange
 func _process(delta: float) -> void:
 	if stageExists: if stagePositionsAccess.has_node("GF"): position = stagePositionsAccess.get_node("GF").position
 	if runOnce == false:
-		conductor = get_parent().get_node("UILayer/Conductor")
+		noteConductor = get_parent().get_node("UILayer/NoteConductor")
 		if not get_parent().hueChangeAll:
 			use_parent_material = false
 			material = ShaderMaterial.new()
@@ -27,7 +26,7 @@ func _process(delta: float) -> void:
 			material.set_shader_parameter("contrast", hueChange["gf"][3])
 		runOnce = true
 	if has_node("animate"):
-		$animate.play(str(conductor.currGFAnim[0]))
+		$animate.play(str(noteConductor.currGFAnim[0]))
 	else:
-		$animateatlas.symbol = (str(conductor.currGFAnim[0]))
+		$animateatlas.symbol = (str(noteConductor.currGFAnim[0]))
 		$animateatlas.playing = true

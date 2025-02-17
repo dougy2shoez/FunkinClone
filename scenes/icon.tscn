@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dwvifjwfkb2y7"]
+[gd_scene load_steps=28 format=3 uid="uid://dwvifjwfkb2y7"]
 
 [ext_resource type="Script" uid="uid://731h64osd1vc" path="res://scripts/gameplay/main/ui/iconAnimate.gd" id="1_b21pt"]
 [ext_resource type="Texture2D" uid="uid://dmiqhgjgkwdiu" path="res://assets/images/icons/icon-bf.png" id="1_mkfmh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cm0val0r7upgs" path="res://assets/images/icons/icon-monster.png" id="6_8718u"]
 [ext_resource type="Texture2D" uid="uid://dejfncwh4ejne" path="res://assets/images/icons/icon-mom.png" id="6_efco6"]
 [ext_resource type="Texture2D" uid="uid://dksbemtm52fs7" path="res://assets/images/icons/icon-tankman.png" id="6_q23jy"]
+[ext_resource type="Texture2D" uid="uid://bmmbcc1rjw80v" path="res://assets/images/icons/icon-parents-christmas.png" id="8_ospag"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vka3"]
 atlas = ExtResource("1_mkfmh")
@@ -53,6 +54,10 @@ region = Rect2(0, 0, 150, 150)
 [sub_resource type="AtlasTexture" id="AtlasTexture_igjsd"]
 atlas = ExtResource("6_8718u")
 region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3jbc"]
+atlas = ExtResource("8_ospag")
+region = Rect2(0, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eovdk"]
 atlas = ExtResource("4_sw631")
@@ -184,6 +189,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_o3jbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3jbc")
+}],
+"loop": true,
+"name": &"parents-christmas",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_eovdk")
 }, {
 "duration": 1.0,
@@ -222,4 +238,3 @@ script = ExtResource("1_b21pt")
 [node name="animate" type="AnimatedSprite2D" parent="."]
 position = Vector2(-9, 0)
 sprite_frames = SubResource("SpriteFrames_60x12")
-animation = &"mom"

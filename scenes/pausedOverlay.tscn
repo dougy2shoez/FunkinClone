@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://55g3opsj0jg6"]
+[gd_scene load_steps=6 format=3 uid="uid://55g3opsj0jg6"]
 
-[ext_resource type="FontFile" uid="uid://c85s6elm6ym8a" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="1_6m4i6"]
-[ext_resource type="Script" path="res://scripts/gameplay/main/pauseMenu.gd" id="1_ccijq"]
-[ext_resource type="Texture2D" uid="uid://dyxhltwx8oe5a" path="res://screenshot-2024-11-06-21-13-04.png" id="2_5gf2b"]
+[ext_resource type="FontFile" uid="uid://brlll27lfk4sk" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="1_6m4i6"]
+[ext_resource type="Script" uid="uid://13pc1kfv2jv3" path="res://scripts/gameplay/main/pauseMenu.gd" id="1_ccijq"]
+[ext_resource type="FontFile" uid="uid://g8g7cbhao8ne" path="res://assets/fonts/FridayNightFunkin-Regular.ttf" id="2_jrb4s"]
+[ext_resource type="Texture2D" uid="uid://cs4ufbp4m2d3r" path="res://ref/screenshot-2024-11-06-21-13-04.png" id="4_al3jk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpfim"]
 
 [node name="pausedOverlay" type="Node2D"]
-process_mode = 2
+process_mode = 3
 auto_translate_mode = 1
 z_index = 3999
 script = ExtResource("1_ccijq")
@@ -15,12 +18,40 @@ offset_left = -95.0
 offset_top = -57.0
 offset_right = 1412.0
 offset_bottom = 874.0
-color = Color(0, 0, 0, 0.439216)
+color = Color(0, 0, 0, 0.5)
 
-[node name="Text" type="Node2D" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 1
+clip_contents = false
+offset_left = 89.0001
+offset_top = 355.0
+offset_right = 665.0
+offset_bottom = 673.0
+theme_override_colors/default_color = Color(0.796243, 0.796243, 0.796243, 1)
+theme_override_fonts/normal_font = ExtResource("2_jrb4s")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_styles/fill = SubResource("StyleBoxFlat_vpfim")
+text = "RESUME"
+fit_content = true
 
-[node name="songName" type="RichTextLabel" parent="Text"]
-visible = false
+[node name="RichTextLabel" type="RichTextLabel" parent="RichTextLabel"]
+z_index = 1
+clip_contents = false
+offset_left = 23.9999
+offset_top = 135.0
+offset_right = 600.0
+offset_bottom = 453.0
+theme_override_colors/default_color = Color(0.796243, 0.796243, 0.796243, 1)
+theme_override_fonts/normal_font = ExtResource("2_jrb4s")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_styles/fill = SubResource("StyleBoxFlat_vpfim")
+text = "EXIT TO MENU"
+fit_content = true
+
+[node name="TextInfo" type="Node2D" parent="."]
+position = Vector2(1279, 0)
+
+[node name="songName" type="RichTextLabel" parent="TextInfo"]
 z_index = 4000
 anchors_preset = 1
 anchor_left = 1.0
@@ -38,8 +69,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="basicInfo" type="RichTextLabel" parent="Text"]
-visible = false
+[node name="basicInfo" type="RichTextLabel" parent="TextInfo"]
 z_index = 4000
 anchors_preset = 1
 anchor_left = 1.0
@@ -57,8 +87,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="difficulty" type="RichTextLabel" parent="Text"]
-visible = false
+[node name="difficulty" type="RichTextLabel" parent="TextInfo"]
 z_index = 4000
 anchors_preset = 1
 anchor_left = 1.0
@@ -76,8 +105,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="deathCounter" type="RichTextLabel" parent="Text"]
-visible = false
+[node name="deathCounter" type="RichTextLabel" parent="TextInfo"]
 z_index = 4000
 anchors_preset = 1
 anchor_left = 1.0
@@ -97,5 +125,21 @@ autowrap_mode = 0
 
 [node name="Screenshot-2024-11-06-21-13-04" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(640, 360)
-texture = ExtResource("2_5gf2b")
+texture = ExtResource("4_al3jk")
+centered = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+visible = false
+z_index = 1
+clip_contents = false
+offset_left = 89.0001
+offset_top = 355.0
+offset_right = 665.0
+offset_bottom = 673.0
+scale = Vector2(0.540694, 0.558085)
+theme_override_colors/default_color = Color(0.969137, 0.969137, 0.969137, 1)
+theme_override_fonts/normal_font = ExtResource("2_jrb4s")
+theme_override_font_sizes/normal_font_size = 123
+theme_override_styles/fill = SubResource("StyleBoxFlat_vpfim")
+text = "RESUME"
+fit_content = true

@@ -8,6 +8,7 @@ func _ready() -> void:
 var readySong = false
 var playSong = false
 func _process(delta: float) -> void:
+	if get_parent().Dead: playSong = false
 	if readySong == false:
 		if MasterVars.songType == "":
 			stream = load("res://assets/songs/" + str(get_parent().songName) + "/" + "Inst.ogg")
@@ -16,6 +17,6 @@ func _process(delta: float) -> void:
 		volume_db = -5
 		readySong = true
 	if get_parent().timerCountDown > 0:
-		if playSong == false:
+		if playSong == false and not get_parent().Dead:
 			play()
 			playSong = true

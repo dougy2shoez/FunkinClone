@@ -1,0 +1,427 @@
+[gd_scene load_steps=86 format=3 uid="uid://cop0ic4v6yax3"]
+
+[ext_resource type="Script" uid="uid://cwcdjxr3keida" path="res://scripts/gameplay/death.gd" id="1_u574s"]
+[ext_resource type="Texture2D" uid="uid://8n0cvxl6ctik" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0001.png" id="1_vpr47"]
+[ext_resource type="Texture2D" uid="uid://ddlvcb3dtdrto" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0002.png" id="2_nsvjd"]
+[ext_resource type="Texture2D" uid="uid://b4v0osjxp67tb" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0003.png" id="3_ichvc"]
+[ext_resource type="Texture2D" uid="uid://dfr3shr8wt0sp" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0004.png" id="4_u574s"]
+[ext_resource type="Texture2D" uid="uid://kk2sq57tp1el" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0005.png" id="5_thfos"]
+[ext_resource type="Texture2D" uid="uid://bmowebq6x7qvx" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0006.png" id="6_0fwoy"]
+[ext_resource type="Texture2D" uid="uid://cwoofshwfypm5" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0007.png" id="7_ol712"]
+[ext_resource type="Texture2D" uid="uid://680fkt3lhu8w" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0008.png" id="8_5jp08"]
+[ext_resource type="Texture2D" uid="uid://blvn07afuc122" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0009.png" id="9_cm77b"]
+[ext_resource type="Texture2D" uid="uid://mldwkx8lkh8b" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0010.png" id="10_b4fi5"]
+[ext_resource type="Texture2D" uid="uid://uc7vtt7gvohm" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0011.png" id="11_c4cb2"]
+[ext_resource type="Texture2D" uid="uid://dv26y7p7nqmtr" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0012.png" id="12_kk3tq"]
+[ext_resource type="Texture2D" uid="uid://bb8m1dqjt56da" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0013.png" id="13_pe1yg"]
+[ext_resource type="Texture2D" uid="uid://dkx4p0hmormta" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0014.png" id="14_5n2h3"]
+[ext_resource type="Texture2D" uid="uid://v5sct31ifsy1" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0015.png" id="15_03jvv"]
+[ext_resource type="Texture2D" uid="uid://ej4rjts23af0" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0016.png" id="16_8y02j"]
+[ext_resource type="Texture2D" uid="uid://tq88thxk2fn2" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0017.png" id="17_ghb4l"]
+[ext_resource type="Texture2D" uid="uid://b630k3afjv5or" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0018.png" id="18_ntnra"]
+[ext_resource type="Texture2D" uid="uid://c1b2u460jr16n" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0019.png" id="19_e4a1s"]
+[ext_resource type="Texture2D" uid="uid://btxw1m1fn0qfp" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0020.png" id="20_5gl55"]
+[ext_resource type="Texture2D" uid="uid://1hqjfau1q7oh" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0021.png" id="21_mmx0f"]
+[ext_resource type="Texture2D" uid="uid://dve4f7qhp8hso" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0022.png" id="22_aatcb"]
+[ext_resource type="Texture2D" uid="uid://ckb5n8e5sskkw" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0023.png" id="23_5hh4p"]
+[ext_resource type="Texture2D" uid="uid://c2iq7mftyeibg" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0024.png" id="24_jh650"]
+[ext_resource type="Texture2D" uid="uid://ceakqdyoh7mvn" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0025.png" id="25_glno1"]
+[ext_resource type="Texture2D" uid="uid://biafnlvd8q3nv" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0026.png" id="26_afl57"]
+[ext_resource type="Texture2D" uid="uid://dfack3n4skckf" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0027.png" id="27_vuty0"]
+[ext_resource type="Texture2D" uid="uid://ccquf6l4oc25j" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0028.png" id="28_wvw8l"]
+[ext_resource type="Texture2D" uid="uid://tphmb08bxw7x" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0029.png" id="29_6fnmd"]
+[ext_resource type="Texture2D" uid="uid://cq5yewytnx2ou" path="res://assets/images/characters/boyfriend/BF dies/skele/handover0001.png" id="30_i0r8y"]
+[ext_resource type="Texture2D" uid="uid://ckip3urnsj3xg" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0030.png" id="31_thfos"]
+[ext_resource type="Texture2D" uid="uid://4ke2h31q77pu" path="res://assets/images/characters/boyfriend/BF dies/skele/BF dies0031.png" id="32_0fwoy"]
+[ext_resource type="Texture2D" uid="uid://prsoepw7lvqw" path="res://assets/images/characters/boyfriend/BF dies/mic/BF dies0001.png" id="32_3uv01"]
+[ext_resource type="Texture2D" uid="uid://7hwsj2k0h2w0" path="res://assets/images/characters/boyfriend/BF dies/skele/handover0002.png" id="32_nsvjd"]
+[ext_resource type="Texture2D" uid="uid://dwumgsycqqv4x" path="res://assets/images/characters/boyfriend/BF dies/mic/BF dies0002.png" id="33_xfiq0"]
+[ext_resource type="Texture2D" uid="uid://bdp0okkcnvyox" path="res://assets/images/characters/boyfriend/BF dies/mic/BF dies0003.png" id="34_3cvcr"]
+[ext_resource type="Texture2D" uid="uid://bj5vjkovxf6ts" path="res://assets/images/characters/boyfriend/BF dies/mic/BF dies0004.png" id="35_sfn3n"]
+[ext_resource type="Texture2D" uid="uid://cl5fp3n4eyg1b" path="res://assets/images/characters/boyfriend/BF dies/mic/BF dies0005.png" id="36_xtvic"]
+[ext_resource type="Texture2D" uid="uid://bnmqs6qb3c0eo" path="res://assets/images/characters/boyfriend/BF dies/mic/BF dies0006.png" id="37_tjup8"]
+[ext_resource type="Texture2D" uid="uid://cjjs6qkphof60" path="res://assets/images/characters/boyfriend/BF dies/mic/BF dies0007.png" id="38_8y8f3"]
+[ext_resource type="Texture2D" uid="uid://cb7fuwrk54otp" path="res://assets/images/characters/boyfriend/BF dies/mic/BF dies0008.png" id="39_5cg22"]
+[ext_resource type="Texture2D" uid="uid://elgebrhmhyyt" path="res://assets/images/characters/boyfriend/BF dies/mic/BF dies0009.png" id="40_smg3y"]
+[ext_resource type="Texture2D" uid="uid://5d7ft7cga2ei" path="res://assets/images/characters/boyfriend/BF dies/mic/BF dies0010.png" id="41_ad3q3"]
+[ext_resource type="Texture2D" uid="uid://bdoumt4gv0ucq" path="res://assets/images/characters/boyfriend/BF dies/mic/BF dies0011.png" id="42_iro8v"]
+[ext_resource type="Texture2D" uid="uid://dveui01e63mvh" path="res://ref/dfssdfsdfdsf.png" id="43_vf7mu"]
+[ext_resource type="Texture2D" uid="uid://dt4bqmqtg3ky0" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0001.png" id="47_8y8f3"]
+[ext_resource type="Texture2D" uid="uid://chnhrh4tctdg3" path="res://assets/images/characters/boyfriend/BF dies/balls/balls0001.png" id="47_cm77b"]
+[ext_resource type="Texture2D" uid="uid://3b8023bxf0e6" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0002.png" id="48_5cg22"]
+[ext_resource type="Texture2D" uid="uid://c5mxasf7eps26" path="res://assets/images/characters/boyfriend/BF dies/balls/balls0002.png" id="48_b4fi5"]
+[ext_resource type="Texture2D" uid="uid://ogy704ti05n0" path="res://assets/images/characters/boyfriend/BF dies/balls/balls0003.png" id="49_c4cb2"]
+[ext_resource type="Texture2D" uid="uid://cas73odrrqiq6" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0003.png" id="49_smg3y"]
+[ext_resource type="Texture2D" uid="uid://cq4hb28fbiaum" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0004.png" id="50_ad3q3"]
+[ext_resource type="Texture2D" uid="uid://tdees00tg1mt" path="res://assets/images/characters/boyfriend/BF dies/balls/balls0004.png" id="50_kk3tq"]
+[ext_resource type="Texture2D" uid="uid://dn6elxenfdvmj" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0005.png" id="51_iro8v"]
+[ext_resource type="Texture2D" uid="uid://dvd2dhgtlck76" path="res://assets/images/characters/boyfriend/BF dies/balls/balls0005.png" id="51_pe1yg"]
+[ext_resource type="Texture2D" uid="uid://b22xjc53tvddh" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0006.png" id="52_vf7mu"]
+[ext_resource type="Texture2D" uid="uid://btv3bu77syak3" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0007.png" id="53_xeveo"]
+[ext_resource type="Texture2D" uid="uid://dljvkh2rb7tk" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0008.png" id="54_qy7o2"]
+[ext_resource type="Texture2D" uid="uid://cewrld8x30cii" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0009.png" id="55_oxxq6"]
+[ext_resource type="Texture2D" uid="uid://dtt7ih0niytxq" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0010.png" id="56_igjsh"]
+[ext_resource type="Texture2D" uid="uid://bipjbiq2gfwhj" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0011.png" id="57_cgl5n"]
+[ext_resource type="Texture2D" uid="uid://iccf7l6g0eqb" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0012.png" id="58_6r7so"]
+[ext_resource type="Texture2D" uid="uid://11m1mblgwjys" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0013.png" id="59_botyo"]
+[ext_resource type="Texture2D" uid="uid://bfn5i52jrki7k" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0014.png" id="60_72gny"]
+[ext_resource type="Texture2D" uid="uid://bhdhs5jhxcnak" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0015.png" id="61_au5wg"]
+[ext_resource type="Texture2D" uid="uid://bh30sjmpuvcyg" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0016.png" id="62_cp30t"]
+[ext_resource type="Texture2D" uid="uid://0p72otju6i7u" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0017.png" id="63_fpj6q"]
+[ext_resource type="Texture2D" uid="uid://b2vfwby0i7kru" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0018.png" id="64_61ehx"]
+[ext_resource type="Texture2D" uid="uid://cx7r06uwxx1au" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0019.png" id="65_qwtra"]
+[ext_resource type="Texture2D" uid="uid://b14am8utas2t3" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0020.png" id="66_lrk2g"]
+[ext_resource type="Texture2D" uid="uid://c2603m5ga6s14" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0021.png" id="67_ds326"]
+[ext_resource type="Texture2D" uid="uid://bp0b7746nfx3p" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0022.png" id="68_6jbt3"]
+[ext_resource type="Texture2D" uid="uid://v3e1016hwt4d" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0023.png" id="69_185se"]
+[ext_resource type="Texture2D" uid="uid://cffn65bqlbupo" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0024.png" id="70_vm3j1"]
+[ext_resource type="Texture2D" uid="uid://b86x3dgvot6t7" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0025.png" id="71_3sf37"]
+[ext_resource type="Texture2D" uid="uid://npfro3oowkwr" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0026.png" id="72_8jx6j"]
+[ext_resource type="Texture2D" uid="uid://b0abmrw31m2b6" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0027.png" id="73_pxvfe"]
+[ext_resource type="Texture2D" uid="uid://dygd6783lmnmb" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0028.png" id="74_6f1h3"]
+[ext_resource type="Texture2D" uid="uid://dse1rjk7vnbtm" path="res://assets/images/characters/boyfriend/BF dies/retry confirm/retry confirm0029.png" id="75_ruuwk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xeveo"]
+animations = [{
+"frames": [{
+"duration": 100.0,
+"texture": ExtResource("31_thfos")
+}],
+"loop": true,
+"name": &"confirm",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vpr47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nsvjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ichvc")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_u574s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_thfos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0fwoy")
+}, {
+"duration": 40.0,
+"texture": ExtResource("7_ol712")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5jp08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cm77b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_b4fi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c4cb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kk3tq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_pe1yg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5n2h3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_03jvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8y02j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ghb4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ntnra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_e4a1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_5gl55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_mmx0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_aatcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_5hh4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_jh650")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_glno1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_afl57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_vuty0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_wvw8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_6fnmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_6fnmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_6fnmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_6fnmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_6fnmd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 100.0,
+"texture": ExtResource("31_thfos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_0fwoy")
+}],
+"loop": true,
+"name": &"loop",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qy7o2"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("30_i0r8y")
+}, {
+"duration": 100.0,
+"texture": ExtResource("32_nsvjd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oxxq6"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("32_3uv01")
+}, {
+"duration": 18.0,
+"texture": ExtResource("33_xfiq0")
+}, {
+"duration": 3.0,
+"texture": ExtResource("34_3cvcr")
+}, {
+"duration": 2.0,
+"texture": ExtResource("35_sfn3n")
+}, {
+"duration": 2.0,
+"texture": ExtResource("36_xtvic")
+}, {
+"duration": 2.0,
+"texture": ExtResource("37_tjup8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_8y8f3")
+}, {
+"duration": 2.0,
+"texture": ExtResource("39_5cg22")
+}, {
+"duration": 2.0,
+"texture": ExtResource("40_smg3y")
+}, {
+"duration": 2.0,
+"texture": ExtResource("41_ad3q3")
+}, {
+"duration": 2.0,
+"texture": ExtResource("42_iro8v")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tnkb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("47_8y8f3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_5cg22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_smg3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_ad3q3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_iro8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_vf7mu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_xeveo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_qy7o2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_oxxq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_igjsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_cgl5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_6r7so")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_botyo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_72gny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_au5wg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_cp30t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_fpj6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_61ehx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_qwtra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_lrk2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_ds326")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_6jbt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_185se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_vm3j1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_3sf37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_8jx6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_pxvfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_6f1h3")
+}, {
+"duration": 1000.0,
+"texture": ExtResource("75_ruuwk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5n2h3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("47_cm77b")
+}, {
+"duration": 2.0,
+"texture": ExtResource("48_b4fi5")
+}, {
+"duration": 2.0,
+"texture": ExtResource("49_c4cb2")
+}, {
+"duration": 2.0,
+"texture": ExtResource("50_kk3tq")
+}, {
+"duration": 100.0,
+"texture": ExtResource("51_pe1yg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="bf" type="Node2D"]
+use_parent_material = true
+position = Vector2(-88, -206)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_u574s")
+
+[node name="sekle" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
+sprite_frames = SubResource("SpriteFrames_xeveo")
+frame_progress = 0.445998
+
+[node name="hand" type="AnimatedSprite2D" parent="sekle"]
+z_index = 1
+use_parent_material = true
+position = Vector2(-276.5, -88.5)
+sprite_frames = SubResource("SpriteFrames_qy7o2")
+
+[node name="mic" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
+position = Vector2(-205, 99)
+sprite_frames = SubResource("SpriteFrames_oxxq6")
+
+[node name="ref" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+position = Vector2(-53, 3)
+scale = Vector2(2, 2)
+texture = ExtResource("43_vf7mu")
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="retry confirm" type="AnimatedSprite2D" parent="."]
+visible = false
+use_parent_material = true
+position = Vector2(108, -255)
+sprite_frames = SubResource("SpriteFrames_tnkb2")
+frame_progress = 0.880355
+
+[node name="balls" type="AnimatedSprite2D" parent="."]
+visible = false
+use_parent_material = true
+position = Vector2(102, -63)
+sprite_frames = SubResource("SpriteFrames_5n2h3")
+frame_progress = 0.231692

@@ -15,6 +15,8 @@ func _ready() -> void:
 	pass
 	clearPercent = int((float(totalPlayerNotes - missedNotes) / float(totalPlayerNotes)) * 100)
 	clearPercentSmooth = float(clearPercent) / 2
+	#if floor(clearPercent) == 100:
+	#	$resultsCharacter.atlas = "res://assets/images/ResultsScreen/results-" + MasterVars.currCharacter + "/resultsPERFECT" 
 var flashTimer = 0
 var doFlash = false
 var drawNumFinal = false

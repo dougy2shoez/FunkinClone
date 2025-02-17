@@ -3,12 +3,13 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Conductor.connect("onBeatHit", onBeatHit)
 	$animate.use_parent_material = true
 	use_parent_material = true
 	print(get_parent())
 	z_index = get_parent().stageData["characters"]["dad"]["zIndex"]
 	name = "dad" # NECESSARY for the camera to reference!!
-var conductor
+var noteConductor
 var dadSingTimer = 0.0
 var lastBeat = 0.0
 var runOnce = false
@@ -20,7 +21,7 @@ var singAnimPlaying = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if runOnce == false:
-		conductor = get_parent().get_node("UILayer/Conductor")
+		noteConductor = get_parent().get_node("UILayer/NoteConductor")
 		if not get_parent().hueChangeAll:
 			use_parent_material = false
 			material = ShaderMaterial.new()
@@ -32,26 +33,25 @@ func _process(delta: float) -> void:
 			material.set_shader_parameter("contrast", hueChange["dad"][3])
 		runOnce = true
 	if stageExists: if stagePositionsAccess.has_node("P1"): position = stagePositionsAccess.get_node("P1").position
-	$animate.play(str(conductor.currDADAnim[0]))
-	if conductor.currDADAnim[1] == 1:
-		conductor.currDADAnim[1] = 0
+	$animate.play(str(noteConductor.currDADAnim[0]))
+	if noteConductor.currDADAnim[1] == 1:
+		noteConductor.currDADAnim[1] = 0
 		singAnimPlaying = true
 		dadSingTimer = 0.0 
 		$animate.set_frame(0)
 	if singAnimPlaying == true: dadSingTimer += delta
-	if dadSingTimer > conductor.currDADAnim[2] and singAnimPlaying == true:
+	if dadSingTimer > noteConductor.currDADAnim[2] and singAnimPlaying == true:
 		singAnimPlaying = false
 		dadSingTimer = 0.0
-	if not conductor.currBeat == lastBeat:
-		if conductor.BPMGLOBAL < 110:
+func onBeatHit():
+	if noteConductor.BPMGLOBAL < 110:
+		if singAnimPlaying == false:
+			$animate.set_frame(0)
+			noteConductor.currDADAnim[0] = "idle"
+	else:
+		BPMWait += 1
+		if BPMWait > 1:
 			if singAnimPlaying == false:
 				$animate.set_frame(0)
-				conductor.currDADAnim[0] = "idle"
-		else:
-			BPMWait += 1
-			if BPMWait > 1:
-				if singAnimPlaying == false:
-					$animate.set_frame(0)
-					conductor.currDADAnim[0] = "idle"
-					BPMWait = 0
-		lastBeat = conductor.currBeat
+				noteConductor.currDADAnim[0] = "idle"
+				BPMWait = 0

@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://brlll27lfk4sk" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="7_spm3b"]
 [ext_resource type="Script" uid="uid://7w2d2j67f614" path="res://scripts/gameplay/main/ui/scoreDisplay.gd" id="8_c6qjk"]
 [ext_resource type="Texture2D" uid="uid://cul18vw6dxhv3" path="res://assets/images/healthBar.png" id="10_v8rw5"]
-[ext_resource type="Script" uid="uid://dkp1grl23t6fv" path="res://scripts/gameplay/main/noteConductor.gd" id="14_uannv"]
+[ext_resource type="Script" uid="uid://dkp1grl23t6fv" path="res://scripts/gameplay/main/conductor.gd" id="14_uannv"]
 [ext_resource type="PackedScene" uid="uid://55g3opsj0jg6" path="res://scenes/pausedOverlay.tscn" id="16_dfvoc"]
 [ext_resource type="Script" uid="uid://im0om8rds2rh" path="res://scripts/gameplay/main/ui/UILayer.gd" id="18_4wjrt"]
 [ext_resource type="Script" uid="uid://qapffdvx3t2y" path="res://scripts/gameplay/gameCamera.gd" id="18_ilo1c"]
@@ -17,31 +17,15 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j5cyo"]
 shader = ExtResource("1_ge1rw")
-shader_parameter/hue = 0.0
-shader_parameter/saturation = 0.0
-shader_parameter/brightness = 0.0
+shader_parameter/hue = -26.0
+shader_parameter/saturation = -16.0
+shader_parameter/brightness = -5.0
 shader_parameter/contrast = 0.0
 
 [node name="PlayScene" type="Node2D"]
 process_mode = 1
 material = SubResource("ShaderMaterial_j5cyo")
 script = ExtResource("1_aheq8")
-
-[node name="deathBlack" type="ColorRect" parent="."]
-visible = false
-z_index = -10
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -5000.0
-offset_top = -5000.0
-offset_right = 5000.0
-offset_bottom = 5000.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="info" type="Window" parent="."]
 title = "Info"
@@ -81,9 +65,9 @@ script = ExtResource("18_ilo1c")
 script = ExtResource("18_4wjrt")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="UILayer"]
-offset_left = 1096.0
+offset_left = 1063.0
 offset_top = 686.0
-offset_right = 1340.0
+offset_right = 1307.0
 offset_bottom = 739.0
 focus_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -91,7 +75,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("7_spm3b")
 bbcode_enabled = true
 text = "
-PLAYTESTER BUILD #3"
+FunkinClone (PROTOTYPE)"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -154,24 +138,25 @@ texture = ExtResource("10_v8rw5")
 position = Vector2(277.5, 8.5)
 script = ExtResource("7_dxhd3")
 
-[node name="NoteConductor" type="Node" parent="UILayer"]
+[node name="Conductor" type="Node" parent="UILayer"]
 process_physics_priority = -1
 script = ExtResource("14_uannv")
 timerCountDown = 0.0
 metadata/_custom_type_script = ExtResource("14_uannv")
 
-[node name="Inst" type="AudioStreamPlayer" parent="UILayer/NoteConductor"]
+[node name="Inst" type="AudioStreamPlayer" parent="UILayer/Conductor"]
+pitch_scale = 1.1
 bus = &"Vis"
 script = ExtResource("21_ejo5q")
 
-[node name="VoicesDAD" type="AudioStreamPlayer" parent="UILayer/NoteConductor"]
-volume_db = -80.0
+[node name="VoicesDAD" type="AudioStreamPlayer" parent="UILayer/Conductor"]
 script = ExtResource("18_o7v37")
 
-[node name="VoicesBF" type="AudioStreamPlayer" parent="UILayer/NoteConductor"]
+[node name="VoicesBF" type="AudioStreamPlayer" parent="UILayer/Conductor"]
 script = ExtResource("23_4804c")
 
 [node name="overlayPause" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="pausedOverlay" parent="overlayPause" instance=ExtResource("16_dfvoc")]
 visible = false

@@ -226,5 +226,5 @@ animation = &"idle"
 script = ExtResource("27_vf0hn")
 
 [node name="cameraPos" type="Marker2D" parent="."]
-position = Vector2(0, 20)
+position = Vector2(26, 14)
 gizmo_extents = 56.5

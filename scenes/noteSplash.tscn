@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bb61ycsw215h7"]
+[gd_scene load_steps=40 format=3 uid="uid://bb61ycsw215h7"]
 
 [ext_resource type="Script" uid="uid://valrmetx38es" path="res://scripts/gameplay/main/ui/noteSplash.gd" id="1_nlm18"]
 [ext_resource type="Texture2D" uid="uid://b7of4xhq8mbsw" path="res://assets/images/noteASSETS/splash/splash0013.png" id="2_1l4c4"]
@@ -33,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://bqcph5lyci0vn" path="res://assets/images/noteASSETS/splash/splash0018.png" id="27_uwan0"]
 [ext_resource type="Texture2D" uid="uid://dp6pbc5fwifhe" path="res://assets/images/noteASSETS/splash/splash0019.png" id="28_2y8dt"]
 [ext_resource type="Texture2D" uid="uid://byf4qt0lentwq" path="res://assets/images/noteASSETS/splash/splash0020.png" id="29_wipi4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_06mtp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_62jf2"]
 atlas = ExtResource("9_y274g")
@@ -218,7 +220,9 @@ script = ExtResource("1_nlm18")
 
 [node name="animate" type="AnimatedSprite2D" parent="."]
 z_index = 500
+material = SubResource("CanvasItemMaterial_06mtp")
 position = Vector2(697, 44)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_o7582")
 animation = &"0_1"
+frame_progress = 0.920364

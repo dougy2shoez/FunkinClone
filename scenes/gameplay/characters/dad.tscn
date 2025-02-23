@@ -104,5 +104,5 @@ animation = &"idle"
 frame_progress = 0.0783352
 
 [node name="cameraPos" type="Marker2D" parent="."]
-position = Vector2(4, -55)
+position = Vector2(4, -74)
 gizmo_extents = 56.5

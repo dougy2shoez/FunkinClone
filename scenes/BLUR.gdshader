@@ -26,6 +26,5 @@ void fragment() {
 
 	}
 	vec4 reColor = texture(TEXTURE, UV);
-
-	COLOR = vec4(glow_color.rgb, color.a);
+	COLOR = vec4(glow_color.rgb , color.a);
 }

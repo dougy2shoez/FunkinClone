@@ -1,0 +1,127 @@
+[gd_scene load_steps=27 format=3 uid="uid://c8dxekqcwtuu4"]
+
+[ext_resource type="Shader" uid="uid://dhx8cmvi3ln8r" path="res://scenes/playScene.gdshader" id="1_je3ll"]
+[ext_resource type="Script" uid="uid://thy3iul5dhf2" path="res://scripts/gameplay/main/element/gf.gd" id="2_6vnyf"]
+[ext_resource type="Texture2D" uid="uid://2fnn0jgj08tv" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0001.png" id="3_dw8pa"]
+[ext_resource type="Texture2D" uid="uid://bok6apscxr4p4" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0002.png" id="4_1558e"]
+[ext_resource type="Texture2D" uid="uid://brvr0huryda6l" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0003.png" id="5_nau2n"]
+[ext_resource type="Texture2D" uid="uid://cfejemn2l10nd" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0004.png" id="6_opbaa"]
+[ext_resource type="Texture2D" uid="uid://cdwb6jjctfgd3" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0005.png" id="7_1sfla"]
+[ext_resource type="Texture2D" uid="uid://dbays5rdokjm6" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0006.png" id="8_r7hix"]
+[ext_resource type="Texture2D" uid="uid://i7cvqq82plaa" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0007.png" id="9_bkn3m"]
+[ext_resource type="Texture2D" uid="uid://cpgscnn7w0qxj" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0008.png" id="10_wokgu"]
+[ext_resource type="Texture2D" uid="uid://cbxbsqwu8bgxq" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0013.png" id="11_88msp"]
+[ext_resource type="Texture2D" uid="uid://8el3fnjck470" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0015.png" id="12_6hno1"]
+[ext_resource type="Texture2D" uid="uid://dr1ry1owd31lo" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0016.png" id="13_qjxl7"]
+[ext_resource type="Texture2D" uid="uid://bpint331vc517" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0017.png" id="14_7bkr4"]
+[ext_resource type="Texture2D" uid="uid://ck0rraa7lrhwa" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0018.png" id="15_6gocw"]
+[ext_resource type="Texture2D" uid="uid://dmc0b85uhv5oe" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0019.png" id="16_j4uwk"]
+[ext_resource type="Texture2D" uid="uid://dwqb1nm0lb355" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0020.png" id="17_3qnam"]
+[ext_resource type="Texture2D" uid="uid://dtqqnbjdohbj0" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0021.png" id="18_ru5b6"]
+[ext_resource type="Texture2D" uid="uid://dvvwhfeh1nxm4" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0022.png" id="19_glo2f"]
+[ext_resource type="Texture2D" uid="uid://dqx8cf70qgy1d" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0024.png" id="20_ilap8"]
+[ext_resource type="Texture2D" uid="uid://dly4enbi2nj4x" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0025.png" id="21_nx7h4"]
+[ext_resource type="Texture2D" uid="uid://bjl75vr2j24pm" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0027.png" id="22_r3fxd"]
+[ext_resource type="Texture2D" uid="uid://cicthpdisg0ma" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0028.png" id="23_gmx0b"]
+[ext_resource type="Texture2D" uid="uid://jk42atstkoke" path="res://assets/images/characters/gf/gunpoint/GF Dancing at Gunpoint0030.png" id="24_8p4ko"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a54va"]
+shader = ExtResource("1_je3ll")
+shader_parameter/hue = 0.0
+shader_parameter/saturation = 1.0
+shader_parameter/brightness = 1.0
+shader_parameter/contrast = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1djmw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dw8pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1558e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nau2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_opbaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1sfla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r7hix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bkn3m")
+}, {
+"duration": 3.0,
+"texture": ExtResource("10_wokgu")
+}, {
+"duration": 3.0,
+"texture": ExtResource("11_88msp")
+}, {
+"duration": 99999.0,
+"texture": ExtResource("12_6hno1")
+}],
+"loop": true,
+"name": &"bop1",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_qjxl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7bkr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_6gocw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_j4uwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_3qnam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ru5b6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_glo2f")
+}, {
+"duration": 2.0,
+"texture": ExtResource("20_ilap8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_nx7h4")
+}, {
+"duration": 2.0,
+"texture": ExtResource("22_r3fxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_gmx0b")
+}, {
+"duration": 99999.0,
+"texture": ExtResource("24_8p4ko")
+}],
+"loop": true,
+"name": &"bop2",
+"speed": 24.0
+}]
+
+[node name="gf" type="Node2D"]
+material = SubResource("ShaderMaterial_a54va")
+script = ExtResource("2_6vnyf")
+
+[node name="animate" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, -308)
+scale = Vector2(0.666, 0.666)
+sprite_frames = SubResource("SpriteFrames_1djmw")
+animation = &"bop2"
+frame_progress = 0.141581
+
+[node name="cameraPos" type="Marker2D" parent="."]
+position = Vector2(-1, -30)
+gizmo_extents = 56.5

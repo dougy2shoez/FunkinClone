@@ -1,6 +1,6 @@
 shader_type canvas_item;
 render_mode unshaded;
-
+uniform bool doDaAddBlend;
 /**
  * How blurry the result should be.
  * This value will cause the shader to sample each pixel's neighbors up to `strength` pixels away and blur them together.
@@ -76,5 +76,6 @@ void fragment() {
 	} else {
 		COLOR = color;
 	}
-	COLOR = vec4(glow_color.rgb, color.a);
+	if (doDaAddBlend) {COLOR = vec4(glow_color.rgb, color.a) + texture(TEXTURE, UV);}
+	else {COLOR = vec4(glow_color.rgb, color.a);}
 }

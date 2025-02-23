@@ -1,0 +1,140 @@
+[gd_scene load_steps=30 format=3 uid="uid://b7oqkn4b22fou"]
+
+[ext_resource type="Shader" uid="uid://dhx8cmvi3ln8r" path="res://scenes/playScene.gdshader" id="1_1fww0"]
+[ext_resource type="Script" uid="uid://thy3iul5dhf2" path="res://scripts/gameplay/main/element/gf.gd" id="2_dy0k7"]
+[ext_resource type="PackedScene" uid="uid://d14r3xv46sexw" path="res://scenes/aBot.tscn" id="3_hmh1h"]
+[ext_resource type="Texture2D" uid="uid://dxcvn4t8biim7" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0001.png" id="4_dy0k7"]
+[ext_resource type="Texture2D" uid="uid://d0mho43jrmogt" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0002.png" id="5_hmh1h"]
+[ext_resource type="Texture2D" uid="uid://q5sgobj7u8cx" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0003.png" id="6_8i7bx"]
+[ext_resource type="Texture2D" uid="uid://j0pylmpoi5i2" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0004.png" id="7_nq004"]
+[ext_resource type="Texture2D" uid="uid://c28028kngfxpo" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0005.png" id="8_7kup8"]
+[ext_resource type="Texture2D" uid="uid://nw8roerq1e2q" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0006.png" id="9_44xxj"]
+[ext_resource type="Texture2D" uid="uid://dpihhnrwdl5fb" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0007.png" id="10_wu7gq"]
+[ext_resource type="Texture2D" uid="uid://ck1q2n8lirjpv" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0008.png" id="11_4jnt0"]
+[ext_resource type="Texture2D" uid="uid://hwtv1ykv4ghu" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0009.png" id="12_xd8su"]
+[ext_resource type="Texture2D" uid="uid://cp1vmvfl560jy" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0010.png" id="13_jos14"]
+[ext_resource type="Texture2D" uid="uid://bejogirdj3ru3" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0011.png" id="14_m7c7k"]
+[ext_resource type="Texture2D" uid="uid://xq03oojdbyb1" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0012.png" id="15_oyca0"]
+[ext_resource type="Texture2D" uid="uid://dr3ukajio2of8" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0013.png" id="16_t0v3b"]
+[ext_resource type="Texture2D" uid="uid://dw4uehofgg8ud" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0014.png" id="17_ruhmg"]
+[ext_resource type="Texture2D" uid="uid://ggh1eyjdbifd" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0015.png" id="18_vh8mf"]
+[ext_resource type="Texture2D" uid="uid://bket2dbml875f" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0016.png" id="19_i31lx"]
+[ext_resource type="Texture2D" uid="uid://crttvdcavwypf" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0017.png" id="20_rxgim"]
+[ext_resource type="Texture2D" uid="uid://dvm56gt08nry3" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0018.png" id="21_lgvop"]
+[ext_resource type="Texture2D" uid="uid://75d5338xyt4" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0019.png" id="22_a5vln"]
+[ext_resource type="Texture2D" uid="uid://bm4rhhrjmyk6s" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0020.png" id="23_taumf"]
+[ext_resource type="Texture2D" uid="uid://bjwyj5u4vu4wh" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0021.png" id="24_f53r0"]
+[ext_resource type="Texture2D" uid="uid://bm8nfaxp57qla" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0022.png" id="25_imo0f"]
+[ext_resource type="Texture2D" uid="uid://bl5xcrdbel4ye" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0023.png" id="26_tipul"]
+[ext_resource type="Texture2D" uid="uid://df4lgbpv5f6uh" path="res://assets/images/characters/nene/christmas/Nene Idle xmas0024.png" id="27_egcie"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a54va"]
+shader = ExtResource("1_1fww0")
+shader_parameter/hue = 0.0
+shader_parameter/saturation = 1.0
+shader_parameter/brightness = 1.0
+shader_parameter/contrast = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_330qi"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("4_dy0k7")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_hmh1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8i7bx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nq004")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7kup8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_44xxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wu7gq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4jnt0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xd8su")
+}, {
+"duration": 2.0,
+"texture": ExtResource("13_jos14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_m7c7k")
+}, {
+"duration": 1000.0,
+"texture": ExtResource("15_oyca0")
+}],
+"loop": true,
+"name": &"bop1",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("16_t0v3b")
+}, {
+"duration": 2.0,
+"texture": ExtResource("17_ruhmg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_vh8mf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_i31lx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_rxgim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_lgvop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_a5vln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_taumf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_f53r0")
+}, {
+"duration": 2.0,
+"texture": ExtResource("25_imo0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_tipul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_egcie")
+}],
+"loop": true,
+"name": &"bop2",
+"speed": 24.0
+}]
+
+[node name="nene" type="Node2D"]
+material = SubResource("ShaderMaterial_a54va")
+script = ExtResource("2_dy0k7")
+
+[node name="aBot" parent="." instance=ExtResource("3_hmh1h")]
+position = Vector2(45.25, -152.5)
+
+[node name="cameraPos" type="Marker2D" parent="."]
+position = Vector2(51.25, 4)
+gizmo_extents = 56.5
+
+[node name="animate" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(-15.75, -404)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_330qi")
+animation = &"bop2"
+frame_progress = 0.59594

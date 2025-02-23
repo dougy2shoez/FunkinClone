@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://gbql86uk60wp"]
+[gd_scene load_steps=104 format=3 uid="uid://gbql86uk60wp"]
 
 [ext_resource type="Script" uid="uid://d04c7hgghea86" path="res://scripts/ui/freeplay/freeplayCapsule.gd" id="1_whv23"]
 [ext_resource type="Texture2D" uid="uid://243cxt2iu0sk" path="res://assets/images/Freeplay/capsule/characters/pico/Selected/mp3 capsule w backing0000.png" id="2_riu56"]
@@ -86,6 +86,7 @@
 [ext_resource type="Texture2D" uid="uid://bar12t31rss3t" path="res://assets/images/Freeplay/capsule/rankDisplay/P Lower/P0001.png" id="89_gymd5"]
 [ext_resource type="Texture2D" uid="uid://cpx5h3eu3vpvt" path="res://assets/images/Freeplay/capsule/rankDisplay/P Lower/P0002.png" id="90_g8avm"]
 [ext_resource type="Texture2D" uid="uid://dn8xparubpj34" path="res://assets/images/Freeplay/capsule/rankDisplay/P Lower/P0003.png" id="91_avgdv"]
+[ext_resource type="Shader" uid="uid://d1yusylovx6r6" path="res://scenes/BLUR.gdshader" id="92_p0xo6"]
 [ext_resource type="Texture2D" uid="uid://dannrslkbxik0" path="res://assets/images/Freeplay/capsule/rankDisplay/P Upper/goldP0001.png" id="92_qkbmd"]
 [ext_resource type="Texture2D" uid="uid://h5g776ppa7ns" path="res://assets/images/Freeplay/capsule/rankDisplay/P Upper/goldP0002.png" id="93_s7yyy"]
 [ext_resource type="Texture2D" uid="uid://bsu7surqrvkag" path="res://assets/images/Freeplay/capsule/rankDisplay/P Upper/goldP0003.png" id="94_7l6kf"]
@@ -537,9 +538,101 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4m2db"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qc2n1"]
 
 [sub_resource type="Shader" id="Shader_ahmbb"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+uniform bool doDaAddBlend;
+/**
+ * How blurry the result should be.
+ * This value will cause the shader to sample each pixel's neighbors up to `strength` pixels away and blur them together.
+ */
+uniform float strength : hint_range(0.0, 10.0) = 0.0;
+uniform vec4 glow_color : source_color = vec4(1.0);
+/**
+ * Exponent value for the number of samples to take.
+ * This value affects the quality at the cost of performance.
+ * The number of samples taken will be 2 to the power of this value, which means that every time you increment this value by one it doubles the required processing time.
+ */
+uniform int sample_power : hint_range(3, 8, 1) = 4;
+
+/**
+ * Check this box when using this on a CanvasGroup.
+ */
+uniform bool is_canvas_group = false;
+
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
+
+vec2 rotate(vec2 v, float angle) {
+	mat2 rotation_matrix = mat2(vec2(cos(angle), sin(angle)), vec2(-sin(angle), cos(angle)));
+    return v * rotation_matrix;
+}
+
+void fragment() {
+    vec2 pixel_size = is_canvas_group ? SCREEN_PIXEL_SIZE : TEXTURE_PIXEL_SIZE;
+    vec2 uv = is_canvas_group ? SCREEN_UV : UV;
+
+	float samples = float(pow(2.0, float(sample_power)));
+	float layer_increment = strength / samples;
+	float angle_increment = TAU / samples;
+
+	// Fetch the color of the processed pixel.
+	vec4 color;
+	if (is_canvas_group) {
+		color = textureLod(screen_texture, uv, 0.0);
+	} else {
+		color = textureLod(TEXTURE, uv, 0.0);
+	}
+
+
+	// Iterate over samples number of layers. Skip this loop entirely if the strength is 0.
+	for (float d = layer_increment; d <= strength && strength > 0.0; d += layer_increment) {
+		// Create an empty vec4 to store the average color of the current layer.
+		vec4 layer_color = vec4(0.0, 0.0, 0.0, 0.0);
+
+		// Iterate over samples number of angles.
+		for (float t = 0.0; t < TAU; t += angle_increment) {
+			vec2 sample_uv = uv + rotate(pixel_size * d, t);
+			vec4 sample_color;
+			if (is_canvas_group) {
+				sample_color = textureLod(screen_texture, sample_uv, 0.0);
+			} else {
+				sample_color = textureLod(TEXTURE, sample_uv, 0.0);
+			}
+			layer_color += sample_color;
+		}
+
+		// Find the average color of the current layer.
+		layer_color /= samples;
+
+		// Determine the weight given to the current layer. Farther layers will have less weight.
+		float weight = 1.0 - sqrt(d / strength);
+
+		// Mix the current layer's color with the processed pixel's color by the calculated weight.
+		color = mix(color, layer_color, weight);
+	}
+
+	if (is_canvas_group) {
+		color.rgb /= color.a > 0.0001 ? color.a : 1.0;
+		COLOR *= color;
+	} else {
+		COLOR = color;
+	}
+	if (doDaAddBlend) {COLOR = vec4(glow_color.rgb, color.a) + texture(TEXTURE, UV);}
+	else {COLOR = vec4(glow_color.rgb, color.a);}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p0xo6"]
+shader = SubResource("Shader_ahmbb")
+shader_parameter/doDaAddBlend = null
+shader_parameter/strength = 4.0
+shader_parameter/glow_color = Color(0.8, 0.6, 0, 1)
+shader_parameter/sample_power = 3
+shader_parameter/is_canvas_group = false
+
+[sub_resource type="Shader" id="Shader_mlcme"]
 code = "shader_type canvas_item;
 		// Modified version of a tilt shift shader from Martin Jonasson (http://grapefrukt.com/)
 		// Read http://notes.underscorediscovery.com/ for context on shaders and this file
@@ -576,6 +669,7 @@ code = "shader_type canvas_item;
 			*/
 
 		// I am hardcoding the constants like a jerk
+uniform bool doDaAddBlend;
 uniform vec4 glow_color : source_color = vec4(1.0);
 		const float bluramount  = 1.0;
 		const float center      = 1.0;
@@ -644,7 +738,8 @@ void fragment() {
 	blurred /= float(steps * steps);
 
 	// return the final blurred color
-	COLOR = blurredShit;
+	if (doDaAddBlend) {COLOR = blurredShit + texture(TEXTURE, UV);}
+	else {COLOR = blurredShit;}
 	COLOR.rgb = glow_color.rgb;
 }
 
@@ -654,26 +749,29 @@ void fragment() {
 //}
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p0xo6"]
-shader = SubResource("Shader_ahmbb")
-shader_parameter/glow_color = Color(0.8, 0.4, 0, 1)
-shader_parameter/_amount = 0.5
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3elvf"]
-shader = SubResource("Shader_ahmbb")
+shader = SubResource("Shader_mlcme")
+shader_parameter/doDaAddBlend = false
 shader_parameter/glow_color = Color(0.8, 0.6, 0, 1)
-shader_parameter/_amount = 0.9
+shader_parameter/_amount = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mlcme"]
+shader = ExtResource("92_p0xo6")
+shader_parameter/blur_scale = Vector2(0.145, 0.005)
+shader_parameter/glow_color = Color(0.8, 0.6, 0, 1)
+shader_parameter/glow_strength = 35.0
 
 [node name="freeplayCapsule" type="Node2D"]
 script = ExtResource("1_whv23")
 metadata/_edit_vertical_guides_ = [-236.0]
+metadata/defaultColor = Color(0.8, 0.6, 0, 1)
 
 [node name="capsuleBase" type="AnimatedSprite2D" parent="."]
 z_index = 21
 position = Vector2(2, 3)
 scale = Vector2(0.81, 0.81)
 sprite_frames = SubResource("SpriteFrames_kujb5")
-animation = &"Selected"
+animation = &"notSelected"
 
 [node name="icon" type="AnimatedSprite2D" parent="capsuleBase"]
 z_index = 5
@@ -689,7 +787,7 @@ visible = false
 position = Vector2(106.296, -11.6049)
 scale = Vector2(1.22222, 1.22222)
 sprite_frames = SubResource("SpriteFrames_yb7yg")
-frame_progress = 0.121567
+frame_progress = 0.0421337
 script = ExtResource("68_6fjv1")
 
 [node name="isNew" type="AnimatedSprite2D" parent="capsuleBase"]
@@ -716,24 +814,34 @@ anchor_left = 0.11442
 anchor_top = 0.000457043
 anchor_right = 0.134027
 anchor_bottom = 0.000457259
-offset_left = -274.025
-offset_top = -31.0617
-offset_right = 19.9752
-offset_bottom = 7.93827
+offset_left = -275.26
+offset_top = -32.2963
+offset_right = 18.7405
+offset_bottom = 6.7037
 scale = Vector2(1.125, 1.1)
 metadata/_edit_use_anchors_ = true
 
+[node name="greyText" type="ColorRect" parent="capsuleBase/TextContainer"]
+visible = false
+z_index = 7
+layout_mode = 0
+offset_left = 22.0
+offset_top = 6.0
+offset_right = 345.0
+offset_bottom = 33.0
+color = Color(0.0666667, 0.0235294, 0.0117647, 0.392157)
+
 [node name="songName" type="RichTextLabel" parent="capsuleBase/TextContainer"]
 z_index = 7
-material = SubResource("ShaderMaterial_4m2db")
+material = SubResource("ShaderMaterial_qc2n1")
 use_parent_material = true
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0429004
-anchor_top = -0.0056982
-anchor_right = 0.0429004
-anchor_bottom = -0.0056974
+anchor_left = 0.0500775
+anchor_top = 0.0518574
+anchor_right = 0.0500776
+anchor_bottom = 0.0518574
 offset_left = 6.88892
 offset_top = 5.22223
 offset_right = 226.889
@@ -743,13 +851,13 @@ theme_override_constants/table_h_separation = 0
 theme_override_fonts/normal_font = ExtResource("95_ooqnj")
 theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
-text = "Pico (Pico Mix)"
+text = "Tutorial
+"
 autowrap_mode = 0
 script = ExtResource("96_p4ah6")
 metadata/_edit_use_anchors_ = true
 
-[node name="notSelected" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
-visible = false
+[node name="glow" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
 show_behind_parent = true
 z_index = -2
 material = SubResource("ShaderMaterial_p0xo6")
@@ -758,7 +866,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.117142
 anchor_top = 4.01946
-anchor_right = 0.117143
+anchor_right = 0.117142
 anchor_bottom = 4.01946
 offset_left = -25.6868
 offset_top = -161.166
@@ -769,31 +877,8 @@ theme_override_constants/table_h_separation = 0
 theme_override_fonts/normal_font = ExtResource("95_ooqnj")
 theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
-text = "Pico (Pico Mix)"
-autowrap_mode = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="songName2" type="RichTextLabel" parent="capsuleBase/TextContainer/songName"]
-show_behind_parent = true
-z_index = -2
-material = SubResource("ShaderMaterial_3elvf")
-clip_contents = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.147071
-anchor_top = 4.01946
-anchor_right = 0.147071
-anchor_bottom = 4.01946
-offset_left = -32.3557
-offset_top = -161.166
-offset_right = 187.644
-offset_bottom = -121.166
-theme_override_colors/default_color = Color(0.960784, 1, 1, 1)
-theme_override_constants/table_h_separation = 0
-theme_override_fonts/normal_font = ExtResource("95_ooqnj")
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
-text = "Pico (Pico Mix)"
+text = "Tutorial
+"
 autowrap_mode = 0
 metadata/_edit_use_anchors_ = true
 
@@ -804,19 +889,68 @@ material = SubResource("ShaderMaterial_3elvf")
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.41517
-anchor_top = 2.12674
-anchor_right = 0.41517
-anchor_bottom = 2.12674
-offset_left = -91.2529
-offset_top = -85.4567
-offset_right = 128.747
-offset_bottom = -45.4568
+anchor_left = 0.117142
+anchor_top = 4.01946
+anchor_right = 0.117142
+anchor_bottom = 4.01946
+offset_left = -25.6868
+offset_top = -161.166
+offset_right = 194.313
+offset_bottom = -121.166
 theme_override_colors/default_color = Color(0.960784, 1, 1, 1)
 theme_override_constants/table_h_separation = 0
 theme_override_fonts/normal_font = ExtResource("95_ooqnj")
 theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
-text = "Pico (Pico Mix)"
+text = "Tutorial
+"
 autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="extra" type="Node2D" parent="capsuleBase/TextContainer/songName"]
+position = Vector2(0, -0.95619)
+
+[node name="glow" type="RichTextLabel" parent="capsuleBase/TextContainer/songName/extra"]
+show_behind_parent = true
+z_index = -2
+material = SubResource("ShaderMaterial_mlcme")
+clip_contents = false
+anchors_preset = -1
+anchor_top = -0.0119524
+anchor_bottom = -0.0119524
+offset_top = 3.8451
+offset_right = 220.0
+offset_bottom = 43.8451
+theme_override_colors/default_color = Color(0.960784, 1, 1, 1)
+theme_override_constants/table_h_separation = 0
+theme_override_fonts/normal_font = ExtResource("95_ooqnj")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Tutorial
+"
+autowrap_mode = 0
+deselect_on_focus_loss_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="glow2" type="RichTextLabel" parent="capsuleBase/TextContainer/songName/extra"]
+show_behind_parent = true
+z_index = -2
+material = SubResource("ShaderMaterial_mlcme")
+clip_contents = false
+anchors_preset = -1
+anchor_top = -0.0119524
+anchor_bottom = -0.0119524
+offset_left = -0.192
+offset_top = -1.2
+offset_right = 219.808
+offset_bottom = 38.8
+theme_override_colors/default_color = Color(0.960784, 1, 1, 1)
+theme_override_constants/table_h_separation = 0
+theme_override_fonts/normal_font = ExtResource("95_ooqnj")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Tutorial
+"
+autowrap_mode = 0
+deselect_on_focus_loss_enabled = false
 metadata/_edit_use_anchors_ = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://b0k4iq7q6p25m"]
+[gd_scene load_steps=80 format=3 uid="uid://b0k4iq7q6p25m"]
 
 [ext_resource type="Script" uid="uid://dgkm8mo4wqyj0" path="res://scripts/ui/freeplay/freeplayMain.gd" id="1_vylog"]
 [ext_resource type="Texture2D" uid="uid://b6lgofg3t2ywy" path="res://assets/images/Freeplay/pinkBack.png" id="2_qumsa"]
@@ -67,7 +67,6 @@
 [ext_resource type="Texture2D" uid="uid://7lnt6f30gw88" path="res://assets/images/Freeplay/albumRoll/volume1-text.png" id="64_bfxpk"]
 [ext_resource type="PackedScene" uid="uid://lgoitka0jn00" path="res://scenes/ui/freeplay/DJ/bf.tscn" id="65_v4bcf"]
 [ext_resource type="Texture2D" uid="uid://bppuqq0bayxe" path="res://assets/images/Freeplay/cardGlow.png" id="67_45d1d"]
-[ext_resource type="Shader" uid="uid://dr6x1mj3knaws" path="res://assets/shaders/adjustColor.gdshader" id="67_bfxpk"]
 [ext_resource type="Texture2D" uid="uid://vai3hb3madsc" path="res://assets/images/Freeplay/icons/picopixel/confirm0001.png" id="67_qfyh0"]
 
 [sub_resource type="Animation" id="Animation_elik6"]
@@ -699,13 +698,6 @@ _data = {
 &"roll in": SubResource("Animation_v76kt")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v76kt"]
-shader = ExtResource("67_bfxpk")
-shader_parameter/hue = 0.0
-shader_parameter/saturation = 0.0
-shader_parameter/brightness = null
-shader_parameter/contrast = null
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bfxpk"]
 blend_mode = 1
 
@@ -714,7 +706,7 @@ metadata/_edit_horizontal_guides_ = [-1504.0]
 
 [node name="freeplayMain" type="Node2D" parent="."]
 script = ExtResource("1_vylog")
-metadata/currDJAnim = "Boyfriend DJ confirm"
+metadata/currDJAnim = "Boyfriend DJ"
 
 [node name="transition" type="AnimationPlayer" parent="freeplayMain"]
 root_node = NodePath("../PinkBack")
@@ -921,14 +913,13 @@ hframes = 2
 
 [node name="freeplayBF" parent="freeplayMain" instance=ExtResource("65_v4bcf")]
 z_index = 9
-material = SubResource("ShaderMaterial_v76kt")
 position = Vector2(36, 308)
 scale = Vector2(0.5, 0.5)
 
 [node name="CardGlow" type="Sprite2D" parent="freeplayMain"]
 modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_bfxpk")
-position = Vector2(233, 366)
+position = Vector2(244, 374)
 texture = ExtResource("67_45d1d")
 
 [node name="PopupMenu" type="PopupMenu" parent="."]

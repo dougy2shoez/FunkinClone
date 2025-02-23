@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ch0i2t8mdycjh"]
+[gd_scene load_steps=50 format=3 uid="uid://ch0i2t8mdycjh"]
 
 [ext_resource type="Shader" uid="uid://dhx8cmvi3ln8r" path="res://scenes/playScene.gdshader" id="1_hablw"]
 [ext_resource type="Script" uid="uid://c1yocjykvr0qn" path="res://scripts/gameplay/main/element/dad.gd" id="2_85tmu"]
@@ -31,6 +31,20 @@
 [ext_resource type="Texture2D" uid="uid://1ubao65d7efw" path="res://assets/images/characters/parents/christmas/momDad0016.png" id="29_glrxl"]
 [ext_resource type="Texture2D" uid="uid://ceobq7pihuswp" path="res://assets/images/characters/parents/christmas/momDad0017.png" id="30_kkc42"]
 [ext_resource type="Texture2D" uid="uid://2ha458yrj8nr" path="res://assets/images/characters/parents/christmas/momDad0018.png" id="31_fnhmg"]
+[ext_resource type="Texture2D" uid="uid://espfv7hvck26" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0000.png" id="32_urhum"]
+[ext_resource type="Texture2D" uid="uid://cxhew4un12jn7" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0001.png" id="33_eiexh"]
+[ext_resource type="Texture2D" uid="uid://dn170ge01f1nl" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0002.png" id="34_44ye4"]
+[ext_resource type="Texture2D" uid="uid://bwnm10qs2cww2" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0003.png" id="35_57h0f"]
+[ext_resource type="Texture2D" uid="uid://bpevd1wlkhokp" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0004.png" id="36_csm7k"]
+[ext_resource type="Texture2D" uid="uid://bwxkw6of5ddlr" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0005.png" id="37_pervk"]
+[ext_resource type="Texture2D" uid="uid://qlbftbsyebew" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0006.png" id="38_wukn0"]
+[ext_resource type="Texture2D" uid="uid://cth4vpcg5dea6" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0007.png" id="39_n0pqj"]
+[ext_resource type="Texture2D" uid="uid://b2ju7lh87ma3s" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0008.png" id="40_sprxu"]
+[ext_resource type="Texture2D" uid="uid://cj8dx3niloapk" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0009.png" id="41_3rbgm"]
+[ext_resource type="Texture2D" uid="uid://bhod3k1cldq15" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0010.png" id="42_qimr1"]
+[ext_resource type="Texture2D" uid="uid://b03uk7jhmse8y" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0011.png" id="43_4adi1"]
+[ext_resource type="Texture2D" uid="uid://rvg3cdajyod1" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0012.png" id="44_rwlso"]
+[ext_resource type="Texture2D" uid="uid://bcvn2dle6ptgk" path="res://assets/week5/christmas/santa/santa idle in fear/santa idle in fear0013.png" id="45_dgctx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_76gk8"]
 shader = ExtResource("1_hablw")
@@ -174,15 +188,244 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ledcg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_urhum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_eiexh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_44ye4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_57h0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_csm7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_pervk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_wukn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_n0pqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_sprxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_3rbgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_qimr1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dgctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_4adi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rwlso")
+}, {
+"duration": 9999.0,
+"texture": ExtResource("45_dgctx")
+}],
+"loop": true,
+"name": &"bop",
+"speed": 24.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_lfsy5"]
+resource_name = "santa"
+script/source = "extends AnimatedSprite2D
+func _ready() -> void:
+	Conductor.connect(\"onBeatHit\", onBeatHit)
+
+func onBeatHit(): frame = 0
+"
+
 [node name="dad" type="Node2D"]
 material = SubResource("ShaderMaterial_76gk8")
 use_parent_material = true
 script = ExtResource("2_85tmu")
 
 [node name="animate" type="AnimatedSprite2D" parent="."]
-z_index = 1000
 use_parent_material = true
-position = Vector2(111, -356)
+position = Vector2(36, -363)
 sprite_frames = SubResource("SpriteFrames_1fsi3")
 animation = &"singUP-mom"
 frame_progress = 0.0770984
@@ -190,3 +433,12 @@ frame_progress = 0.0770984
 [node name="cameraPos" type="Marker2D" parent="."]
 position = Vector2(0, -6)
 gizmo_extents = 56.5
+
+[node name="santa" type="AnimatedSprite2D" parent="."]
+z_index = 100
+position = Vector2(-561, -324)
+sprite_frames = SubResource("SpriteFrames_ledcg")
+animation = &"bop"
+autoplay = "bop"
+frame_progress = 0.358891
+script = SubResource("GDScript_lfsy5")

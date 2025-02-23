@@ -7,7 +7,7 @@ func _ready() -> void:
 	position.y = -999999
 @onready var songArrayData = get_parent().songArrayData
 @onready var Score = get_parent().Score
-@onready var dirs: Array = ["LEFT", "DOWN", "UP", "RIGHT"]
+@onready var dirs = get_parent().dirs
 @onready var noteCount = get_parent().noteCount
 @onready var timeID = float(songArrayData["t"])
 @onready var noteID = int(songArrayData["d"])
@@ -109,6 +109,9 @@ func _process(delta: float) -> void:
 					HP[0] += 0.035 - abs((Conductor.songPosition - timeID) * 0.0004)
 					rating[1] = int(noteID)
 					calculateRating(abs(Conductor.songPosition - timeID), get_parent().ratingPos)
+					if rating[0] < 3:
+						get_parent().Score[1] += 1
+						get_parent().add_child(get_parent().splashScene.instantiate())
 					if abs(Conductor.songPosition - timeID) < 6: 
 						get_parent().get_parent().get_parent().get_node("info").get_node("Score2").text = "+" + str(500 + Score[1])
 						Score[0] += 500 + (Score[1] / 1.5)
@@ -128,7 +131,7 @@ func _process(delta: float) -> void:
 				else: strumAnim.childSprite.play(str(int(noteID)) + "_confirm")
 				if not sustainFinish:
 					strumAnim.childSprite.play(str(int(noteID)) + "_confirm")
-				if Input.is_action_just_released("" + str(int(noteID))):
+				if Input.is_action_just_released("" + str(int(noteID))) or not Input.is_action_pressed("" + str(int(noteID))):
 					idArray.erase(noteCount)
 					currBFAnim[2] = 1.0
 					queue_free()
@@ -175,7 +178,7 @@ func _process(delta: float) -> void:
 				else: strumAnim.childSprite.play(str(int(noteID - 4)) + "_confirm")
 			else: strumAnim.childSprite.play(str(int(noteID - 4)) + "_confirm")
 			if not dadSing:
-				if noteKind == "": currDADAnim[0] = ("sing" + str(dirs[noteID - 4]))
+				if noteKind == "" or noteKind == "normal": currDADAnim[0] = ("sing" + str(dirs[noteID - 4]))
 				else: currDADAnim[0] = ("sing" + str(dirs[noteID - 4]) + "-" + noteKind)
 				currDADAnim[1] = 1
 				dadSing = true

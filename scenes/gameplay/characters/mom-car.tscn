@@ -1638,9 +1638,10 @@ animations = [{
 script = ExtResource("1_ec0m8")
 
 [node name="animate" type="AnimatedSprite2D" parent="."]
-position = Vector2(80, -474)
+position = Vector2(80, -398)
 sprite_frames = SubResource("SpriteFrames_2umrv")
 animation = &"idle"
 
 [node name="cameraPos" type="Marker2D" parent="."]
+position = Vector2(0, -150)
 gizmo_extents = 56.5

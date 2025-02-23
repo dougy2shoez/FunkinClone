@@ -43,9 +43,9 @@ func loadStage(StageName: String):
 	else: 
 		print("no")
 		material.set_shader_parameter("hue", 0.0)
-		material.set_shader_parameter("saturation", 1.0)
-		material.set_shader_parameter("brightness", 1.0)
-		material.set_shader_parameter("contrast", 1.0)
+		material.set_shader_parameter("saturation", 0.0)
+		material.set_shader_parameter("brightness", 0.0)
+		material.set_shader_parameter("contrast", 0.0)
 # 0.735, 0.85
 # 223, 303, y 44.0
 # 0.59, 0.725
@@ -66,6 +66,7 @@ func applyCHARACTERS(bf: String, dad: String, gf: String):
 	gfScene = load("res://scenes/gameplay/characters/" + str(gf) + ".tscn")
 	add_child(bfScene.instantiate())
 	add_child(dadScene.instantiate())
+
 	add_child(gfScene.instantiate())
 	
 	

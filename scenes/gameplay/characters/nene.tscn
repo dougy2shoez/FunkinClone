@@ -121,6 +121,7 @@ material = SubResource("ShaderMaterial_a54va")
 script = ExtResource("1_jl7m8")
 
 [node name="aBot" parent="." instance=ExtResource("1_s45p6")]
+z_index = -5
 position = Vector2(-6, -156.5)
 
 [node name="animate" type="AnimatedSprite2D" parent="."]

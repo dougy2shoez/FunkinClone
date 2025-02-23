@@ -217,6 +217,17 @@ animations = [{
 "texture": SubResource("AtlasTexture_p06pr")
 }],
 "loop": true,
+"name": &"pico-christmas",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eovdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p06pr")
+}],
+"loop": true,
 "name": &"pico-playable",
 "speed": 0.0
 }, {
@@ -238,3 +249,4 @@ script = ExtResource("1_b21pt")
 [node name="animate" type="AnimatedSprite2D" parent="."]
 position = Vector2(-9, 0)
 sprite_frames = SubResource("SpriteFrames_60x12")
+animation = &"pico-christmas"

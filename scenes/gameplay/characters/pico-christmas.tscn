@@ -1,0 +1,177 @@
+[gd_scene load_steps=28 format=3 uid="uid://cl420cxp1iu2v"]
+
+[ext_resource type="Script" uid="uid://dyl17s02abwi1" path="res://scripts/gameplay/main/element/bf.gd" id="2_ntbws"]
+[ext_resource type="Texture2D" uid="uid://csx43xug1w6cy" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0001.png" id="3_b0tub"]
+[ext_resource type="Texture2D" uid="uid://bdpa2eoamdw4t" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0002.png" id="4_8gv63"]
+[ext_resource type="Texture2D" uid="uid://cp7kodlmn3h6g" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0003.png" id="5_a4trr"]
+[ext_resource type="Texture2D" uid="uid://fppq2gpmvanh" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0004.png" id="6_4b3ta"]
+[ext_resource type="Texture2D" uid="uid://cj2gxqp1m1oeu" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0005.png" id="7_c3iuu"]
+[ext_resource type="Texture2D" uid="uid://clhvp8xolbxy" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0006.png" id="8_0bkrj"]
+[ext_resource type="Texture2D" uid="uid://dxu5lo38q8yiy" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0007.png" id="9_p640l"]
+[ext_resource type="Texture2D" uid="uid://c1nxmrjpd1jlh" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0014.png" id="10_2gryn"]
+[ext_resource type="Texture2D" uid="uid://bpw6vgd0oipej" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0015.png" id="11_axaxw"]
+[ext_resource type="Texture2D" uid="uid://k0xhcose0ncq" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0022.png" id="12_olott"]
+[ext_resource type="Texture2D" uid="uid://6sgeoqmq7b5e" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0023.png" id="13_pf6tp"]
+[ext_resource type="Texture2D" uid="uid://c46scr73dpesc" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0008.png" id="14_wnntt"]
+[ext_resource type="Texture2D" uid="uid://dotnhc8mafsgb" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0009.png" id="15_ntbws"]
+[ext_resource type="Texture2D" uid="uid://durxk5r5h4q1c" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0016.png" id="16_3euhk"]
+[ext_resource type="Texture2D" uid="uid://dk7uc6bcptcpo" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0017.png" id="17_l0ae4"]
+[ext_resource type="Texture2D" uid="uid://6lcg1rbf5pq3" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0010.png" id="18_cakx5"]
+[ext_resource type="Texture2D" uid="uid://dgu2t0wp6lavo" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0011.png" id="19_4vw6i"]
+[ext_resource type="Texture2D" uid="uid://7xy4oj427cxp" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0018.png" id="20_l4oio"]
+[ext_resource type="Texture2D" uid="uid://cfr7rh73nbf0i" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0019.png" id="21_y35wi"]
+[ext_resource type="Texture2D" uid="uid://dl6i8vr5dcbmv" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0012.png" id="22_i4hgr"]
+[ext_resource type="Texture2D" uid="uid://dybxqcu5rj6ay" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0013.png" id="23_o1aba"]
+[ext_resource type="Texture2D" uid="uid://dp84n2fpn7cqu" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0020.png" id="24_w8anx"]
+[ext_resource type="Texture2D" uid="uid://clu1i27pcrifu" path="res://assets/images/characters/pico/christmas/Pico Christmas assetss0021.png" id="25_blkxy"]
+[ext_resource type="Script" uid="uid://bi87jwx4remg7" path="res://scripts/animate.gd" id="37_2iiyg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iylbc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t0h7o"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("3_b0tub")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_8gv63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a4trr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4b3ta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c3iuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0bkrj")
+}, {
+"duration": 9999.0,
+"texture": ExtResource("9_p640l")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_2gryn")
+}, {
+"duration": 9999.0,
+"texture": ExtResource("11_axaxw")
+}],
+"loop": false,
+"name": &"singDOWN",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_2gryn")
+}, {
+"duration": 2.0,
+"texture": ExtResource("12_olott")
+}, {
+"duration": 9999.0,
+"texture": ExtResource("13_pf6tp")
+}],
+"loop": false,
+"name": &"singDOWNMiss",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_wnntt")
+}, {
+"duration": 9999.0,
+"texture": ExtResource("15_ntbws")
+}],
+"loop": false,
+"name": &"singLEFT",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_wnntt")
+}, {
+"duration": 2.0,
+"texture": ExtResource("16_3euhk")
+}, {
+"duration": 9999.0,
+"texture": ExtResource("17_l0ae4")
+}],
+"loop": false,
+"name": &"singLEFTMiss",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_cakx5")
+}, {
+"duration": 9999.0,
+"texture": ExtResource("19_4vw6i")
+}],
+"loop": false,
+"name": &"singRIGHT",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_cakx5")
+}, {
+"duration": 2.0,
+"texture": ExtResource("20_l4oio")
+}, {
+"duration": 9999.0,
+"texture": ExtResource("21_y35wi")
+}],
+"loop": false,
+"name": &"singRIGHTMiss",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_i4hgr")
+}, {
+"duration": 9999.0,
+"texture": ExtResource("23_o1aba")
+}],
+"loop": false,
+"name": &"singUP",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_i4hgr")
+}, {
+"duration": 2.0,
+"texture": ExtResource("24_w8anx")
+}, {
+"duration": 9999.0,
+"texture": ExtResource("25_blkxy")
+}],
+"loop": false,
+"name": &"singUPMiss",
+"speed": 24.0
+}]
+
+[node name="bf" type="Node2D"]
+material = SubResource("ShaderMaterial_iylbc")
+script = ExtResource("2_ntbws")
+
+[node name="animate" type="AnimatedSprite2D" parent="."]
+z_index = 1000
+use_parent_material = true
+position = Vector2(-28, -232)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_t0h7o")
+animation = &"idle"
+frame = 6
+frame_progress = 1.0
+script = ExtResource("37_2iiyg")
+
+[node name="cameraPos" type="Marker2D" parent="."]
+position = Vector2(26, 14)
+gizmo_extents = 56.5

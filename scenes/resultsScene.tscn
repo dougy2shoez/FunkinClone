@@ -431,6 +431,6 @@ position = Vector2(851, 399)
 scale = Vector2(1.25, 1.25)
 script = ExtResource("85_htgtk")
 atlas = "res://assets/images/ResultsScreen/results-pico/resultsGOOD"
-frame = 2
+frame = 73
 symbol = "pico good placeholder"
 playing = true

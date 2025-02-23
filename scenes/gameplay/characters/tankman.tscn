@@ -198,11 +198,10 @@ material = SubResource("ShaderMaterial_x8buw")
 script = ExtResource("2_3dm3c")
 
 [node name="animate" type="AnimatedSprite2D" parent="."]
-z_index = 1000
 use_parent_material = true
-position = Vector2(134, -288)
+position = Vector2(6, -324)
 sprite_frames = SubResource("SpriteFrames_8a51i")
-animation = &"singUP"
+animation = &"idle"
 flip_h = true
 
 [node name="cameraPos" type="Marker2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://lgoitka0jn00"]
+[gd_scene load_steps=29 format=3 uid="uid://lgoitka0jn00"]
 
 [ext_resource type="Texture2D" uid="uid://b4rwegc6hfwnj" path="res://assets/images/Freeplay/DJ/bf/turntable/turn table.png" id="1_3452g"]
 [ext_resource type="Texture2D" uid="uid://bj36apgs0uasp" path="res://assets/images/Freeplay/DJ/bf/turntable/lights/behindLights0001.png" id="1_midv3"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cfq1wi0iig0nm" path="res://assets/images/Freeplay/DJ/bf/turntable/diskHighlights0002.png" id="17_724jo"]
 [ext_resource type="Texture2D" uid="uid://cn3r30t7g2gqp" path="res://assets/images/Freeplay/DJ/bf/turntable/diskHighlights0004.png" id="18_larmn"]
 [ext_resource type="Texture2D" uid="uid://ef1u4pkxm6gj" path="res://assets/images/Freeplay/DJ/bf/turntable/diskHighlights0003.png" id="19_cp6rg"]
+[ext_resource type="Shader" uid="uid://dr6x1mj3knaws" path="res://assets/shaders/adjustColor.gdshader" id="20_724jo"]
 [ext_resource type="Script" uid="uid://dfa5xrjohvl1s" path="res://addons/gdanimate/animate_symbol.gd" id="20_eh3pn"]
 [ext_resource type="Texture2D" uid="uid://bpfnvx3s3vdlx" path="res://ref/screenshot-2025-01-21-13-35-43.png" id="21_eh3pn"]
 
@@ -97,12 +98,21 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_larmn"]
+shader = ExtResource("20_724jo")
+shader_parameter/hue = null
+shader_parameter/saturation = 1.0
+shader_parameter/brightness = 1.0
+shader_parameter/contrast = 1.0
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ffyan"]
+blend_mode = 1
 
 [node name="freeplayBF" type="Node2D"]
 script = ExtResource("1_uqxw6")
 
 [node name="TurnTable" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(332.667, 656.667)
 scale = Vector2(1.33333, 1.33333)
 texture = ExtResource("1_3452g")
@@ -154,10 +164,11 @@ frame_progress = 0.158181
 
 [node name="bf" type="Node2D" parent="."]
 z_index = -7
+use_parent_material = true
 position = Vector2(1235, 117)
 
 [node name="bottom" type="Node2D" parent="bf"]
-material = SubResource("CanvasItemMaterial_ffyan")
+material = SubResource("ShaderMaterial_larmn")
 scale = Vector2(2, 2)
 script = ExtResource("20_eh3pn")
 atlas = "res://assets/images/Freeplay/freeplay-bf/bottom"
@@ -167,6 +178,7 @@ playing = true
 [node name="top" type="Node2D" parent="bf"]
 z_index = 10
 material = SubResource("CanvasItemMaterial_ffyan")
+use_parent_material = true
 scale = Vector2(2, 2)
 script = ExtResource("20_eh3pn")
 atlas = "res://assets/images/Freeplay/freeplay-bf/top"

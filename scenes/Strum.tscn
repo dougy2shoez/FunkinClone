@@ -427,6 +427,7 @@ script = ExtResource("1_fvuyw")
 
 [node name="missSound" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStream_71nqn")
+volume_db = 24.0
 script = ExtResource("2_qjqbr")
 
 [node name="strumAnim" type="AnimatedSprite2D" parent="."]

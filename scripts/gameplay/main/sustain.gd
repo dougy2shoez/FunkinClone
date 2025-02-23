@@ -7,9 +7,12 @@ extends Node2D
 @onready var Score = ArrowOrigin.Score
 
 func _ready() -> void:
+	position = Vector2(9999,9999)
+	$AnimatedSprite2D.z_index = 25
+	scale = Vector2(0.7,0.7)
 	if stnName == "end":
 		name = ("endSustainNode") 
-	if noteID > 3: childSprite.play(str(noteID - 4)+ "_" + str(stnName))
+	if noteID > 3: childSprite.play(str(noteID - 4)+ "_" + str(stnName))	
 	else: childSprite.play(str(noteID)+ "_" + str(stnName))
 	
 var queueDelete = 0
@@ -19,17 +22,19 @@ var hpSet = false
 func _process(delta: float) -> void:
 	z_index = -1
 	if noteID > 3:
-		position.x =  358 
-		position.y = (15 * yID) + 100 
+		get_parent().clip_contents = true
+		position.x = ArrowOrigin.position.x - 10
+		position.y = (6.5 * yID) + 100 + ArrowOrigin.position.y - 100
 		if stnName == "end":
 			ArrowOrigin.sustainFinish = true 
-		if ArrowOrigin.position.y + (position.y * .49) < 54:
+		if position.y < -35:
 			queue_free()
 	else:
 		if hpSet == false:
 			HP = ArrowOrigin.HP
 			hpSet = true
-		if ArrowOrigin.position.y + (position.y * .49) < 54  and ArrowOrigin.wasHit == true and Input.is_action_pressed(("" + str(noteID))):
+		if ArrowOrigin.wasHit: get_parent().clip_contents = true
+		if position.y < -35 and ArrowOrigin.wasHit and Input.is_action_pressed(("" + str(noteID))):
 			if stnName == "end":
 				queueDelete = 1
 				animLoop[noteID] = true
@@ -42,6 +47,10 @@ func _process(delta: float) -> void:
 			queue_free()
 		if ArrowOrigin.wasHit == true and Input.is_action_just_released(("" + str(noteID))):
 			queue_free()
-		position.x =  358
-		position.y = (15 * yID) + 100
+		if stnName == "end":
+			position.x = ArrowOrigin.position.x - 9
+			position.y = (6.5 * yID) + 100 + ArrowOrigin.position.y - 90
+		else:
+			position.x = ArrowOrigin.position.x - 10
+			position.y = (6.5 * yID) + 100 + ArrowOrigin.position.y - 100
 		

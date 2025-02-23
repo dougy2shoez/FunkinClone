@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://55g3opsj0jg6"]
+[gd_scene load_steps=7 format=3 uid="uid://55g3opsj0jg6"]
 
 [ext_resource type="FontFile" uid="uid://brlll27lfk4sk" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="1_6m4i6"]
 [ext_resource type="Script" uid="uid://13pc1kfv2jv3" path="res://scripts/gameplay/main/pauseMenu.gd" id="1_ccijq"]
 [ext_resource type="FontFile" uid="uid://g8g7cbhao8ne" path="res://assets/fonts/FridayNightFunkin-Regular.ttf" id="2_jrb4s"]
 [ext_resource type="Texture2D" uid="uid://cs4ufbp4m2d3r" path="res://ref/screenshot-2024-11-06-21-13-04.png" id="4_al3jk"]
+[ext_resource type="AudioStream" uid="uid://dpumhl8ljqfmd" path="res://assets/music/breakfast-pico.ogg" id="5_al3jk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpfim"]
 
@@ -20,13 +21,15 @@ offset_right = 1412.0
 offset_bottom = 874.0
 color = Color(0, 0, 0, 0.5)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="text" type="Node2D" parent="."]
+
+[node name="resume" type="RichTextLabel" parent="text"]
 z_index = 1
 clip_contents = false
-offset_left = 89.0001
-offset_top = 355.0
-offset_right = 665.0
-offset_bottom = 673.0
+offset_left = 91.0
+offset_top = 295.0
+offset_right = 667.0
+offset_bottom = 613.0
 theme_override_colors/default_color = Color(0.796243, 0.796243, 0.796243, 1)
 theme_override_fonts/normal_font = ExtResource("2_jrb4s")
 theme_override_font_sizes/normal_font_size = 48
@@ -34,13 +37,27 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_vpfim")
 text = "RESUME"
 fit_content = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="RichTextLabel"]
+[node name="restart" type="RichTextLabel" parent="text"]
 z_index = 1
 clip_contents = false
-offset_left = 23.9999
-offset_top = 135.0
-offset_right = 600.0
-offset_bottom = 453.0
+offset_left = 128.0
+offset_top = 431.0
+offset_right = 704.0
+offset_bottom = 749.0
+theme_override_colors/default_color = Color(0.796243, 0.796243, 0.796243, 1)
+theme_override_fonts/normal_font = ExtResource("2_jrb4s")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_styles/fill = SubResource("StyleBoxFlat_vpfim")
+text = "RESTART SONG"
+fit_content = true
+
+[node name="exit" type="RichTextLabel" parent="text"]
+z_index = 1
+clip_contents = false
+offset_left = 163.0
+offset_top = 567.0
+offset_right = 739.0
+offset_bottom = 885.0
 theme_override_colors/default_color = Color(0.796243, 0.796243, 0.796243, 1)
 theme_override_fonts/normal_font = ExtResource("2_jrb4s")
 theme_override_font_sizes/normal_font_size = 48
@@ -143,3 +160,8 @@ theme_override_font_sizes/normal_font_size = 123
 theme_override_styles/fill = SubResource("StyleBoxFlat_vpfim")
 text = "RESUME"
 fit_content = true
+
+[node name="breakfast" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_al3jk")
+volume_db = -80.0
+autoplay = true

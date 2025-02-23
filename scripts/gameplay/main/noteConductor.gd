@@ -54,11 +54,13 @@ var customSingAnim: String
 var MetaData
 var ratingPos: Array[int] = [0,1]
 var rating
+@onready var dirs: Array = ["LEFT", "DOWN", "UP", "RIGHT"]
 var players: Array = [null,null,null]
 var Score: Array = [0, 0]
 @onready var loadedSongData = false
 var currSplash = 0
 var SYNCTIMER = float(0)
+var strumisHittable: Array = [false, false, false, false]
 @export var Dead = false
 func _process(delta: float) -> void:
 	if hasLoadedSong == false:
@@ -82,6 +84,27 @@ func _process(delta: float) -> void:
 		songArrayData = SongData["notes"][difficulty][0]
 		scrollSpeed = 4 / SongData["scrollSpeed"][difficulty] - (SongData["scrollSpeed"][difficulty] * 0.25)
 	if not Dead:
+		if notePosition0.size() == 0: strumisHittable[0] = false
+		elif notePosition0.size() >= 1:
+			if abs(Conductor.songPosition - songPlayData[notePosition0[0]]["t"]) < 160: 
+				strumisHittable[0] = true
+			else:
+				
+				strumisHittable[0] = false
+		if notePosition1.size() == 0: strumisHittable[1] = false
+		elif notePosition1.size() >= 1:
+			if abs(Conductor.songPosition - songPlayData[notePosition1[0]]["t"]) < 160: strumisHittable[1] = true
+			else: strumisHittable[1] = false
+		if notePosition2.size() == 0: strumisHittable[2] = false
+		elif notePosition2.size() >= 1:
+			if abs(Conductor.songPosition - songPlayData[notePosition2[0]]["t"]) < 160: strumisHittable[2] = true
+			else: strumisHittable[2] = false
+		if notePosition3.size() == 0: strumisHittable[3] = false
+		elif notePosition3.size() >= 1:
+			if abs(Conductor.songPosition - songPlayData[notePosition3[0]]["t"]) < 160: strumisHittable[3] = true
+			else: strumisHittable[3] = false
+		
+		get_parent().get_parent().isPausable = true
 		if HP[0] > 2: HP[0] = 2
 		if HP[0] < 0: 
 			HP[0] = 0
@@ -99,10 +122,8 @@ func _process(delta: float) -> void:
 		if not ratingPos[0] == 0:
 			rating = ratingPos[0] 
 			add_child(ratingScene.instantiate())
-			if ratingPos[0] < 3:
-				Score[1] += 1
-				add_child(splashScene.instantiate())
-			elif ratingPos[0] < 4: Score[1] += 1
+			
+			if ratingPos[0] < 4: Score[1] += 1
 			else: Score[1] = 0	
 			ratingPos[0] = 0
 		if Conductor.songPosition > 5: if not $Inst.playing and not Dead: get_tree().change_scene_to_file("res://scenes/resultsScene.tscn")
@@ -114,6 +135,7 @@ func _process(delta: float) -> void:
 					else: customSingAnim = ""
 					add_child(arrowScene.instantiate())
 				noteCount += 1
+	else: get_parent().get_parent().isPausable = false
 func onBeatHit():
 	if currGFAnim[0] == "bop1": currGFAnim[0] = "bop2"
 	else: currGFAnim[0] = "bop1"

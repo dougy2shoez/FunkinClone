@@ -25,6 +25,7 @@ shader_parameter/contrast = 0.0
 [node name="PlayScene" type="Node2D"]
 process_mode = 1
 material = SubResource("ShaderMaterial_j5cyo")
+position = Vector2(0, 1)
 script = ExtResource("1_aheq8")
 
 [node name="deathBlack" type="ColorRect" parent="."]
@@ -67,7 +68,7 @@ autowrap_mode = 0
 selection_enabled = true
 
 [node name="gameCam" type="Camera2D" parent="."]
-position = Vector2(681, -1859)
+position = Vector2(632, 386)
 ignore_rotation = false
 zoom = Vector2(0.77, 0.77)
 position_smoothing_enabled = true

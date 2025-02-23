@@ -82,18 +82,19 @@ position = Vector2(0.00012207, -0.999992)
 scale = Vector2(0.7, 0.7)
 
 [node name="Control" type="Control" parent="."]
+top_level = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = -74.143
-offset_top = 90.0
-offset_right = 4815.86
+offset_left = -336.0
+offset_top = 100.0
+offset_right = 5316.0
 offset_bottom = 1511.0
 
 [node name="Sustain" type="Node2D" parent="Control"]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_gqqo7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Sustain"]
-position = Vector2(1229.61, 32)
-scale = Vector2(1.4, 1.4)
+position = Vector2(1555.71, 32)
 sprite_frames = SubResource("SpriteFrames_4ewsy")
 animation = &"3_hold"

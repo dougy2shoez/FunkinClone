@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name FreeplayScene
 @onready var capsuleScene = preload("res://scenes/ui/freeplay/capsule/freeplayCapsule.tscn")
 @onready var currSelect = 1
 @onready var sounds: Dictionary = {"scroll": preload("res://assets/sounds/scrollMenu.ogg"), "confirm": preload("res://assets/sounds/confirmMenu.ogg")}
@@ -52,9 +52,12 @@ var countINDEX = 0
 var songList: Array
 var baseSongMetadata
 var loadedRandom = false
+var currPlayerData: Dictionary
 var levelDir = DirAccess.get_files_at("res://assets/data/levels")
 func _ready() -> void:
 	loadedRandom = false
+	set_meta("currDJAnim", "Boyfriend DJ")
+	currPlayerData = loadJsonData("res://assets/data/players/" + MasterVars.currCharacter + ".json")
 	if MasterVars.currCharacter != "bf":
 		#if FileAccess.file_exists("res://scenes/ui/freeplay/capsule/freeplayCapsule-" + MasterVars.currCharacter + ".tscn"):
 		capsuleScene = load("res://scenes/ui/freeplay/capsule/freeplayCapsule-" + MasterVars.currCharacter + ".tscn")
@@ -80,7 +83,7 @@ func reverse_string(s:String) -> String:
 	return r
 # ^^^ thankz u/Robert_Bobbinson for da code luv u
 
-
+var canScroll = true
 func scrollMenu():
 	$soundsFreeplay.stream = sounds["scroll"]
 	$soundsFreeplay.play()
@@ -107,12 +110,12 @@ func _process(delta: float) -> void:
 		else: stringScoreDisplay = stringScoreDisplay + "0" 
 	$scoreDisplay.scoreDisplay = reverse_string(stringScoreDisplay)
 	$musicFreeplay.volume_db += (-6.5 - $musicFreeplay.volume_db) / (0.25/delta) 
-	if Input.is_action_just_pressed("ui_up"):
-		currSelect -= 1
-		print(currSelect)
-		scrollMenu()
-	elif Input.is_action_just_pressed("ui_down"):
-		currSelect += 1
-		print(currSelect)
-		scrollMenu()
-	pass
+	if canScroll:
+		if Input.is_action_just_pressed("ui_up"):
+			currSelect -= 1
+			print(currSelect)
+			scrollMenu()
+		elif Input.is_action_just_pressed("ui_down"):
+			currSelect += 1
+			print(currSelect)
+			scrollMenu()

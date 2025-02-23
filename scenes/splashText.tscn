@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://do6u27tkii2lh"]
 
 [ext_resource type="Script" uid="uid://bhaw8wbex6u5l" path="res://scripts/ui/splashText.gd" id="1_lmy67"]
-[ext_resource type="FontFile" uid="uid://danhje4vgpt6c" path="res://assets/fonts/Phantomuff Difficult Font.ttf" id="2_awk1e"]
+[ext_resource type="FontFile" uid="uid://ds6xdxqakhqg2" path="res://assets/fonts/Phantomuff Difficult Font.ttf" id="2_awk1e"]
 
 [node name="SplashText" type="Node2D"]
 script = ExtResource("1_lmy67")

@@ -2,7 +2,6 @@ extends Node2D
 
 
 func _ready() -> void:
-	Conductor.connect("onBeatHit", onBeatHit)
 	$animate.use_parent_material = true
 	use_parent_material = true
 	InitDeathScn()	
@@ -34,6 +33,7 @@ func _process(delta: float) -> void:
 		InitDeathScn()
 	if runOnce == false:
 		noteConductor = get_parent().get_node("UILayer/NoteConductor")
+		Conductor.connect("onBeatHit", onBeatHit)
 		if not get_parent().hueChangeAll:
 			use_parent_material = false
 			material = ShaderMaterial.new()
@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 		$"animate-light".play($animate.get_animation())
 		$"animate-light".frame = $animate.frame
 func onBeatHit():
-	if noteConductor.BPMGLOBAL < 110:
+	if MasterVars.BPMGLOBAL < 110:
 		if singAnimPlaying == false:
 			$animate.set_frame(0)
 			noteConductor.currBFAnim[0] = "idle"

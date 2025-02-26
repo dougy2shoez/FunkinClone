@@ -5,6 +5,7 @@ class_name NoteConductor
 @onready var splashScene = preload("res://scenes/noteSplash.tscn")
 @onready var songType = MasterVars.songType
 func _ready() -> void:
+	noteCount = 0
 	Conductor.connect("onBeatHit", onBeatHit)
 	Conductor.isPlayingSong = true
 	Conductor.songPosition = (((60 / BPMGLOBAL) * -4) * 1000)
@@ -61,6 +62,7 @@ var Score: Array = [0, 0]
 var currSplash = 0
 var SYNCTIMER = float(0)
 var strumisHittable: Array = [false, false, false, false]
+var hasLoadedCharacters = false
 @export var Dead = false
 func _process(delta: float) -> void:
 	if hasLoadedSong == false:
@@ -76,13 +78,16 @@ func _process(delta: float) -> void:
 		print(metaDataPath)
 		MetaData = loadMetaData(metaDataPath)
 		timerCountDown = float(((60 / BPMGLOBAL) * -4) * 1000)
-		get_parent().get_parent().loadStage(MetaData["playData"]["stage"])
-		get_parent().get_parent().applyCHARACTERS(MetaData["playData"]["characters"]["player"],MetaData["playData"]["characters"]["opponent"], MetaData["playData"]["characters"]["girlfriend"])
-		get_parent().get_node("HealthBar/iconz").createIcon(MetaData["playData"]["characters"]["player"], MetaData["playData"]["characters"]["opponent"])
+		if not hasLoadedCharacters:
+			get_parent().get_parent().loadStage(MetaData["playData"]["stage"])
+			get_parent().get_parent().applyCHARACTERS(MetaData["playData"]["characters"]["player"],MetaData["playData"]["characters"]["opponent"], MetaData["playData"]["characters"]["girlfriend"])
+			get_parent().get_node("HealthBar/iconz").createIcon(MetaData["playData"]["characters"]["player"], MetaData["playData"]["characters"]["opponent"])
+			hasLoadedCharacters = true
 		hasLoadedSong = true
 		songPlayData = SongData["notes"][difficulty]
 		songArrayData = SongData["notes"][difficulty][0]
-		scrollSpeed = 4 / SongData["scrollSpeed"][difficulty] - (SongData["scrollSpeed"][difficulty] * 0.25)
+		scrollSpeed = 4 / SongData["scrollSpeed"][difficulty] - (SongData["scrollSpeed"][difficulty] * 0.28)
+		MasterVars.BPMGLOBAL = MetaData["timeChanges"][0]["bpm"]
 	if not Dead:
 		if notePosition0.size() == 0: strumisHittable[0] = false
 		elif notePosition0.size() >= 1:
@@ -103,7 +108,7 @@ func _process(delta: float) -> void:
 		elif notePosition3.size() >= 1:
 			if abs(Conductor.songPosition - songPlayData[notePosition3[0]]["t"]) < 160: strumisHittable[3] = true
 			else: strumisHittable[3] = false
-		
+		Conductor.pitchScale = $Inst.pitch_scale
 		get_parent().get_parent().isPausable = true
 		if HP[0] > 2: HP[0] = 2
 		if HP[0] < 0: 
@@ -126,7 +131,50 @@ func _process(delta: float) -> void:
 			if ratingPos[0] < 4: Score[1] += 1
 			else: Score[1] = 0	
 			ratingPos[0] = 0
-		if Conductor.songPosition > 5: if not $Inst.playing and not Dead: get_tree().change_scene_to_file("res://scenes/resultsScene.tscn")
+		if Conductor.songPosition > 5: if not $Inst.playing and not Dead:
+			if not MasterVars.isStoryMode: get_tree().change_scene_to_file("res://scenes/resultsScene.tscn")
+			else:
+				if MasterVars.songsPlaylistPos < MasterVars.songsPlaylist.size():
+					timerCountDown = float(((60 / BPMGLOBAL) * -4) * 1000)
+					MasterVars.songsPlaylistPos += 1
+					MasterVars.songName = MasterVars.songsPlaylist[MasterVars.songsPlaylistPos] 
+					timeID = 0
+					noteID = 0
+					noteIsHittable = false
+					playingVocalsP2 = true
+					songName = MasterVars.songName
+					SongData = {}
+					get_parent().get_parent().get_node("gameCam").getEventData = false
+					get_parent().get_parent().get_node("gameCam").eventCount = 0
+					SongDataPath = ("res://assets/data/songs/" + str(songName) + "/" + str(songName))
+					currBFAnim = ["idle", 0, 1.0]
+					currDADAnim = ["idle", 0, 1.0]
+					currGFAnim = ["bop1", 0, 1.0]
+					timeIDCOUNT.clear()
+					noteIDCOUNT.clear()
+					HP = [1]
+					notePosition0.clear()
+					notePosition1.clear()
+					notePosition2.clear()
+					notePosition3.clear()
+					difficulty = MasterVars.currDifficult
+					hasLoadedSong = false
+					songPlayData = []
+					songArrayData = {}
+					metaDataPath = ""
+					customSingAnim = ""
+					noteCount = 0
+					MetaData = {}
+					Score = [0, 0]
+					loadedSongData = false
+					SYNCTIMER = float(0)
+					$Inst.readySong = false
+					$VoicesBF.readySong = false
+					$VoicesDAD.readySong = false
+					$Inst.playSong = false
+					$VoicesBF.playSong = false
+					$VoicesDAD.playSong = false
+		print(songPlayData)
 		if noteCount < songPlayData.size():
 			if 0 - (Conductor.songPosition - songArrayData["t"]) / scrollSpeed < 750:
 				songArrayData = SongData["notes"][difficulty][noteCount]

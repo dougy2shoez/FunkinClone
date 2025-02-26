@@ -12,9 +12,9 @@ func _process(delta: float) -> void:
 	if get_parent().Dead: playSong = false
 	if readySong == false:
 		if MasterVars.songType == "":
-			stream = load("res://assets/songs/" + str(get_parent().songName) + "/" + "VoicesP2.ogg")
+			stream = load("res://assets/songs/" + MasterVars.songName + "/" + "VoicesP2.ogg")
 		else: 
-			stream = load("res://assets/songs/" + str(get_parent().songName) + "/" + "VoicesP2-" + str(MasterVars.songType) + ".ogg")
+			stream = load("res://assets/songs/" + MasterVars.songName  + "/" + "VoicesP2-" + MasterVars.songType + ".ogg")
 		volume_db = -5
 		readySong = true
 	if get_parent().timerCountDown > 0:

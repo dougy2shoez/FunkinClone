@@ -8,6 +8,7 @@ var currStep: int = 0
 var oldMeasure: int = 0 
 var oldStep: int = 0
 var oldBeat: int = 0  
+var pitchScale: float = 1.0
 var currMeasureTime: float = 0
 var currBeatTime: float = 0
 var currStepTime: float = 0
@@ -17,7 +18,7 @@ var isPlayingSong = false
 func _process(delta: float) -> void:
 	if isPlayingSong: 
 		stepLengthMs = ((60.0/MasterVars.BPMGLOBAL) * 1000 / 16.0)
-		songPosition += delta * 1000
+		songPosition += delta * 1000 * pitchScale
 	currStepTime = (songPosition / stepLengthMs)
 	currBeatTime = currStepTime / 16.0
 	currMeasureTime = currStepTime / 64.0

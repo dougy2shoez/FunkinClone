@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dm5rf85lv8upe"]
+[gd_scene load_steps=71 format=3 uid="uid://dm5rf85lv8upe"]
 
 [ext_resource type="Script" uid="uid://c3lb7um62ugxo" path="res://scripts/gameplay/main/strum.gd" id="1_fvuyw"]
 [ext_resource type="Texture2D" uid="uid://dn7n3d4pknynh" path="res://assets/images/noteASSETS/noteStrumASSETS/NOTE assets UPDATED0001.png" id="2_2x2cy"]
@@ -235,10 +235,6 @@ animations = [{
 atlas = ExtResource("42_34udr")
 region = Rect2(132, 136, 22, 34)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bqh6k"]
-atlas = ExtResource("42_34udr")
-region = Rect2(152, 136, 19, 34)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_iq6lq"]
 animations = [{
 "frames": [{
@@ -415,7 +411,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bqh6k")
+"texture": ExtResource("61_rn1tw")
 }],
 "loop": true,
 "name": &"blankState",
@@ -434,12 +430,13 @@ script = ExtResource("2_qjqbr")
 position = Vector2(741.428, 103.429)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_lp644")
-animation = &"0"
-frame_progress = 1.0
+animation = &"0_confirm"
+frame = 4
+frame_progress = 0.0836482
 
 [node name="sustainAnim" type="AnimatedSprite2D" parent="."]
+visible = false
 z_index = 310
 position = Vector2(750, 117)
 sprite_frames = SubResource("SpriteFrames_iq6lq")
 animation = &"0_end"
-frame_progress = 0.0914351

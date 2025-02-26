@@ -3,7 +3,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Conductor.connect("onBeatHit", onBeatHit)
 	$animate.use_parent_material = true
 	use_parent_material = true
 	print(get_parent())
@@ -22,6 +21,7 @@ var singAnimPlaying = false
 func _process(delta: float) -> void:
 	if runOnce == false:
 		noteConductor = get_parent().get_node("UILayer/NoteConductor")
+		Conductor.connect("onBeatHit", onBeatHit)
 		if not get_parent().hueChangeAll:
 			use_parent_material = false
 			material = ShaderMaterial.new()
@@ -44,7 +44,8 @@ func _process(delta: float) -> void:
 		singAnimPlaying = false
 		dadSingTimer = 0.0
 func onBeatHit():
-	if noteConductor.BPMGLOBAL < 110:
+
+	if MasterVars.BPMGLOBAL < 110:
 		if singAnimPlaying == false:
 			$animate.set_frame(0)
 			noteConductor.currDADAnim[0] = "idle"

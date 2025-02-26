@@ -179,6 +179,7 @@ func loadMetaData(): # this variation bullshit took so long to code in. . it mig
 	if not loadedMetaData:
 		$capsuleBase/TextContainer/songName/songName.material.set_shader_parameter("glow_color", get_meta("defaultColor"))
 		$capsuleBase/TextContainer/songName/glow.material.set_shader_parameter("glow_color", get_meta("defaultColor"))
+		$capsuleBase/TextContainer/songName/extra/glow.material.set_shader_parameter("glow_color", get_meta("defaultColor"))
 		$capsuleBase/TextContainer/songName/songName.material.set_shader_parameter("doDaAddBlend", false)
 		if baseSongMetaData["playData"].has("songVariations"):
 			if baseSongMetaData["playData"]["songVariations"].has(MasterVars.songType):

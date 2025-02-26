@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 				if conductorNode.strumisHittable[strumID + 1]:
 					childSprite.play(str(strumID + 1) + "_confirm")
 				else:
-					conductorNode.currBFAnim[0] = ("sing" + str(conductorNode.dirs[strumID]) + "Miss")
+					conductorNode.currBFAnim[0] = ("sing" + str(conductorNode.dirs[strumID - 3]) + "Miss")
 					conductorNode.currBFAnim[1] = 1
 					$missSound.playMissSound()
 					conductorNode.Score[1] = 0

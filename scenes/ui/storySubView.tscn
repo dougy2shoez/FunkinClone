@@ -1,0 +1,159 @@
+[gd_scene load_steps=11 format=3 uid="uid://bc6de4fsvsf3w"]
+
+[ext_resource type="Script" uid="uid://srdw5fnv663x" path="res://scripts/ui/storySubView.gd" id="1_irfdj"]
+[ext_resource type="Texture2D" uid="uid://dsuelhnvht6ly" path="res://ref/screenshot-2025-02-23-23-37-05.png" id="2_ikkxq"]
+[ext_resource type="FontFile" uid="uid://brlll27lfk4sk" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="3_qujme"]
+[ext_resource type="Texture2D" uid="uid://dn0k7imdg3emb" path="res://assets/images/storymenu/ui/leftIdle0000.png" id="4_qujme"]
+[ext_resource type="Texture2D" uid="uid://c0t880k8nslrx" path="res://assets/images/storymenu/ui/leftConfirm0000.png" id="5_2dpk7"]
+[ext_resource type="Texture2D" uid="uid://df3q327223hxi" path="res://assets/images/storymenu/difficulties/easy.png" id="6_327u4"]
+[ext_resource type="Texture2D" uid="uid://0elk43v1mc6j" path="res://assets/images/storymenu/difficulties/hard.png" id="7_j7fb3"]
+[ext_resource type="Texture2D" uid="uid://bi5oehaadpmdo" path="res://assets/images/storymenu/difficulties/normal.png" id="8_ogdby"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kytum"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qujme")
+}],
+"loop": true,
+"name": &"def",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2dpk7")
+}],
+"loop": true,
+"name": &"press",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r167w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_327u4")
+}],
+"loop": true,
+"name": &"easy",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_j7fb3")
+}],
+"loop": true,
+"name": &"hard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ogdby")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[node name="storySubView" type="CanvasLayer"]
+script = ExtResource("1_irfdj")
+
+[node name="BG" type="ColorRect" parent="."]
+z_index = 10
+offset_left = -938.0
+offset_top = 56.0
+offset_right = 2370.0
+offset_bottom = 456.0
+color = Color(0.976471, 0.811765, 0.317647, 1)
+
+[node name="Screenshot-2025-02-23-23-37-05" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_ikkxq")
+centered = false
+
+[node name="weekLabel" type="Label" parent="."]
+z_index = 100
+offset_left = 1003.0
+offset_top = 11.0
+offset_right = 1266.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
+theme_override_fonts/font = ExtResource("3_qujme")
+theme_override_font_sizes/font_size = 32
+text = "Pico"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="weekScore" type="Label" parent="."]
+z_index = 100
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 237.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("3_qujme")
+theme_override_font_sizes/font_size = 32
+text = "LEVEL SCORE:  "
+uppercase = true
+
+[node name="black" type="ColorRect" parent="."]
+z_index = -5
+offset_left = -868.0
+offset_top = -493.0
+offset_right = 2166.0
+offset_bottom = 1177.0
+color = Color(0, 0, 0, 1)
+
+[node name="black" type="ColorRect" parent="black"]
+z_index = 25
+layout_mode = 0
+offset_left = -36.0
+offset_top = -1120.0
+offset_right = 2998.0
+offset_bottom = 550.0
+color = Color(0, 0, 0, 1)
+
+[node name="tracksText" type="Label" parent="."]
+z_index = 5
+offset_left = 136.0
+offset_top = 501.0
+offset_right = 399.0
+offset_bottom = 530.0
+theme_override_colors/font_color = Color(0.890196, 0.337255, 0.462745, 1)
+theme_override_fonts/font = ExtResource("3_qujme")
+theme_override_font_sizes/font_size = 32
+text = "TRACKS"
+uppercase = true
+
+[node name="tracksText2" type="Label" parent="."]
+z_index = 5
+offset_left = 61.0
+offset_top = 559.0
+offset_right = 324.0
+offset_bottom = 620.0
+theme_override_colors/font_color = Color(0.890196, 0.337255, 0.462745, 1)
+theme_override_constants/paragraph_spacing = -3
+theme_override_fonts/font = ExtResource("3_qujme")
+theme_override_font_sizes/font_size = 33
+text = "Bopeebo
+Fresh
+DadBattle"
+horizontal_alignment = 1
+
+[node name="text" type="Node2D" parent="."]
+position = Vector2(640, 524)
+
+[node name="ARRLeft" type="AnimatedSprite2D" parent="."]
+position = Vector2(894, 522)
+sprite_frames = SubResource("SpriteFrames_kytum")
+animation = &"def"
+
+[node name="ARRRight" type="AnimatedSprite2D" parent="."]
+position = Vector2(1268, 522)
+sprite_frames = SubResource("SpriteFrames_kytum")
+animation = &"def"
+flip_h = true
+
+[node name="difficult" type="AnimatedSprite2D" parent="."]
+position = Vector2(1082, 523)
+sprite_frames = SubResource("SpriteFrames_r167w")
+animation = &"hard"
